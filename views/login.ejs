@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<%- include Header.ejs %>
+	<body class="smoothscroll enable-animation">
+
+		<!-- SLIDE TOP -->
+		<div id="slidetop">
+
+			<div class="container">
+				
+				<div class="row">
+
+					<div class="col-md-4">
+						<h6><i class="icon-heart"></i> WHY SMARTY?</h6>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
+					</div>
+
+					<div class="col-md-4">
+						<h6><i class="icon-attachment"></i> RECENTLY VISITED</h6>
+						<ul class="list-unstyled">
+							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very very very very very very very very </a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
+						</ul>
+					</div>
+
+					<div class="col-md-4">
+						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
+						<ul class="list-unstyled">
+							<li><b>Address:</b> PO Box 21132, Here Weare St, <br /> Melbourne, Vivas 2355 Australia</li>
+							<li><b>Phone:</b> 1-800-565-2390</li>
+							<li><b>Email:</b> <a href="mailto:support@yourname.com">support@yourname.com</a></li>
+						</ul>
+					</div>
+
+				</div>
+
+			</div>
+
+			<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
+
+		</div>
+		<!-- /SLIDE TOP -->
+
+
+		<!-- wrapper -->
+		<div id="wrapper">
+
+
+
+			<!-- 
+				AVAILABLE HEADER CLASSES
+
+				Default nav height: 96px
+				.header-md 		= 70px nav height
+				.header-sm 		= 60px nav height
+
+				.noborder 		= remove bottom border (only with transparent use)
+				.transparent	= transparent header
+				.translucent	= translucent header
+				.sticky			= sticky header
+				.static			= static header
+				.dark			= dark header
+				.bottom			= header on bottom
+				
+				shadow-before-1 = shadow 1 header top
+				shadow-after-1 	= shadow 1 header bottom
+				shadow-before-2 = shadow 2 header top
+				shadow-after-2 	= shadow 2 header bottom
+				shadow-before-3 = shadow 3 header top
+				shadow-after-3 	= shadow 3 header bottom
+
+				.clearfix		= required for mobile menu, do not remove!
+
+				Example Usage:  class="clearfix sticky header-sm transparent noborder"
+			-->
+			<div id="header" class="sticky clearfix">
+
+				<!-- TOP NAV -->
+				<%- include TopNav.ejs %>
+				<!-- /Top Nav -->
+
+			</div>
+
+
+			<!-- 
+				PAGE HEADER 
+				
+				CLASSES:
+					.page-header-xs	= 20px margins
+					.page-header-md	= 50px margins
+					.page-header-lg	= 80px margins
+					.page-header-xlg= 130px margins
+					.dark			= dark page header
+
+					.shadow-before-1 	= shadow 1 header top
+					.shadow-after-1 	= shadow 1 header bottom
+					.shadow-before-2 	= shadow 2 header top
+					.shadow-after-2 	= shadow 2 header bottom
+					.shadow-before-3 	= shadow 3 header top
+					.shadow-after-3 	= shadow 3 header bottom
+			-->
+			<section class="page-header page-header-xs dark">
+				<div class="container">
+
+					<h1>LOGIN</h1>
+
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Pages</a></li>
+						<li class="active">Login</li>
+					</ol><!-- /breadcrumbs -->
+
+				<!-- page tabs -->
+					<ul class="page-header-tabs list-inline">
+						<li class="active"><a href="#login" data-toggle="tab">LOGIN</a></li>
+						<li><a href="#register" data-toggle="tab">REGISTER</a></li>
+					</ul><!-- /page tabs -->
+
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->
+
+
+
+
+			<!-- -->
+			<section>
+				<div class="container">
+
+
+					<div class="tab-content">
+
+						<!-- LOGIN -->
+						<div class="tab-pane fade in active" id="login">
+
+							<div class="row">
+								<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+
+									<!-- ALERT -->
+									<div class="alert alert-mini alert-danger margin-bottom-30">
+										<strong>Oh snap!</strong> Login Incorrect!
+									</div>
+									<!-- /ALERT -->
+
+									<div class="box-static box-transparent box-bordered padding-30">
+										<div class="box-title margin-bottom-30">
+											<h2 class="size-20">Login</h2>
+										</div>
+
+										<form class="sky-form" method="post" action="#" autocomplete="off">
+											<div class="clearfix">
+
+												<!-- Email -->
+												<div class="form-group">
+													<label>ID</label>
+													<label class="input margin-bottom-10">
+														<i class="ico-append fa fa-envelope"></i>
+														<input required="" type="text">
+														<b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
+													</label>
+												</div>
+
+												<!-- Password -->
+												<div class="form-group">
+													<label>Password</label>
+													<label class="input margin-bottom-10">
+														<i class="ico-append fa fa-lock"></i>
+														<input required="" type="password">
+														<b class="tooltip tooltip-bottom-right">Type your account password</b>
+													</label>
+												</div>
+
+											</div>
+											<hr />
+											<div class="row">
+
+												<div class="col-md-6 col-sm-6 col-xs-6">
+													
+													<!-- Inform Tip -->                                        
+													<div class="form-tip pt-20">
+														<a class="no-text-decoration size-13 margin-top-10 block" href="#">Forgot Password?</a>
+													</div>
+													
+												</div>
+
+												<div class="col-md-6 col-sm-6 col-xs-6 text-right">
+
+													<button class="btn btn-primary"><i class="fa fa-check"></i> LOGIN</button>
+
+												</div>
+
+											</div>
+
+										</form>
+
+										<!--FaceBook/Twitter Login-->
+										<!--<hr />-->
+										<!--<div class="text-center">
+											<div class="margin-bottom-20">&ndash; OR &ndash;</div>
+											
+											<a class="btn btn-block btn-social btn-facebook margin-top-10">
+												<i class="fa fa-facebook"></i> Sign in with Facebook
+											</a>
+
+											<a class="btn btn-block btn-social btn-twitter margin-top-10">
+												<i class="fa fa-twitter"></i> Sign in with Twitter
+											</a>
+
+										</div>-->
+
+									</div>
+
+								</div>
+							</div>
+
+						</div><!-- /LOGIN -->
+
+						<!-- REGISTER -->
+						<div class="tab-pane fade" id="register">
+
+							<div class="row">
+								<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+
+									<!-- ALERT -->
+									<div class="alert alert-mini alert-danger margin-bottom-30">
+										<strong>Oh snap!</strong> Password do not match!
+									</div><!-- /ALERT -->
+
+									<div class="box-static box-transparent box-bordered padding-30">
+
+										<div class="box-title margin-bottom-30">
+											<h2 class="size-20">Register</h2>
+										</div>
+
+										<form class="nomargin sky-form" action="#" method="post">
+											<fieldset>
+
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-12">
+															<label for="register:last_name">Name</label>
+															<label class="input margin-bottom-10">
+																<i class="ico-append fa fa-user"></i>
+																<input required="" type="text">
+																<b class="tooltip tooltip-bottom-right">Your Name</b>
+															</label>
+														</div>
+
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="form-group">
+
+														<div class="col-md-12">
+															<label for="register:id">ID *</label>
+															<label class="input margin-bottom-10">
+																<i class="ico-append fa fa-envelope"></i>
+																<input required="" type="text">
+																<b class="tooltip tooltip-bottom-right">Your ID</b>
+															</label>
+														</div>
+
+
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="form-group">
+
+														<div class="col-md-12">
+															<label for="register:pass1">Password *</label>
+															<label class="input margin-bottom-10">
+																<i class="ico-append fa fa-lock"></i>
+																<input required="" type="password" class="err">
+																<b class="tooltip tooltip-bottom-right">Min. 6 characters</b>
+															</label>
+														</div>
+
+														<div class="col-md-12">
+															<label for="register:pass2">Password Again *</label>
+															<label class="input margin-bottom-10">
+																<i class="ico-append fa fa-lock"></i>
+																<input required="" type="password" class="err">
+																<b class="tooltip tooltip-bottom-right">Type the password again</b>
+															</label>
+														</div>
+
+													</div>
+												</div>
+
+											</fieldset>
+
+											<hr />
+											<div class="row">
+												<div class="col-md-12">
+													<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> REGISTER</button>
+												</div>
+											</div>
+
+										</form>
+										
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+						<!-- /REGISTER -->
+
+					</div>
+					
+				</div>
+			</section>
+			<!-- / -->
+
+
+
+
+
+
+
+
+			<!-- FOOTER -->
+			<%- include Footer.ejs %>
+			<!-- /FOOTER -->
+
+		</div>
+		<!-- /wrapper -->
+
+
+		<!-- SCROLL TO TOP -->
+		<a href="#" id="toTop"></a>
+
+
+		<!-- PRELOADER -->
+		<div id="preloader">
+			<div class="inner">
+				<span class="loader"></span>
+			</div>
+		</div><!-- /PRELOADER -->
+
+
+		<!-- JAVASCRIPT FILES -->
+		<script type="text/javascript">var plugin_path = '/assets/plugins/';</script>
+		<script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+
+		<script type="text/javascript" src="/assets/js/scripts.js"></script>
+		
+		<!-- STYLESWITCHER - REMOVE -->
+		<script async type="text/javascript" src="/assets/plugins/styleswitcher/styleswitcher.js"></script>
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<script type="text/javascript">
+
+			/**
+				Checkbox on "I agree" modal Clicked!
+			**/
+			jQuery("#terms-agree").click(function(){
+				jQuery('#termsModal').modal('toggle');
+
+				// Check Terms and Conditions checkbox if not already checked!
+				if(!jQuery("#checked-agree").checked) {
+					jQuery("input.checked-agree").prop('checked', true);
+				}
+				
+			});
+		</script>
+	</body>
+</html>
