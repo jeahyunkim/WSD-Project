@@ -1,0 +1,158 @@
+<!doctype html>
+<%- include Header.ejs %>
+<!--<html lang="en-US">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title>Smarty Admin</title>
+    <meta name="description" content=""/>
+    <meta name="Author" content="Dorin Grigoras [www.stepofweb.com]"/>
+
+    &lt;!&ndash; mobile settings &ndash;&gt;
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0"/>
+
+    &lt;!&ndash; WEB FONTS &ndash;&gt;
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext"
+          rel="stylesheet" type="text/css"/>
+
+    &lt;!&ndash; CORE CSS &ndash;&gt;
+    <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+    &lt;!&ndash; THEME CSS &ndash;&gt;
+    <link href="/assets/css/essentials.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/layout.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme"/>
+
+    &lt;!&ndash;data picker&ndash;&gt;
+
+</head>-->
+<body class="smoothscroll enable-animation">
+<!-- wrapper -->
+<div id="wrapper">
+
+    <div id="header" class="sticky clearfix">
+
+        <!-- TOP NAV -->
+        <%- include TopNav.ejs %>
+        <!-- /Top Nav -->
+
+    </div>
+<section >
+    <div class="container">
+ <!--   <div class="owl-carousel buttons-autohide controlls-over"
+         data-plugin-options='{"items": 1, "autoPlay": 3000, "autoHeight": false, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
+        <div>
+            <img class="img-responsive" src="../HTML/assets/images/demo/mockups/800x553/9-min.jpg" alt="">
+        </div>
+        <div>
+            <img class="img-responsive" src="../HTML/assets/images/demo/mockups/800x553/3-min.jpg" alt="">
+        </div>
+        <div>
+            <img class="img-responsive" src="../HTML/assets/images/demo/mockups/800x553/1-min.jpg" alt="">
+        </div>
+    </div>-->
+    <form class="validate" action="php/contact.php" method="post" enctype="multipart/form-data"
+          data-success="Sent! Thank you!" data-toastr-position="top-right">
+        <fieldset>
+            <!-- required [php action request] -->
+            <input type="hidden" name="action" value="contact_send"/>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6">
+                        <img class="img-responsive" src="../HTML/assets/images/demo/mockups/800x553/10-min.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6">
+                        <label>
+                            제목
+                        </label>
+                        <input type="text" name="contact[website]" placeholder="제목은 필수" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6">
+                        <label>날짜 선택</label>
+                        <!-- range picker -->
+                        <input type="text" class="form-control rangepicker" value="2015-01-01 - 2016-12-31"
+                               data-format="yyyy-mm-dd" data-from="2015-01-01" data-to="2016-12-31">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6">
+                        <label>내용</label>
+                        <textarea name="contact[experience]" rows="4" class="form-control required"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="fancy-file-upload fancy-file-primary">
+                            <i class="fa fa-upload"></i>
+                            <input type="file" class="form-control" name="contact[attachment]"
+                                   onchange="jQuery(this).next('input').val(this.value);"/>
+                            <input type="text" class="form-control" placeholder="no file selected" readonly=""/>
+                            <span class="button">Choose File</span>
+                        </div>
+                        <div class="fancy-file-upload fancy-file-primary">
+                            <i class="fa fa-upload"></i>
+                            <input type="file" class="form-control" name="contact[attachment]"
+                                   onchange="jQuery(this).next('input').val(this.value);"/>
+                            <input type="text" class="form-control" placeholder="no file selected" readonly=""/>
+                            <span class="button">Choose File</span>
+                        </div>
+                        <div class="fancy-file-upload fancy-file-primary">
+                            <i class="fa fa-upload"></i>
+                            <input type="file" class="form-control" name="contact[attachment]"
+                                   onchange="jQuery(this).next('input').val(this.value);"/>
+                            <input type="text" class="form-control" placeholder="no file selected" readonly=""/>
+                            <span class="button">Choose File</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </fieldset>
+
+        <div class="row">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-3d btn-teal btn-xlg btn-block margin-top-30">
+                    등록
+                </button>
+            </div>
+        </div>
+
+    </form>
+    </div>
+</section>
+    <!-- FOOTER -->
+    <%- include Footer.ejs %>
+    <!-- /FOOTER -->
+
+</div>
+<!-- /wrapper -->
+
+<!-- JAVASCRIPT FILES -->
+<script type="text/javascript">var plugin_path = '/assets/plugins/';</script>
+<script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/scripts.js"></script>
+
+<!-- STYLESWITCHER - REMOVE -->
+<script async type="text/javascript" src="/assets/plugins/styleswitcher/styleswitcher.js"></script>
+
+
+</body>
+</html>
