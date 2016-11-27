@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<title>Smarty - Multipurpose + Admin</title>
+		<meta name="keywords" content="HTML5,CSS3,Template" />
+		<meta name="description" content="" />
+		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+
+		<!-- mobile settings -->
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- CORE CSS -->
+		<link href="../../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+		<!-- THEME CSS -->
+		<link href="../../assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="../../assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="../../assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="../../assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
+	</head>
+
+	<!--
+		AVAILABLE BODY CLASSES:
+
+		smoothscroll 			= create a browser smooth scroll
+		enable-animation		= enable WOW animations
+
+		bg-grey					= grey background
+		grain-grey				= grey grain background
+		grain-blue				= blue grain background
+		grain-green				= green grain background
+		grain-blue				= blue grain background
+		grain-orange			= orange grain background
+		grain-yellow			= yellow grain background
+
+		boxed 					= boxed layout
+		pattern1 ... patern11	= pattern background
+		menu-vertical-hide		= hidden, open on click
+
+		BACKGROUND IMAGE [together with .boxed class]
+		data-background="assets/images/boxed_background/1.jpg"
+	-->
+	<body class="smoothscroll enable-animation">
+
+		<!-- SLIDE TOP -->
+		<div id="slidetop">
+
+			<div class="container">
+				
+				<div class="row">
+
+					<div class="col-md-4">
+						<h6><i class="icon-heart"></i> WHY SMARTY?</h6>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
+					</div>
+
+					<div class="col-md-4">
+						<h6><i class="icon-attachment"></i> RECENTLY VISITED</h6>
+						<ul class="list-unstyled">
+							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very very very very very very very very </a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
+						</ul>
+					</div>
+
+					<div class="col-md-4">
+						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
+						<ul class="list-unstyled">
+							<li><b>Address:</b> PO Box 21132, Here Weare St, <br /> Melbourne, Vivas 2355 Australia</li>
+							<li><b>Phone:</b> 1-800-565-2390</li>
+							<li><b>Email:</b> <a href="mailto:support@yourname.com">support@yourname.com</a></li>
+						</ul>
+					</div>
+
+				</div>
+
+			</div>
+
+			<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
+
+		</div>
+		<!-- /SLIDE TOP -->
+
+
+		<!-- wrapper -->
+		<div id="wrapper">
+
+			<div id="header" class="sticky clearfix">
+
+				<!-- TOP NAV -->
+				<%- include TopNav.ejs %>
+				<!-- /Top Nav -->
+
+			</div>
+
+			<section class="page-header dark page-header-xs">
+				<div class="container">
+
+					<h1>일본 여행 일정</h1>
+
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb">
+						<li><a href="/">Home</a></li>
+						<li><a href="#">일정</a></li>
+						<li><a href="#">여행 일정</a></li>
+						<li class="#">일본 일정</li>
+					</ol><!-- /breadcrumbs -->
+
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->
+
+
+
+
+			<!-- -->
+			<section>
+				<div class="container">
+					<!-- TIMELINE -->
+					<div class="timeline"><!-- .timeline-inverse = right position [left on RTL] -->
+						<div class="timeline-hline"><!-- horizontal line --></div>
+
+						<!-- POST ITEM -->
+						<div class="blog-post-item">
+
+							<!-- timeline entry -->
+							<div class="timeline-entry rounded"><!-- .rounded = entry -->
+								<!--29<span>Jun</span>-->
+								<span>Day</span>1
+								<div class="timeline-vline"><!-- vertical line --></div>
+							</div>
+							<!-- /timeline entry -->
+
+							<!-- IMAGE -->
+							<figure class="margin-bottom-20">
+								<img class="img-responsive" src="../assets/images/demo/720x400/4-min.jpg" alt="">
+							</figure>
+
+							<h2><a href="blog-single-default.html">바닷가 여행 일정</a></h2>
+
+							<ul class="blog-post-info list-inline">
+								<li>
+									<a href="#">
+										<i class="fa fa-clock-o"></i>
+										<span class="font-lato">June 29, 2015</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-comment-o"></i>
+										<span class="font-lato">28 Comments</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-user"></i>
+										<span class="font-lato">John Doe</span>
+									</a>
+								</li>
+							</ul>
+
+							<p>일본 여행 첫날 ~~~~~~~...</p>
+							<a href="travel/detail" class="btn btn-reveal btn-default">
+								<i class="fa fa-plus"></i>
+								<span>자세히 보기</span>
+							</a>
+
+						</div>
+						<!-- /POST ITEM -->
+
+						<!-- POST ITEM -->
+						<div class="blog-post-item">
+
+							<!-- timeline entry -->
+							<div class="timeline-entry rounded"><!-- .rounded = entry -->
+								<!--29<span>Jun</span>-->
+								<span>Day</span>2
+								<div class="timeline-vline"><!-- vertical line --></div>
+							</div>
+							<!-- /timeline entry -->
+
+							<!-- IMAGE -->
+							<figure class="margin-bottom-20">
+								<img class="img-responsive" src="../assets/images/demo/720x400/6-min.jpg" alt="">
+							</figure>
+
+							<h2><a href="blog-single-default.html">바닷가 여행 일정</a></h2>
+
+							<ul class="blog-post-info list-inline">
+								<li>
+									<a href="#">
+										<i class="fa fa-clock-o"></i>
+										<span class="font-lato">June 29, 2015</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-comment-o"></i>
+										<span class="font-lato">28 Comments</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-user"></i>
+										<span class="font-lato">John Doe</span>
+									</a>
+								</li>
+							</ul>
+
+							<p>일본 여행 첫날 ~~~~~~~...</p>
+							<a href="detail" class="btn btn-reveal btn-default">
+								<i class="fa fa-plus"></i>
+								<span>자세히 보기</span>
+							</a>
+
+						</div>
+						<!-- /POST ITEM -->
+						<!-- POST ITEM -->
+						<div class="blog-post-item">
+
+							<!-- timeline entry -->
+							<div class="timeline-entry rounded"><!-- .rounded = entry -->
+								29<span>Jun</span>
+								<div class="timeline-vline"><!-- vertical line --></div>
+							</div>
+							<!-- /timeline entry -->
+
+							<!-- IMAGE -->
+							<figure class="margin-bottom-20">
+								<img class="img-responsive" src="../assets/images/demo/content_slider/10-min.jpg" alt="">
+							</figure>
+
+							<h2><a href="blog-single-default.html">BLOG IMAGE POST</a></h2>
+
+							<ul class="blog-post-info list-inline">
+								<li>
+									<a href="#">
+										<i class="fa fa-clock-o"></i>
+										<span class="font-lato">June 29, 2015</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-comment-o"></i>
+										<span class="font-lato">28 Comments</span>
+									</a>
+								</li>
+								<li>
+									<i class="fa fa-folder-open-o"></i>
+
+									<a class="category" href="#">
+										<span class="font-lato">Design</span>
+									</a>
+									<a class="category" href="#">
+										<span class="font-lato">Photography</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-user"></i>
+										<span class="font-lato">John Doe</span>
+									</a>
+								</li>
+							</ul>
+
+							<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+
+							<a href="blog-single-default.html" class="btn btn-reveal btn-default">
+								<i class="fa fa-plus"></i>
+								<span>Read More</span>
+							</a>
+
+						</div>
+						<!-- /POST ITEM -->
+
+
+
+					</div>
+					<!-- /TIMELINE -->
+
+
+				</div>
+			</section>
+			<!-- / -->
+
+
+
+
+			<!-- FOOTER -->
+			<footer id="footer">
+				<div class="container">
+
+					<div class="row">
+						
+						<div class="col-md-3">
+							<!-- Footer Logo -->
+							<img class="footer-logo" src="assets/images/logo-footer.png" alt="" />
+
+							<!-- Small Description -->
+							<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+
+							<!-- Contact Address -->
+							<address>
+								<ul class="list-unstyled">
+									<li class="footer-sprite address">
+										PO Box 21132<br>
+										Here Weare St, Melbourne<br>
+										Vivas 2355 Australia<br>
+									</li>
+									<li class="footer-sprite phone">
+										Phone: 1-800-565-2390
+									</li>
+									<li class="footer-sprite email">
+										<a href="mailto:support@yourname.com">support@yourname.com</a>
+									</li>
+								</ul>
+							</address>
+							<!-- /Contact Address -->
+
+						</div>
+
+						<div class="col-md-3">
+
+							<!-- Latest Blog Post -->
+							<h4 class="letter-spacing-1">LATEST NEWS</h4>
+							<ul class="footer-posts list-unstyled">
+								<li>
+									<a href="#">Donec sed odio dui. Nulla vitae elit libero, a pharetra augue</a>
+									<small>29 June 2015</small>
+								</li>
+								<li>
+									<a href="#">Nullam id dolor id nibh ultricies</a>
+									<small>29 June 2015</small>
+								</li>
+								<li>
+									<a href="#">Duis mollis, est non commodo luctus</a>
+									<small>29 June 2015</small>
+								</li>
+							</ul>
+							<!-- /Latest Blog Post -->
+
+						</div>
+
+						<div class="col-md-2">
+
+							<!-- Links -->
+							<h4 class="letter-spacing-1">EXPLORE SMARTY</h4>
+							<ul class="footer-links list-unstyled">
+								<li><a href="#">Home</a></li>
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Our Services</a></li>
+								<li><a href="#">Our Clients</a></li>
+								<li><a href="#">Our Pricing</a></li>
+								<li><a href="#">Smarty Tour</a></li>
+								<li><a href="#">Contact Us</a></li>
+							</ul>
+							<!-- /Links -->
+
+						</div>
+
+						<div class="col-md-4">
+
+							<!-- Newsletter Form -->
+							<h4 class="letter-spacing-1">KEEP IN TOUCH</h4>
+							<p>Subscribe to Our Newsletter to get Important News &amp; Offers</p>
+
+							<form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+									<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
+									<span class="input-group-btn">
+										<button class="btn btn-success" type="submit">Subscribe</button>
+									</span>
+								</div>
+							</form>
+							<!-- /Newsletter Form -->
+
+							<!-- Social Icons -->
+							<div class="margin-top-20">
+								<a href="#" class="social-icon social-icon-border social-facebook pull-left" data-toggle="tooltip" data-placement="top" title="Facebook">
+
+									<i class="icon-facebook"></i>
+									<i class="icon-facebook"></i>
+								</a>
+
+								<a href="#" class="social-icon social-icon-border social-twitter pull-left" data-toggle="tooltip" data-placement="top" title="Twitter">
+									<i class="icon-twitter"></i>
+									<i class="icon-twitter"></i>
+								</a>
+
+								<a href="#" class="social-icon social-icon-border social-gplus pull-left" data-toggle="tooltip" data-placement="top" title="Google plus">
+									<i class="icon-gplus"></i>
+									<i class="icon-gplus"></i>
+								</a>
+
+								<a href="#" class="social-icon social-icon-border social-linkedin pull-left" data-toggle="tooltip" data-placement="top" title="Linkedin">
+									<i class="icon-linkedin"></i>
+									<i class="icon-linkedin"></i>
+								</a>
+
+								<a href="#" class="social-icon social-icon-border social-rss pull-left" data-toggle="tooltip" data-placement="top" title="Rss">
+									<i class="icon-rss"></i>
+									<i class="icon-rss"></i>
+								</a>
+					
+							</div>
+							<!-- /Social Icons -->
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="copyright">
+					<div class="container">
+						<ul class="pull-right nomargin list-inline mobile-block">
+							<li><a href="#">Terms &amp; Conditions</a></li>
+							<li>&bull;</li>
+							<li><a href="#">Privacy</a></li>
+						</ul>
+						&copy; All Rights Reserved, Company LTD
+					</div>
+				</div>
+			</footer>
+			<!-- /FOOTER -->
+
+		</div>
+		<!-- /wrapper -->
+
+
+		<!-- SCROLL TO TOP -->
+		<a href="#" id="toTop"></a>
+
+
+		<!-- PRELOADER -->
+		<div id="preloader">
+			<div class="inner">
+				<span class="loader"></span>
+			</div>
+		</div><!-- /PRELOADER -->
+
+
+		<!-- JAVASCRIPT FILES -->
+		<!--<script type="text/javascript">var plugin_path = '../assets/plugins/';</script>-->
+		<script type="text/javascript" src="../assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+
+		<script type="text/javascript" src="../assets/js/scripts.js"></script>
+		
+		<!-- STYLESWITCHER - REMOVE -->
+		<script async type="text/javascript" src="../assets/plugins/styleswitcher/styleswitcher.js"></script>
+	</body>
+</html>
