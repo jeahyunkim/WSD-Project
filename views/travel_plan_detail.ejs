@@ -2,451 +2,327 @@
 <!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
-	<head>
-		<meta charset="utf-8" />
-		<title>Smarty - Multipurpose + Admin</title>
-		<meta name="keywords" content="HTML5,CSS3,Template" />
-		<meta name="description" content="" />
-		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+<%- include Header.ejs %>
+<!--
+    AVAILABLE BODY CLASSES:
 
-		<!-- mobile settings -->
-		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
-		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    smoothscroll 			= create a browser smooth scroll
+    enable-animation		= enable WOW animations
 
-		<!-- WEB FONTS : use %7C instead of | (pipe) -->
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+    bg-grey					= grey background
+    grain-grey				= grey grain background
+    grain-blue				= blue grain background
+    grain-green				= green grain background
+    grain-blue				= blue grain background
+    grain-orange			= orange grain background
+    grain-yellow			= yellow grain background
 
-		<!-- CORE CSS -->
-		<link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-		
-		<!-- THEME CSS -->
-		<link href="/assets/css/essentials.css" rel="stylesheet" type="text/css" />
-		<link href="/assets/css/layout.css" rel="stylesheet" type="text/css" />
+    boxed 					= boxed layout
+    pattern1 ... patern11	= pattern background
+    menu-vertical-hide		= hidden, open on click
 
-		<!-- PAGE LEVEL SCRIPTS -->
-		<link href="/assets/css/header-1.css" rel="stylesheet" type="text/css" />
-		<link href="/assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
-	</head>
+    BACKGROUND IMAGE [together with .boxed class]
+    data-background="assets/images/boxed_background/1.jpg"
+-->
+<body class="smoothscroll enable-animation">
+
+<!-- wrapper -->
+<div id="wrapper">
 
 	<!--
-		AVAILABLE BODY CLASSES:
-		
-		smoothscroll 			= create a browser smooth scroll
-		enable-animation		= enable WOW animations
+        AVAILABLE HEADER CLASSES
 
-		bg-grey					= grey background
-		grain-grey				= grey grain background
-		grain-blue				= blue grain background
-		grain-green				= green grain background
-		grain-blue				= blue grain background
-		grain-orange			= orange grain background
-		grain-yellow			= yellow grain background
-		
-		boxed 					= boxed layout
-		pattern1 ... patern11	= pattern background
-		menu-vertical-hide		= hidden, open on click
-		
-		BACKGROUND IMAGE [together with .boxed class]
-		data-background="assets/images/boxed_background/1.jpg"
-	-->
-	<body class="smoothscroll enable-animation">
+        Default nav height: 96px
+        .header-md 		= 70px nav height
+        .header-sm 		= 60px nav height
 
-		<!-- SLIDE TOP -->
-		<div id="slidetop">
+        .noborder 		= remove bottom border (only with transparent use)
+        .transparent	= transparent header
+        .translucent	= translucent header
+        .sticky			= sticky header
+        .static			= static header
+        .dark			= dark header
+        .bottom			= header on bottom
 
-			<div class="container">
-				
-				<div class="row">
+        shadow-before-1 = shadow 1 header top
+        shadow-after-1 	= shadow 1 header bottom
+        shadow-before-2 = shadow 2 header top
+        shadow-after-2 	= shadow 2 header bottom
+        shadow-before-3 = shadow 3 header top
+        shadow-after-3 	= shadow 3 header bottom
 
-					<div class="col-md-4">
-						<h6><i class="icon-heart"></i> WHY SMARTY?</h6>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
-					</div>
+        .clearfix		= required for mobile menu, do not remove!
 
-					<div class="col-md-4">
-						<h6><i class="icon-attachment"></i> RECENTLY VISITED</h6>
-						<ul class="list-unstyled">
-							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very very very very very very very very </a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
-						</ul>
-					</div>
+        Example Usage:  class="clearfix sticky header-sm transparent noborder"
+    -->
+	<div id="header" class="sticky clearfix">
 
-					<div class="col-md-4">
-						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
-						<ul class="list-unstyled">
-							<li><b>Address:</b> PO Box 21132, Here Weare St, <br /> Melbourne, Vivas 2355 Australia</li>
-							<li><b>Phone:</b> 1-800-565-2390</li>
-							<li><b>Email:</b> <a href="mailto:support@yourname.com">support@yourname.com</a></li>
-						</ul>
-					</div>
+		<%- include TopNav.ejs %>
 
-				</div>
+	</div>
 
-			</div>
 
-			<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
+	<!--
+        PAGE HEADER
+
+        CLASSES:
+            .page-header-xs	= 20px margins
+            .page-header-md	= 50px margins
+            .page-header-lg	= 80px margins
+            .page-header-xlg= 130px margins
+            .dark			= dark page header
+
+            .shadow-before-1 	= shadow 1 header top
+            .shadow-after-1 	= shadow 1 header bottom
+            .shadow-before-2 	= shadow 2 header top
+            .shadow-after-2 	= shadow 2 header bottom
+            .shadow-before-3 	= shadow 3 header top
+            .shadow-after-3 	= shadow 3 header bottom
+    -->
+	<section class="page-header dark page-header-xs">
+		<div class="container">
+
+			<h1>BLOG</h1>
+
+			<!-- breadcrumbs -->
+			<ol class="breadcrumb">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Blog</a></li>
+				<li class="active">Single</li>
+			</ol><!-- /breadcrumbs -->
 
 		</div>
-		<!-- /SLIDE TOP -->
+	</section>
+	<!-- /PAGE HEADER -->
+	<!-- -->
+	<section>
+		<div class="container">
 
+			<h1 class="blog-post-title">BLOG POST TITLE HERE</h1>
+			<ul class="blog-post-info list-inline">
+				<li>
+					<a href="#">
+						<i class="fa fa-clock-o"></i>
+						<span class="font-lato">June 29, 2015</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-comment-o"></i>
+						<span class="font-lato">28 Comments</span>
+					</a>
+				</li>
+				<li>
+					<i class="fa fa-folder-open-o"></i>
 
-		<!-- wrapper -->
-		<div id="wrapper">
+					<a class="category" href="#">
+						<span class="font-lato">Design</span>
+					</a>
+					<a class="category" href="#">
+						<span class="font-lato">Photography</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-user"></i>
+						<span class="font-lato">John Doe</span>
+					</a>
+				</li>
+			</ul>
 
-			<!-- 
-				AVAILABLE HEADER CLASSES
-
-				Default nav height: 96px
-				.header-md 		= 70px nav height
-				.header-sm 		= 60px nav height
-
-				.noborder 		= remove bottom border (only with transparent use)
-				.transparent	= transparent header
-				.translucent	= translucent header
-				.sticky			= sticky header
-				.static			= static header
-				.dark			= dark header
-				.bottom			= header on bottom
-				
-				shadow-before-1 = shadow 1 header top
-				shadow-after-1 	= shadow 1 header bottom
-				shadow-before-2 = shadow 2 header top
-				shadow-after-2 	= shadow 2 header bottom
-				shadow-before-3 = shadow 3 header top
-				shadow-after-3 	= shadow 3 header bottom
-
-				.clearfix		= required for mobile menu, do not remove!
-
-				Example Usage:  class="clearfix sticky header-sm transparent noborder"
-			-->
-			<div id="header" class="sticky clearfix">
-
-				<!-- TOP NAV -->
-				<%- include TopNav.ejs %>
-				<!-- /Top Nav -->
-
+			<!-- OWL SLIDER -->
+			<div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"items": 1, "autoPlay": 4500, "autoHeight": false, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
+				<a class="lightbox" href="assets/images/demo/1200x800/10-min.jpg" data-plugin-options='{"type":"image"}'>
+					<img class="img-responsive" src="/assets/images/demo/content_slider/10-min.jpg" alt="" />
+				</a>
+				<a class="lightbox" href="assets/images/demo/1200x800/3-min.jpg" data-plugin-options='{"type":"image"}'>
+					<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="" />
+				</a>
+				<a class="lightbox" href="assets/images/demo/1200x800/21-min.jpg" data-plugin-options='{"type":"image"}'>
+					<img class="img-responsive" src="/assets/images/demo/content_slider/21-min.jpg" alt="" />
+				</a>
 			</div>
+			<!-- /OWL SLIDER -->
+
+			<!-- IMAGE -->
+			<!--
+            <figure class="margin-bottom-20">
+                <img class="img-responsive" src="assets/images/demo/content_slider/10-min.jpg" alt="img" />
+            </figure>
+            -->
+			<!-- /IMAGE -->
+
+			<!-- VIDEO -->
+			<!--
+            <div class="margin-bottom-20 embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="http://player.vimeo.com/video/8408210" width="800" height="450"></iframe>
+            </div>
+            -->
+			<!-- /VIDEO -->
 
 
+			<!-- article content -->
+			<p class="dropcap">Aliquam fringilla, sapien eget scelerisque placerat, lorem libero cursus lorem, sed sodales lorem libero eu sapien. Nunc mattis feugiat justo vel faucibus. Nulla consequat feugiat malesuada. Ut justo nulla, <strong>facilisis vel molestie id</strong>, dictum ut arcu. Nunc ipsum nulla, eleifend non blandit quis, luctus quis orci. Cras blandit turpis mattis nulla ultrices interdum. Mauris pretium pretium dictum. Nunc commodo, felis sed dictum bibendum, risus justo iaculis dui, nec euismod orci sem eget neque. Donec in metus metus, vitae eleifend lorem. Ut vestibulum gravida venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque suscipit tincidunt magna non mollis. Fusce tempus tincidunt nisi, in luctus elit pellentesque quis. Sed velit mi, ullamcorper ut tempor ut, mattis eu lacus. Morbi rhoncus aliquet tellus, id accumsan enim sollicitudin vitae.</p>
+			<p>Vivamus <a href="#">magna justo</a>, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt.</p>
 
-			<section class="page-header dark page-header-xs">
-				<div class="container">
+			<!-- BLOCKQUOTE -->
+			<blockquote>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+				<cite>Source Title</cite>
+			</blockquote>
 
-					<h1>일본 여행 일정</h1>
+			<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.Quisque velit nisi, pretium ut lacinia in, elementum id enim. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>
+			<p>Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor accumsan tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<!-- /article content -->
 
-					<!-- breadcrumbs -->
-					<ol class="breadcrumb">
-						<li><a href="/">Home</a></li>
-						<li><a href="#">일정</a></li>
-						<li><a href="#">여행 일정</a></li>
-						<li><a href="/plan/travel">일본 일정</a></li>
-						<li class="#">Day-1</li>
-					</ol><!-- /breadcrumbs -->
 
+			<div class="divider divider-dotted"><!-- divider --></div>
+
+
+			<div class="divider"><!-- divider --></div>
+
+
+			<ul class="pager">
+				<li class="previous"><a class="noborder" href="#">&larr; Previous Post</a></li>
+				<li class="next"><a class="noborder" href="#">Next Post &rarr;</a></li>
+			</ul>
+
+
+			<div class="divider"><!-- divider --></div>
+
+
+			<!-- COMMENTS -->
+			<div id="comments" class="comments">
+
+				<h4 class="page-header margin-bottom-60 size-20">
+					<span>3</span> COMMENTS
+				</h4>
+
+				<!-- comment item -->
+				<div class="comment-item">
+
+					<!-- user-avatar -->
+					<span class="user-avatar">
+								<img class="pull-left media-object" src="/assets/images/avatar.png" width="64" height="64" alt="">
+							</span>
+
+					<div class="media-body">
+						<a href="#commentForm" class="scrollTo comment-reply">reply</a>
+						<h4 class="media-heading bold">John Doe</h4>
+						<small class="block">June 29, 2014 - 11:23</small>
+						Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					</div>
 				</div>
-			</section>
-			<!-- /PAGE HEADER -->
+
+				<!-- comment item -->
+				<div class="comment-item">
+
+					<!-- user-avatar -->
+					<span class="user-avatar">
+								<img class="pull-left media-object" src="assets/images/avatar.png" width="64" height="64" alt="">
+							</span>
+
+					<div class="media-body">
+						<a href="#commentForm" class="scrollTo comment-reply">reply</a>
+						<h4 class="media-heading bold">Diana Doe</h4>
+						<small class="block">June 29, 2014 - 11:23</small>
+						Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					</div>
+				</div>
+
+				<!-- comment item -->
+				<div class="comment-item">
+
+					<!-- user-avatar -->
+					<span class="user-avatar">
+								<img class="media-object" src="assets/images/avatar.png" width="64" height="64" alt="">
+							</span>
+
+					<div class="media-body">
+						<a href="#commentForm" class="scrollTo comment-reply">reply</a>
+						<h4 class="media-heading bold">Melissa Doe</h4>
+						<small class="block">June 29, 2014 - 11:23</small>
+						Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+						<!-- comment reply -->
+						<div class="media">
+
+							<!-- user-avatar -->
+							<span class="user-avatar">
+										<img class="media-object" src="assets/images/avatar.png" width="64" height="64" alt="">
+									</span>
+
+							<div class="media-body">
+								<h4 class="media-heading bold">Peter Doe</h4>
+								<small class="block">June 29, 2014 - 11:23</small>
+								Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							</div>
+						</div>
+
+					</div>
+				</div>
 
 
 
+				<h4 class="page-header size-20 margin-bottom-60 margin-top-100">
+					LEAVE A <span>COMMENT</span>
+				</h4>
 
-			<!-- -->
-			<section>
-				<div class="container">
+				<!-- Form -->
+				<form action="#" method="post">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-12">
+								<label>COMMENT</label>
+								<textarea required="required" maxlength="5000" rows="5" class="form-control" name="comment" id="comment"></textarea>
+							</div>
+						</div>
+					</div>
 
 					<div class="row">
+						<div class="col-md-12">
 
-						<!-- LEFT -->
-						<div class="col-md-10 col-sm-10">
-
-							<h1 class="blog-post-title">Day-1 일본 여행 일정 포스트</h1>
-							<ul class="blog-post-info list-inline">
-								<li>
-									<a href="#">
-										<i class="fa fa-clock-o"></i> 
-										<span class="font-lato">June 29, 2015</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-comment-o"></i> 
-										<span class="font-lato">28 Comments</span>
-									</a>
-								</li>
-								<li>
-									<i class="fa fa-folder-open-o"></i> 
-
-									<a class="category" href="#">
-										<span class="font-lato">Design</span>
-									</a>
-									<a class="category" href="#">
-										<span class="font-lato">Photography</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-user"></i> 
-										<span class="font-lato">John Doe</span>
-									</a>
-								</li>
-							</ul>
-
-							<!-- OWL SLIDER -->
-							<div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"items": 1, "autoPlay": 4500, "autoHeight": false, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
-								<a class="lightbox" href="/assets/images/demo/1200x800/10-min.jpg" data-plugin-options='{"type":"image"}'>
-									<img class="img-responsive" src="/assets/images/demo/content_slider/10-min.jpg" alt="" />
-								</a>
-								<a class="lightbox" href="/assets/images/demo/1200x800/3-min.jpg" data-plugin-options='{"type":"image"}'>
-									<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="" />
-								</a>
-								<a class="lightbox" href="/assets/images/demo/1200x800/21-min.jpg" data-plugin-options='{"type":"image"}'>
-									<img class="img-responsive" src="/assets/images/demo/content_slider/21-min.jpg" alt="" />
-								</a>
-							</div>
-							<!-- /OWL SLIDER -->
-
-							<!-- IMAGE -->
-							<!--
-							<figure class="margin-bottom-20">
-								<img class="img-responsive" src="assets/images/demo/content_slider/10-min.jpg" alt="img" />
-							</figure>
-							-->
-							<!-- /IMAGE -->
-
-							<!-- VIDEO -->
-							<!--
-							<div class="margin-bottom-20 embed-responsive embed-responsive-16by9">
-								<iframe class="embed-responsive-item" src="http://player.vimeo.com/video/8408210" width="800" height="450"></iframe>
-							</div>
-							-->
-							<!-- /VIDEO -->
-
-
-							<!-- article content -->
-							<p class="dropcap">Aliquam fringilla, sapien eget scelerisque placerat, lorem libero cursus lorem, sed sodales lorem libero eu sapien. Nunc mattis feugiat justo vel faucibus. Nulla consequat feugiat malesuada. Ut justo nulla, <strong>facilisis vel molestie id</strong>, dictum ut arcu. Nunc ipsum nulla, eleifend non blandit quis, luctus quis orci. Cras blandit turpis mattis nulla ultrices interdum. Mauris pretium pretium dictum. Nunc commodo, felis sed dictum bibendum, risus justo iaculis dui, nec euismod orci sem eget neque. Donec in metus metus, vitae eleifend lorem. Ut vestibulum gravida venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque suscipit tincidunt magna non mollis. Fusce tempus tincidunt nisi, in luctus elit pellentesque quis. Sed velit mi, ullamcorper ut tempor ut, mattis eu lacus. Morbi rhoncus aliquet tellus, id accumsan enim sollicitudin vitae.</p>
-							<p>Vivamus <a href="#">magna justo</a>, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt.</p>
-							
-							<!-- BLOCKQUOTE -->
-							<blockquote>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-								<cite>Source Title</cite>
-							</blockquote>
-
-							<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.Quisque velit nisi, pretium ut lacinia in, elementum id enim. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>
-							<p>Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor accumsan tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							<!-- /article content -->
-
-
-							<div class="divider divider-dotted"><!-- divider --></div>
-
-
-							<!-- TAGS -->
-							<a class="tag" href="#">
-								<span class="txt">RESPONSIVE</span>
-								<span class="num">12</span>
-							</a>
-							<a class="tag" href="#">
-								<span class="txt">CSS</span>
-								<span class="num">3</span>
-							</a>
-							<a class="tag" href="#">
-								<span class="txt">HTML</span>
-								<span class="num">1</span>
-							</a>
-							<a class="tag" href="#">
-								<span class="txt">JAVASCRIPT</span>
-								<span class="num">28</span>
-							</a>
-							<a class="tag" href="#">
-								<span class="txt">DESIGN</span>
-								<span class="num">6</span>
-							</a>
-							<a class="tag" href="#">
-								<span class="txt">DEVELOPMENT</span>
-								<span class="num">3</span>
-							</a>
-							<!-- /TAGS -->
-
-
-
-
-							<div class="divider"><!-- divider --></div>
-
-							
-							<ul class="pager">
-								<li class="previous"><a class="noborder" href="#">&larr; Previous Post</a></li>
-								<li class="next"><a class="noborder" href="#">Next Post &rarr;</a></li>
-							</ul>
-
-
-							<div class="divider"><!-- divider --></div>
-
-							
-							<!-- COMMENTS -->
-							<div id="comments" class="comments">
-
-								<h4 class="page-header margin-bottom-60 size-20">
-									<span>3</span> COMMENTS
-								</h4>
-
-								<!-- comment item -->
-								<div class="comment-item">
-
-									<!-- user-avatar -->
-									<span class="user-avatar">
-										<img class="pull-left media-object" src="/assets/images/avatar.png" width="64" height="64" alt="">
-									</span>
-
-									<div class="media-body">
-										<a href="#commentForm" class="scrollTo comment-reply">reply</a>
-										<h4 class="media-heading bold">John Doe</h4>
-										<small class="block">June 29, 2014 - 11:23</small>
-										Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-									</div>
-								</div>
-
-								<!-- comment item -->
-								<div class="comment-item">
-
-									<!-- user-avatar -->
-									<span class="user-avatar">
-										<img class="pull-left media-object" src="/assets/images/avatar.png" width="64" height="64" alt="">
-									</span>
-
-									<div class="media-body">
-										<a href="#commentForm" class="scrollTo comment-reply">reply</a>
-										<h4 class="media-heading bold">Diana Doe</h4>
-										<small class="block">June 29, 2014 - 11:23</small>
-										Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-									</div>
-								</div>
-
-								<!-- comment item -->
-								<div class="comment-item">
-
-									<!-- user-avatar -->
-									<span class="user-avatar">
-										<img class="media-object" src="/assets/images/avatar.png" width="64" height="64" alt="">
-									</span>
-
-									<div class="media-body">
-										<a href="#commentForm" class="scrollTo comment-reply">reply</a>
-										<h4 class="media-heading bold">Melissa Doe</h4>
-										<small class="block">June 29, 2014 - 11:23</small>
-										Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-
-										<!-- comment reply -->
-										<div class="media">
-
-											<!-- user-avatar -->
-											<span class="user-avatar">
-												<img class="media-object" src="/assets/images/avatar.png" width="64" height="64" alt="">
-											</span>
-
-											<div class="media-body">
-												<h4 class="media-heading bold">Peter Doe</h4>
-												<small class="block">June 29, 2014 - 11:23</small>
-												Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-											</div>
-										</div>
-
-									</div>
-								</div>
-
-
-
-								<h4 class="page-header size-20 margin-bottom-60 margin-top-100">
-									LEAVE A <span>COMMENT</span>
-								</h4>
-
-								<!-- Form -->
-								<form action="#" method="post">
-
-									<div class="row">
-										<div class="form-group">
-											<div class="col-md-4">
-												<label>NAME</label>
-												<input required="required" type="text" value="" maxlength="100" class="form-control input-lg" name="author" id="author">
-											</div>
-											<div class="col-md-4">
-												<label>EMAIL</label>
-												<input required="required" type="email" value="" maxlength="100" class="form-control input-lg" name="contact_email" id="contact_email">
-											</div>
-											<div class="col-md-4">
-												<label>WEBSITE</label>
-												<input type="email" value="" maxlength="100" class="form-control input-lg" name="url" id="url">
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="form-group">
-											<div class="col-md-12">
-												<label>COMMENT</label>
-												<textarea required="required" maxlength="5000" rows="5" class="form-control" name="comment" id="comment"></textarea>
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-md-12">
-
-											<button class="btn btn-3d btn-lg btn-reveal btn-black">
-												<i class="fa fa-check"></i>
-												<span>SUBMIT MESSAGE</span>
-											</button>
-
-										</div>
-									</div>
-
-								</form>
-								<!-- /Form -->
-
-							</div>
-							<!-- /COMMENTS -->
-
+							<button class="btn btn-3d btn-lg btn-reveal btn-black">
+								<i class="fa fa-check"></i>
+								<span>SUBMIT MESSAGE</span>
+							</button>
 
 						</div>
+					</div>
 
+				</form>
+				<!-- /Form -->
 
-						</div>
-				</div>
-			</section>
-			<!-- / -->
+			</div>
+			<!-- /COMMENTS -->
 
-
-
-
-			<!-- FOOTER -->
-			<%- include Footer.ejs %>
-			<!-- /FOOTER -->
 
 		</div>
-		<!-- /wrapper -->
+	</section>
+	<!-- / -->
+
+</div>
+<!-- /wrapper -->
 
 
-		<!-- SCROLL TO TOP -->
-		<a href="#" id="toTop"></a>
+<!-- SCROLL TO TOP -->
+<a href="#" id="toTop"></a>
 
 
-		<!-- PRELOADER -->
-		<div id="preloader">
-			<div class="inner">
-				<span class="loader"></span>
-			</div>
-		</div><!-- /PRELOADER -->
+<!-- PRELOADER -->
+<div id="preloader">
+	<div class="inner">
+		<span class="loader"></span>
+	</div>
+</div><!-- /PRELOADER -->
 
 
-		<!-- JAVASCRIPT FILES -->
-		<<script type="text/javascript">var plugin_path = '/assets/plugins/';</script>
-		<script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+<!-- JAVASCRIPT FILES -->
+<script type="text/javascript">var plugin_path = '/assets/plugins/';</script>
+<script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 
-		<script type="text/javascript" src="/assets/js/scripts.js"></script>
-		
-		<!-- STYLESWITCHER - REMOVE -->
-		<script async type="text/javascript" src="/assets/plugins/styleswitcher/styleswitcher.js"></script>
-	</body>
+<script type="text/javascript" src="/assets/js/scripts.js"></script>
+
+
+</body>
 </html>
