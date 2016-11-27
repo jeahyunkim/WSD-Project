@@ -23,23 +23,16 @@
     <link href="/assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
 
 </head>
-<%- include Header.ejs %>
 <body class="smoothscroll enable-animation">
-<section class="page-header">
-    <div class="container">
+<div id="wrapper">
 
-        <h1>일정등록</h1>
-        <span class="font-lato size-18 weight-300">여행 일정 등록!!</span>
+    <div id="header" class="sticky clearfix">
 
-        <!-- breadcrumbs -->
-        <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Features</a></li>
-            <li class="active">Page Title</li>
-        </ol><!-- /breadcrumbs -->
+        <!-- TOP NAV -->
+        <%- include TopNav.ejs %>
+        <!-- /Top Nav -->
 
     </div>
-</section>
 
 
 <section>
@@ -366,7 +359,7 @@
     </div>
 </div>
 <%- include Footer.ejs %>
-
+</div>
 
 <!-- JAVASCRIPT FILES -->
 
