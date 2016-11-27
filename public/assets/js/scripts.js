@@ -2422,6 +2422,7 @@
 
 												// Toastr Message
 												_toastr(_Smessage,_Tposition,_Ttype,_Turl);
+												location.href = '/schedule/list';
 											
 											}
 										}

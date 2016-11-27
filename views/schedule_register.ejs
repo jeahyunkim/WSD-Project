@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>test</title>
+
+    <!-- mobile settings -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+    <!-- WEB FONTS : use %7C instead of | (pipe) -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+    <!-- CORE CSS -->
+    <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- THEME CSS -->
+    <link href="/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+    <!-- PAGE LEVEL SCRIPTS -->
+    <link href="/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
+
+</head>
+<%- include Header.ejs %>
+<body class="smoothscroll enable-animation">
+<section class="page-header">
+    <div class="container">
+
+        <h1>일정등록</h1>
+        <span class="font-lato size-18 weight-300">여행 일정 등록!!</span>
+
+        <!-- breadcrumbs -->
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li class="active">Page Title</li>
+        </ol><!-- /breadcrumbs -->
+
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-transparent">
+                    <h2 class="panel-title">여행 일정 등록!!</h2>
+                </div>
+
+                <div class="panel-body">
+                    <form id="addForm" class="validate" action="/schedule/add" method="post">
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12">
+                                    <label>제목 *</label>
+                                    <input type="text" name="contact[subject]" value="" class="form-control required">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6">
+                                    <label>지역 *</label>
+                                    <select name="contact[location]" class="form-control pointer required">
+                                        <option value="">--- Select ---</option>
+                                        <option value="경기">경기</option>
+                                        <option value="서울">서울</option>
+                                        <option value="충북">충북</option>
+                                        <option value="충남">충남</option>
+                                        <option value="경북">경북</option>
+                                        <option value="경남">경남</option>
+                                        <option value="전북">전북</option>
+                                        <option value="전남">전남</option>
+                                        <option value="제주">제주</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <label>세부지역 *</label>
+                                    <input type="text" name="contact[detailLocation]" value="" class="form-control required">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6">
+                                    <label>시작 날짜 *</label>
+                                    <input type="text" name="contact[start_date]" value="" class="form-control datepicker required" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false">
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <label>마지막 날짜 *</label>
+                                    <input type="text" name="contact[end_date]" value="" class="form-control datepicker required" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12">
+                                    <label>설명 *</label>
+                                    <textarea name="contact[experience]" rows="4" class="form-control required"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button id="addScheduleBtn" type="submit" class="btn btn-3d btn-teal btn-xlg btn-block margin-top-30">
+                                    등록
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<%- include Footer.ejs %>
+
+
+<!-- JAVASCRIPT FILES -->
+
+<script type="text/javascript">plugin_path = '/assets/plugins/';</script>
+<script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="/assets/js/scripts.js"></script>
+
+</body>
+</html>
