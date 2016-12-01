@@ -22,6 +22,7 @@
     <link href="/assets/css/header-1.css" rel="stylesheet" type="text/css" />
     <link href="/assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
 
+
 </head>
 <body class="smoothscroll enable-animation">
 
@@ -45,13 +46,19 @@
                 </div>
 
                 <div class="panel-body">
-                    <form id="addForm" class="validate" action="/schedule/add" method="post">
-
+                    <form id="addForm" class="validate" action="/schedule/add" method="post" >
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <figure class="margin-bottom-20">
+                                    <img id="imagePreview" class="img-responsive" src="/assets/images/demo/content_slider/10-min.jpg" alt="">
+                                </figure>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12">
                                     <label>제목 *</label>
-                                    <input type="text" name="contact[subject]" value="" class="form-control required">
+                                    <input type="text" name="title" value="" class="form-control required">
                                 </div>
                             </div>
                         </div>
@@ -60,7 +67,7 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6">
                                     <label>지역 *</label>
-                                    <select name="contact[location]" class="form-control pointer required">
+                                    <select name="location" class="form-control pointer required">
                                         <option value="">--- Select ---</option>
                                         <option value="경기">경기</option>
                                         <option value="서울">서울</option>
@@ -75,7 +82,7 @@
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <label>세부지역 *</label>
-                                    <input type="text" name="contact[detailLocation]" value="" class="form-control required">
+                                    <input type="text" name="detailLocation" value="" class="form-control required">
                                 </div>
                             </div>
                         </div>
@@ -85,11 +92,11 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6">
                                     <label>시작 날짜 *</label>
-                                    <input type="text" name="contact[start_date]" value="" class="form-control datepicker required" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false">
+                                    <input type="text" name="startDate" value="" class="form-control datepicker required" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false">
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <label>마지막 날짜 *</label>
-                                    <input type="text" name="contact[end_date]" value="" class="form-control datepicker required" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false">
+                                    <input type="text" name="endDate" value="" class="form-control datepicker required" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false">
                                 </div>
                             </div>
                         </div>
@@ -98,11 +105,33 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12">
                                     <label>설명 *</label>
-                                    <textarea name="contact[experience]" rows="4" class="form-control required"></textarea>
+                                    <textarea name="description" rows="4" class="form-control required"></textarea>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6">
+                                    <!--<input class="custom-file-upload" type="file" id="file" name="image" data-btn-text="Select a File" />-->
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <label class="switch switch switch-round">
+                                        <input type="checkbox" name ="publicType" checked="">
+                                        <span class="switch-label" data-on="YES" data-off="NO"></span>
+                                        <span> 공개 여부</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--<div class="row">-->
+                            <!--<div class="col-md-12">-->
+                                <!--<div class="form-group">-->
+                                    <!--<input class="custom-file-upload" type="file" id="file" name="image" data-btn-text="Select a File" />-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
 
                         <div class="row">
                             <div class="col-md-12">
@@ -127,6 +156,7 @@
 
 <script type="text/javascript">plugin_path = '/assets/plugins/';</script>
 <script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="/javascripts/schedule_register.js"></script>
 <script type="text/javascript" src="/assets/js/scripts.js"></script>
 
 </body>
