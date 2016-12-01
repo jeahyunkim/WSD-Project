@@ -98,21 +98,21 @@
 	<section>
 		<div class="container">
 
-			<h1 class="blog-post-title">BLOG POST TITLE HERE</h1>
+			<h1 class="blog-post-title"><%= blogtitle %></h1>
 			<ul class="blog-post-info list-inline">
 				<li>
 					<a href="#">
 						<i class="fa fa-clock-o"></i>
-						<span class="font-lato">June 29, 2015</span>
+						<span class="font-lato"><%= detailday %></span>
 					</a>
 				</li>
 				<li>
 					<a href="#">
 						<i class="fa fa-comment-o"></i>
-						<span class="font-lato">28 Comments</span>
+						<span class="font-lato"><%= comments.length %></span>
 					</a>
 				</li>
-				<li>
+				<!--<li>
 					<i class="fa fa-folder-open-o"></i>
 
 					<a class="category" href="#">
@@ -121,26 +121,22 @@
 					<a class="category" href="#">
 						<span class="font-lato">Photography</span>
 					</a>
-				</li>
+				</li> -->
 				<li>
 					<a href="#">
 						<i class="fa fa-user"></i>
-						<span class="font-lato">John Doe</span>
+						<span class="font-lato"><%= writer %></span>
 					</a>
 				</li>
 			</ul>
 
 			<!-- OWL SLIDER -->
-			<div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"items": 1, "autoPlay": 4500, "autoHeight": false, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
-				<a class="lightbox" href="assets/images/demo/1200x800/10-min.jpg" data-plugin-options='{"type":"image"}'>
-					<img class="img-responsive" src="/assets/images/demo/content_slider/10-min.jpg" alt="" />
+			<div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"items": 1, "autoPlay": 4500, "autoHeight": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
+				<% for(var i = 0; i < photos.length; i++){ %>
+				<a class ="lightbox" href="<%= photos[i] %>" data-plugin-options='{"type":"image"}' >
+					<img class="img-responsive" src="<%= photos[i] %>" alt="" />
 				</a>
-				<a class="lightbox" href="assets/images/demo/1200x800/3-min.jpg" data-plugin-options='{"type":"image"}'>
-					<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="" />
-				</a>
-				<a class="lightbox" href="assets/images/demo/1200x800/21-min.jpg" data-plugin-options='{"type":"image"}'>
-					<img class="img-responsive" src="/assets/images/demo/content_slider/21-min.jpg" alt="" />
-				</a>
+				<% } %>
 			</div>
 			<!-- /OWL SLIDER -->
 
@@ -162,17 +158,7 @@
 
 
 			<!-- article content -->
-			<p class="dropcap">Aliquam fringilla, sapien eget scelerisque placerat, lorem libero cursus lorem, sed sodales lorem libero eu sapien. Nunc mattis feugiat justo vel faucibus. Nulla consequat feugiat malesuada. Ut justo nulla, <strong>facilisis vel molestie id</strong>, dictum ut arcu. Nunc ipsum nulla, eleifend non blandit quis, luctus quis orci. Cras blandit turpis mattis nulla ultrices interdum. Mauris pretium pretium dictum. Nunc commodo, felis sed dictum bibendum, risus justo iaculis dui, nec euismod orci sem eget neque. Donec in metus metus, vitae eleifend lorem. Ut vestibulum gravida venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque suscipit tincidunt magna non mollis. Fusce tempus tincidunt nisi, in luctus elit pellentesque quis. Sed velit mi, ullamcorper ut tempor ut, mattis eu lacus. Morbi rhoncus aliquet tellus, id accumsan enim sollicitudin vitae.</p>
-			<p>Vivamus <a href="#">magna justo</a>, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt.</p>
-
-			<!-- BLOCKQUOTE -->
-			<blockquote>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-				<cite>Source Title</cite>
-			</blockquote>
-
-			<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.Quisque velit nisi, pretium ut lacinia in, elementum id enim. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>
-			<p>Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor accumsan tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<p class="dropcap"><%= contents %></p>
 			<!-- /article content -->
 
 
@@ -195,74 +181,24 @@
 			<div id="comments" class="comments">
 
 				<h4 class="page-header margin-bottom-60 size-20">
-					<span>3</span> COMMENTS
+					<span><%= comments.length %></span> COMMENTS
 				</h4>
-
+				<% for(var i = 0; i < comments.length; i++){ %>
 				<!-- comment item -->
 				<div class="comment-item">
-
 					<!-- user-avatar -->
 					<span class="user-avatar">
-								<img class="pull-left media-object" src="/assets/images/avatar.png" width="64" height="64" alt="">
+								<img class="pull-left media-object" src="<%= comments[i].commentavartar%>" width="64" height="64" alt="">
 							</span>
 
 					<div class="media-body">
 						<a href="#commentForm" class="scrollTo comment-reply">reply</a>
-						<h4 class="media-heading bold">John Doe</h4>
-						<small class="block">June 29, 2014 - 11:23</small>
-						Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						<h4 class="media-heading bold"><%= comments[i].commentwriter%></h4>
+						<small class="block"><%= comments[i].commentday%></small>
+						<%= comments[i].commentcontent%>
 					</div>
 				</div>
-
-				<!-- comment item -->
-				<div class="comment-item">
-
-					<!-- user-avatar -->
-					<span class="user-avatar">
-								<img class="pull-left media-object" src="assets/images/avatar.png" width="64" height="64" alt="">
-							</span>
-
-					<div class="media-body">
-						<a href="#commentForm" class="scrollTo comment-reply">reply</a>
-						<h4 class="media-heading bold">Diana Doe</h4>
-						<small class="block">June 29, 2014 - 11:23</small>
-						Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					</div>
-				</div>
-
-				<!-- comment item -->
-				<div class="comment-item">
-
-					<!-- user-avatar -->
-					<span class="user-avatar">
-								<img class="media-object" src="assets/images/avatar.png" width="64" height="64" alt="">
-							</span>
-
-					<div class="media-body">
-						<a href="#commentForm" class="scrollTo comment-reply">reply</a>
-						<h4 class="media-heading bold">Melissa Doe</h4>
-						<small class="block">June 29, 2014 - 11:23</small>
-						Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-						<!-- comment reply -->
-						<div class="media">
-
-							<!-- user-avatar -->
-							<span class="user-avatar">
-										<img class="media-object" src="assets/images/avatar.png" width="64" height="64" alt="">
-									</span>
-
-							<div class="media-body">
-								<h4 class="media-heading bold">Peter Doe</h4>
-								<small class="block">June 29, 2014 - 11:23</small>
-								Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							</div>
-						</div>
-
-					</div>
-				</div>
-
-
+				<% } %>
 
 				<h4 class="page-header size-20 margin-bottom-60 margin-top-100">
 					LEAVE A <span>COMMENT</span>
