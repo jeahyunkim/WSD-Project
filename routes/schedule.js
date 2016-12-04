@@ -56,7 +56,6 @@ router.get('/list', function(req, res){
 
 
 router.get('/list_detail/:schedule_id', function(req, res){
-    console.log(req.params.schedule_id);
     schedule.findById(req.params.schedule_id, function (err, schedule) {
             if(err) console.log("Error!!");
             else{

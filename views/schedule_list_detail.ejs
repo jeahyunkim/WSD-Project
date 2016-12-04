@@ -112,7 +112,7 @@
 										</li>
 									</ul>
 
-									<a href="/detail/register" class="btn btn-reveal btn-default">
+									<a href="/detail/register/<%=schedule.id%>" class="btn btn-reveal btn-default">
 										<i class="fa fa-plus"></i>
 										<span>작성 하기</span>
 									</a>
@@ -120,41 +120,6 @@
 								</div>
 								<!-- /POST ITEM -->
 							<% }%>
-
-							<!-- POST ITEM -->
-							<div class="blog-post-item">
-
-								<!-- timeline entry -->
-								<div class="timeline-entry rounded"><!-- .rounded = entry -->
-									<!--29<span>Jun</span>-->
-									<span>Day</span>2
-									<div class="timeline-vline"><!-- vertical line --></div>
-								</div>
-								<!-- /timeline entry -->
-
-								<br><br>
-								<ul class="blog-post-info list-inline">
-									<li>
-										<a href="#">
-											<i class="fa fa-clock-o"></i>
-											<span class="font-lato">June 29, 2015</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fa fa-user"></i>
-											<span class="font-lato">John Doe</span>
-										</a>
-									</li>
-								</ul>
-
-								<a href="detail" class="btn btn-reveal btn-default">
-									<i class="fa fa-plus"></i>
-									<span>작성 하기</span>
-								</a>
-							</div>
-
-							<!-- /POST ITEM -->
 
 							<!-- POST ITEM -->
 							<div class="blog-post-item">
@@ -235,9 +200,8 @@
 								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">지역 : </span> <%=schedule.location%></a></li>
 								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">세부지역 : </span> <%=schedule.detailLocation%></a></li>
 								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">설명 : </span> <%=schedule.description%></a></li>
-								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">시작날짜 : </span> <%=schedule.startDate%></a></li>
-								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">마지막 날짜 : </span> <%=schedule.endDate%></a></li>
-
+								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">시작날짜 : </span> <%=dates[0]%></a></li>
+								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">마지막 날짜 : </span> <%=dates[date_gap-1]%></a></li>
 							</ul>
 							<!-- /side navigation -->
 						</div>
