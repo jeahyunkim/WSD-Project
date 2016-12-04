@@ -58,18 +58,19 @@ router.get('/list', function(req, res){
 router.get('/list_detail/:schedule_id', function(req, res){
     console.log(req.params.schedule_id);
     schedule.findById(req.params.schedule_id, function (err, schedule) {
-        // console.log(schedules);
-        //console.log((schedules[2].endDate - schedules[2].startDate)  );
-        //var dates = (schedules[2].endDate - schedules[2].startDate) / (60*60*24*1000) + 1
-        //console.log(dates);
-        //var start_date = schedules[2].startDate;
-        //console.log(start_date);
-        //console.log("@@@@@@@@@@");
-        //for(var i=0; i < dates; i++){
-        //    start_date += 1;
-        //    console.log(start_date);
-        //}
-        res.render('schedule_list_detail', { title: 'Schedule Detail', schedule: schedule });
+
+        var dates = [];
+        var date = new Date(schedule.startDate).getTime();
+        var date_gap = (schedule.endDate - schedule.startDate) / (60*60*24*1000) + 1;
+        for(var i =0; i < date_gap; i++){
+            dates.push(new Date(date).toDateString());
+            console.log(new Date(date).toString());
+            console.log(new Date(date).toDateString());
+            date += (24 * 60 * 60 * 1000);
+        }
+        console.log(schedule.startDate);
+        console.log(schedule.endDate);
+        res.render('schedule_list_detail', { title: 'Schedule Detail', schedule: schedule, date_gap: date_gap, dates: dates });
     });
 });
 
