@@ -36,15 +36,14 @@ router.post('/add', function (req, res) {
     var loopNumber = 0;
     for (var i = 0; i < fileNumber; i++) {
         var img = 'img' + imgNumber;
-
         if (i != 0 && !req.files[img].name == '') {
             detail.pictureName[loopNumber] = (req.files[img].name);
             loopNumber++;
-            console.log("들어간다 " + req.files[img].name);
         }
         imgNumber++;
     }
     loopNumber = 0;
+
     //db save
     detail.save(function (err, silence) {
         if (err) {
@@ -54,14 +53,10 @@ router.post('/add', function (req, res) {
         console.log("DB INSERT");
     });
 
-
     if (!req.files) {
         res.send('No files were uploaded.');
         return;
     }
-    img1 = req.files.img1;
-    //  img2 = req.files.img2;
-    //img3 = req.files.img3;
     imgNumber = 0;
     for (var i = 0; i < fileNumber; i++) {
         var img = 'img' + imgNumber;
@@ -70,7 +65,6 @@ router.post('/add', function (req, res) {
                 if (err) {
                     res.status(500).send(err);
                 }
-
             });
         }
         imgNumber++;
@@ -78,6 +72,5 @@ router.post('/add', function (req, res) {
     imgNumber = 0;
     res.send('File uploaded!');
 });
-
 
 module.exports = router;
