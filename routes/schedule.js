@@ -49,11 +49,43 @@ router.post('/add', function(req, res, next) {
     res.redirect('/schedule/list');
 });
 
-router.get('/list', function(req, res, next){
-
-
-    res.render('schedule_list', { title: 'Express' });
+router.get('/list', function(req, res){
+    schedule.find({}, function (err, schedules) {
+        console.log(schedules);
+        //console.log((schedules[2].endDate - schedules[2].startDate)  );
+        //var dates = (schedules[2].endDate - schedules[2].startDate) / (60*60*24*1000) + 1
+        //console.log(dates);
+        //var start_date = schedules[2].startDate;
+        //console.log(start_date);
+        //console.log("@@@@@@@@@@");
+        //for(var i=0; i < dates; i++){
+        //    start_date += 1;
+        //    console.log(start_date);
+        //}
+        res.render('schedule_list', { title: 'Express' , schedules : schedules});
+    });
 });
 
+
+router.get('/list_detail/:schedule_id', function(req, res){
+    console.log(req.params.schedule_id);
+
+    schedule.find({}, function (err, schedules) {
+        console.log(schedules);
+        //console.log((schedules[2].endDate - schedules[2].startDate)  );
+        //var dates = (schedules[2].endDate - schedules[2].startDate) / (60*60*24*1000) + 1
+        //console.log(dates);
+        //var start_date = schedules[2].startDate;
+        //console.log(start_date);
+        //console.log("@@@@@@@@@@");
+        //for(var i=0; i < dates; i++){
+        //    start_date += 1;
+        //    console.log(start_date);
+        //}
+        res.render('schedule_list', { title: 'Express' , schedules : schedules});
+    });
+
+    res.render('schedule_list_detail', { title: 'Express' });
+});
 
 module.exports = router;

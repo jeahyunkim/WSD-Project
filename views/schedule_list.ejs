@@ -40,35 +40,40 @@
 
         <div id="blog" class="clearfix blog-isotope blog-isotope-3">
 
-            <!-- POST ITEM -->
-            <div class="blog-post-item">
 
-                <h2><a href="blog-single-default.html">BLOG CAROUSEL POST</a></h2>
+            <%for(var i =0; i < schedules.length; i++) { %>
 
-                <ul class="blog-post-info list-inline">
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-clock-o"></i>
-                            <span class="font-lato">June 29, 2015</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-comment-o"></i>
-                            <span class="font-lato">28</span>
-                        </a>
-                    </li>
-                </ul>
+                <!-- POST ITEM -->
+                <div class="blog-post-item">
 
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable There are many.</p>
+                    <h2><a href="/schedule/list_detail/<%=schedules[i].id%>"><%=schedules[i].title%></a></h2>
 
-                <button class="btn btn-reveal btn-default" data-toggle="modal" data-target=".bs-example-modal-full">
-                    <i class="fa fa-plus"></i>
-                    <span>Read More</span>
-                </button>
+                    <ul class="blog-post-info list-inline">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-clock-o"></i>
+                                <span class="font-lato">June 29, 2015</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-comment-o"></i>
+                                <span class="font-lato">28</span>
+                            </a>
+                        </li>
+                    </ul>
 
-            </div>
-            <!-- /POST ITEM -->
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable There are many.</p>
+
+                    <button class="btn btn-reveal btn-default" data-toggle="modal" data-target=".bs-example-modal-full">
+                        <i class="fa fa-plus"></i>
+                        <span>Read More</span>
+                    </button>
+
+                </div>
+                <!-- /POST ITEM -->
+
+            <% } %>
 
 
             <!-- POST ITEM -->
