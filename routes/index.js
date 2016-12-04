@@ -15,7 +15,8 @@ var User = mongoose.model('user',userSchema);
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-/* GET home page. */
+
+
 router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Express' });
 });
@@ -38,6 +39,5 @@ router.post('/login/register',function(req,res,next) {
     res.redirect('/login');
   }
 })
-
 
 module.exports = router;
