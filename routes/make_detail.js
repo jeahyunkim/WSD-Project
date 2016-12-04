@@ -2,12 +2,15 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+
+
 var detailSchema = new Schema({
-    scheduleID : String,
+    scheduleID: String,
     title: String,
     contents: String,
     detailDate: Date,
-    commentID : [String]
+    commentID: [String],
+    pictureName: [String]
 });
 var Detail = mongoose.model('detail', detailSchema);
 
@@ -16,9 +19,9 @@ router.get('/register', function (req, res, next) {
 });
 
 router.post('/add', function (req, res) {
-    var img1;
-    var img2;
-    var img3;
+    var img1 = req.files.img1;
+    //var img2 = req.file.img2;
+    //var img3 = req.file.img3;
 
     var detail = new Detail();
 
@@ -27,6 +30,9 @@ router.post('/add', function (req, res) {
     detail.title = req.body.title;
     detail.contents = req.body.contents;
     detail.detailDate = new Date();
+    for (var i = 0; i < 3; i++) {
+        detail.pictureName[i] = img1.name;
+    }
     //db save
     detail.save(function (err, silence) {
         if (err) {
