@@ -14,7 +14,9 @@ var detailSchema = new Schema({
 });
 var Detail = mongoose.model('detail', detailSchema);
 
-router.get('/register/:schedule_id', function (req, res) {
+router.get('/register', function (req, res) {
+    console.log(req.query.id);
+    console.log(req.query.date);
     res.render('detail_register', {title: 'Express', schedule_id: req.params.schedule_id});
 });
 
