@@ -3,8 +3,11 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var detailSchema = new Schema({
+    scheduleID : String,
     title: String,
-    contents: String
+    contents: String,
+    detailDate: Date,
+    commentID : [String]
 });
 var Detail = mongoose.model('detail', detailSchema);
 
@@ -18,12 +21,16 @@ router.post('/add', function (req, res) {
     var img3;
 
     var detail = new Detail();
+
+    //
+    detail.scheduleID = '일본여행 아이디';
     detail.title = req.body.title;
     detail.contents = req.body.contents;
+    detail.detailDate = new Date();
     //db save
-    detail.save(function (err,silence) {
-        if(err){
-            console.log("DB error : "+err);
+    detail.save(function (err, silence) {
+        if (err) {
+            console.log("DB error : " + err);
             return;
         }
         console.log("DB INSERT");
