@@ -10,7 +10,6 @@ var schedule = require('../models/schedule.js');
 var schedule_detail = require('../models/schedule_detail.js');
 
 /* GET home page. */
-
 router.get('/register', function(req, res, next) {
     res.render('schedule_register', { title: 'Express' });
 });
@@ -35,19 +34,18 @@ router.post('/add', function(req, res, next) {
     res.redirect('/schedule/list');
 });
 
+
 router.get('/list', function(req, res){
     schedule.find({}, function (err, schedules) {
         res.render('schedule_list', { title: 'Express' , schedules : schedules});
     });
 });
-
-
 router.get('/list_detail/:schedule_id', function(req, res){
     schedule.findById(req.params.schedule_id, function (err, schedule) {
             if(err) console.log("Error!!");
             else{
                 var dates = [];
-                var detail_check = [];
+                var detail_check  = [];
                 var detail_title = [];
                 var detail_content = [];
                 var detail_pic = [];

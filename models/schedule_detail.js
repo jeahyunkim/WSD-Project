@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-
 var detailSchema = new Schema({
     scheduleID: String,
     title: String,
