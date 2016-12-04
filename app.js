@@ -9,7 +9,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var make_plan = require('./routes/make_plan');
 var schedule = require('./routes/schedule');
-
+var detail_schedule = require('./routes/detail_schedule');
 var mongoose = require('mongoose');
 var connection = mongoose.connect('mongodb://52.78.124.66:27017/triptter');
 
@@ -34,6 +34,7 @@ app.use('/users', users);
 app.use('/plan', make_plan);
 app.use('/schedule',schedule);
 app.use('/detail',make_detail);
+app.use('/schedule/detail',detail_schedule);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
