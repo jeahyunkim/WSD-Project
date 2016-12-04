@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
+var imgNumber = 0;
 
 var detailSchema = new Schema({
     scheduleID: String,
@@ -19,20 +19,30 @@ router.get('/register/:schedule_id', function (req, res) {
 });
 
 router.post('/add', function (req, res) {
-    var img1 = req.files.img1;
-    //var img2 = req.file.img2;
-    //var img3 = req.file.img3;
 
     var detail = new Detail();
+    //file 있는지 여부 검사
+    var fileNumber = 0;
+    for (x in req.files) {
+        fileNumber++;
+    }
 
-    //
     detail.scheduleID = '일본여행 아이디';
     detail.title = req.body.title;
     detail.contents = req.body.contents;
     detail.detailDate = new Date();
-    for (var i = 0; i < 3; i++) {
-        detail.pictureName[i] = img1.name;
+    var loopNumber = 0;
+    for (var i = 0; i < fileNumber; i++) {
+        var img = 'img' + imgNumber;
+
+        if (i != 0 && !req.files[img].name == '') {
+            detail.pictureName[loopNumber] = (req.files[img].name);
+            loopNumber++;
+            console.log("들어간다 " + req.files[img].name);
+        }
+        imgNumber++;
     }
+    loopNumber = 0;
     //db save
     detail.save(function (err, silence) {
         if (err) {
@@ -50,33 +60,21 @@ router.post('/add', function (req, res) {
     img1 = req.files.img1;
     //  img2 = req.files.img2;
     //img3 = req.files.img3;
-    img1.mv('/Temp/' + img1.name, function (err) {
-        if (err) {
-            res.status(500).send(err);
-        }
-        else {
-            res.send('File uploaded!');
-        }
-    });
+    imgNumber = 0;
+    for (var i = 0; i < fileNumber; i++) {
+        var img = 'img' + imgNumber;
+        if (i != 0 && !req.files[img].name == '') {
+            req.files[img].mv('/Temp/' + req.files[img].name, function (err) {
+                if (err) {
+                    res.status(500).send(err);
+                }
 
-    /*
-     img2.mv('/Temp/' + img2.name, function (err) {
-     if (err) {
-     res.status(500).send(err);
-     }
-     else {
-     res.send('File uploaded!');
-     }
-     });
-     img3.mv('/Temp/' + img3.name, function (err) {
-     if (err) {
-     res.status(500).send(err);
-     }
-     else {
-     res.send('File uploaded!');
-     }
-     });
-     */
+            });
+        }
+        imgNumber++;
+    }
+    imgNumber = 0;
+    res.send('File uploaded!');
 });
 
 
