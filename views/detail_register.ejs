@@ -40,10 +40,9 @@
 
                 </div>
 
-
                 <div class="row">
                     <div class="form-group">
-                        <div class="col-md-12 col-sm-12">
+                        <div class="col-md-12 col-sm-12" id="add_div">
                             <div class="fancy-file-upload fancy-file-primary">
                                 <i class="fa fa-upload"></i>
                                 <input type="file" class="form-control" name="img1"
@@ -51,29 +50,16 @@
                                 <input type="text" class="form-control" placeholder="no file selected" readonly=""/>
                                 <span class="button">Choose File</span>
                             </div>
-                            <div class="fancy-file-upload fancy-file-primary">
-                                <i class="fa fa-upload"></i>
-                                <input type="file" class="form-control" name="img2"
-                                       onchange="jQuery(this).next('input').val(this.value);"/>
-                                <input type="text" class="form-control" placeholder="no file selected" readonly=""/>
-                                <span class="button">Choose File</span>
-                            </div>
-                            <div class="fancy-file-upload fancy-file-primary">
-                                <i class="fa fa-upload"></i>
-                                <input type="file" class="form-control" name="img3"
-                                       onchange="jQuery(this).next('input').val(this.value);"/>
-                                <input type="text" class="form-control" placeholder="no file selected" readonly=""/>
-                                <span class="button">Choose File</span>
-                            </div>
                         </div>
                     </div>
                 </div>
-
-
+                <div class="fancy-file-upload fancy-file-primary">
+                    <span class="button" onclick="addPictureButton()">사진 추가</span>
+                </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12">`
                         <button type="submit" class="btn btn-3d btn-teal btn-xlg btn-block margin-top-30">
-                            등록합니다
+                            등록
                         </button>
                     </div>
                 </div>
@@ -92,6 +78,40 @@
 
 <script type="text/javascript">
     var plugin_path = '/assets/plugins/';
+</script>
+<div class="fancy-file-upload fancy-file-primary">
+    <i class="fa fa-upload"></i>
+    <input type="file" class="form-control" name="img1"
+           onchange="jQuery(this).next('input').val(this.value);"/>
+    <input type="text" class="form-control" placeholder="no file selected" readonly=""/>
+    <span class="button">Choose File</span>
+</div>
+<script>
+    function addPictureButton() {
+        var fileDIV = document.createElement("div");
+        fileDIV.setAttribute("class", "fancy-file-upload fancy-file-primary");
+        var i = document.createElement("i");
+        i.setAttribute("class", "fa fa-upload");
+        var inputFile = document.createElement("INPUT");
+        inputFile.setAttribute("type", "file");
+        inputFile.setAttribute("class", "form-control");
+        inputFile.setAttribute("name", "img1");
+        inputFile.setAttribute("onchange", "jQuery(this).next('input').val(this.value);");
+        var inputText = document.createElement("INPUT");
+        inputText.setAttribute("type", "text");
+        inputText.setAttribute("class", "form-control");
+        inputText.setAttribute("placeholder", "no file selected");
+        inputText.setAttribute("readonly", "");
+        var span = document.createElement("span");
+        span.setAttribute("class", "button");
+        span.innerHTML = "Choose File";
+
+        fileDIV.appendChild(i);
+        fileDIV.appendChild(inputFile);
+        fileDIV.appendChild(inputText);
+        fileDIV.appendChild(span);
+        document.getElementById("add_div").appendChild(fileDIV);
+    }
 </script>
 
 <script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
