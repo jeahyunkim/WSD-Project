@@ -52,7 +52,7 @@ router.post('/comment/insert',function(req,res,next){
             res.status(500).send('update error');
             return;
         }
-        res.redirect('/schedule/detail');
+        res.redirect('/schedule/detail/'+ req.body.detail_id);
     });
 })
 
