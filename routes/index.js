@@ -1,14 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Mongo = require('mongodb');
 
-var userSchema = mongoose.Schema({
-  id : String,
-  password : String,
-  userName : String
-})
-var User = mongoose.model('user',userSchema);
+var User = require('../models/user.js');
 
 
 /* GET home page. */

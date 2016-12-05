@@ -6,47 +6,16 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Mongo = require('mongodb');
 
-var scheduleSchema = mongoose.Schema({
-    'title' : String,
-    'startDate' : Date,
-    'endDate' : Date,
-    'location' : String,
-    'detailLocation' : String,
-    'description' : String,
-    'recommend' : Number,
-    'imageUrl' : String,
-    'author' : String,
-    'public' : Boolean
-});
-
-var Schedule = mongoose.model('schedule1',scheduleSchema);
-
-var detailSchema = mongoose.Schema({
-    scheduleID: String,
-    title: String,
-    contents: String,
-    detailDate: Date,
-    commentID: [String],
-    pictureName: [String]
-});
-var Detail = mongoose.model('detail1', detailSchema);
-
-
-var commentSchema = mongoose.Schema({
-    user_id : String,
-    detail_id : String,
-    day : Date,
-    content : String
-})
-
-var Comment = mongoose.model('comment',commentSchema);
+var Detail = require('../models/schedule_detail.js');
+var Comment = require('../models/comment.js');
+var Schedule = require('../models/schedule.js');
 
 router.get('/', function(req, res, next) {
     var author;
     var detail = new Detail();
     var comment = new Comment();
 
-    Detail.findOne({_id : Mongo.ObjectID("58446108600e00cb0cf48333")}, function(err,docs){//req.params.detail_id
+    Detail.findOne({_id : Mongo.ObjectID("58451fbb6a1cd18807c48b5f")}, function(err,docs){//req.params.detail_id
         if(err) return console.log("detail err");
         if(!docs) return console.log("detail not find");
         detail = docs;
@@ -54,7 +23,7 @@ router.get('/', function(req, res, next) {
             if(err) return console.log("schedule err");;
             if(!docs2) return console.log("schedule not find");
             author = docs2.author;
-            Comment.find({detail_id : Mongo.ObjectID("58446108600e00cb0cf48333")},function(err,docs3){//req.params.detail_id
+            Comment.find({detail_id : Mongo.ObjectID("58451fbb6a1cd18807c48b5f")},function(err,docs3){//req.params.detail_id
                 if(err) return console.log("comment err");
                 if(!docs3) return console.log("comment not find");
                 comment = docs3;
