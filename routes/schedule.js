@@ -12,7 +12,7 @@ var router = express.Router();
 var storage = multer.diskStorage({
     destination: function (request, file, callback) {
         console.log(process.cwd());
-        callback(null, path.join(process.cwd()+'/uploads/'));
+        callback(null, path.join(process.cwd()+'/public/uploads/'));
     },
     filename: function (request, file, callback) {
         console.log(file);
@@ -54,14 +54,13 @@ router.get('/register', function(req, res, next) {
 });
 
 router.post('/add', function(req, res, next) {
-
     upload(req,res, function (err) {
        if(err){
            console.log('ERROR');
            console.log(err);
            return;
        }
-        console.log(req);
+       console.log(req);
         var currentDate = new Date();
         var addSchedule = new schedule();
         addSchedule.title = req.body.title;
@@ -78,7 +77,6 @@ router.post('/add', function(req, res, next) {
         addSchedule.save(function (err,result) {
             if(err) console.log("Something went wrong while saving the thing");
             else console.log("Thing was successfully saved");
-            console.log(result);
         });
     });
 
