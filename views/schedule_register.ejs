@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <form id="addForm" class="validate" action="/schedule/add" method="post" >
+                    <form id="addForm" class="validate" action="/schedule/add" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <figure class="margin-bottom-20">
@@ -113,7 +113,7 @@
                         <div class="row">
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6">
-                                    <!--<input class="custom-file-upload" type="file" id="file" name="image" data-btn-text="Select a File" />-->
+                                    <input class="custom-file-upload" type="file" id="photo" name="photo" data-btn-text="Select a File" />
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <label class="switch switch switch-round">
