@@ -66,6 +66,7 @@ router.get('/list_detail/:schedule_id', function(req, res){
                         }
                         date += (24 * 60 * 60 * 1000);
                     }
+                    //asdasdsad
                     console.log(detail_pic);
                     res.render('schedule_list_detail', { title: 'Schedule Detail', schedule: schedule, date_gap: date_gap, dates: dates,
                                                         check:detail_check, detail_title: detail_title, detail_content: detail_content, detail_pic : detail_pic});
