@@ -14,7 +14,7 @@ var mongoose = require('mongoose');
 var connection = mongoose.connect('mongodb://52.78.124.66:27017/triptter');
 
 var make_detail = require('./routes/make_detail');
-var fileUpload = require('express-fileupload');
+// var fileUpload = require('express-fileupload');
 var app = express();
 
 // view engine setup
@@ -28,10 +28,10 @@ app.set('port', process.env.PORT || 9000);
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(fileUpload());
+// app.use(fileUpload());
 app.use('/', index);
 app.use('/users', users);
 app.use('/plan', make_plan);
