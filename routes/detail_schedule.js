@@ -23,6 +23,7 @@ var Schedule = mongoose.model('schedule1',scheduleSchema);
 
 
 
+
 var detailSchema = mongoose.Schema({
     scheduleID: String,
     title: String,
