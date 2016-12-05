@@ -10,20 +10,20 @@ var Detail = require('../models/schedule_detail.js');
 var Comment = require('../models/comment.js');
 var Schedule = require('../models/schedule.js');
 
-router.get('/', function(req, res, next) {
+router.get('/:schedule_id', function(req, res, next) {
     var author;
     var detail = new Detail();
     var comment = new Comment();
 
-    Detail.findOne({_id : Mongo.ObjectID("58451fbb6a1cd18807c48b5f")}, function(err,docs){//req.params.detail_id
+    Detail.findOne({_id : Mongo.ObjectID(req.params.schedule_id)}, function(err,docs){//req.params.detail_id
         if(err) return console.log("detail err");
         if(!docs) return console.log("detail not find");
         detail = docs;
         Schedule.findOne({_id : Mongo.ObjectID(docs.scheduleID)},function(err,docs2){
-            if(err) return console.log("schedule err");;
+            if(err) return console.log("schedule err");
             if(!docs2) return console.log("schedule not find");
             author = docs2.author;
-            Comment.find({detail_id : Mongo.ObjectID("58451fbb6a1cd18807c48b5f")},function(err,docs3){//req.params.detail_id
+            Comment.find({detail_id : Mongo.ObjectID(req.params.schedule_id)},function(err,docs3){//req.params.detail_id
                 if(err) return console.log("comment err");
                 if(!docs3) return console.log("comment not find");
                 comment = docs3;

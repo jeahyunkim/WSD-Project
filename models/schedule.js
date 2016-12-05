@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+
 var schema = new Schema({
     'title' : String,
     'startDate' : Date,
@@ -11,6 +12,7 @@ var schema = new Schema({
     'recommend' : Number,
     'imageUrl' : String,
     'author' : String,
+    'writeDate' : String,
     'public' : Boolean
 });
 

@@ -24,7 +24,7 @@ var storage = multer.diskStorage({
 });
 
 var upload = multer({storage: storage}).single('photo');
-
+/*
 var schema = new Schema({
     'title' : String,
     'startDate' : Date,
@@ -40,6 +40,11 @@ var schema = new Schema({
 });
 
 var schedule = mongoose.model('schedule',schema);
+ */
+
+/* Get Models */
+var schedule_detail = require('../models/schedule_detail.js');
+var schedule = require('../models/schedule.js');
 
 
 /* GET home page. */
@@ -92,6 +97,7 @@ router.get('/list_detail/:schedule_id', function(req, res){
         if(err) console.log("Error!!");
         else{
             var dates = [];
+            var detail_id = [];
             var detail_check  = [];
             var detail_title = [];
             var detail_content = [];
@@ -105,6 +111,7 @@ router.get('/list_detail/:schedule_id', function(req, res){
                        for(var j =0; j < details.length; j++){
                                if(details[j].detailDate.toDateString() ===  new Date(date).toDateString()){
                                        detail_check[i] = true;
+                                       detail_id[i] = details[j]._id;
                                        detail_title[i] = details[j].title;
                                        detail_content[i] = details[j].contents;
                                        detail_pic[i] = details[j].pictureName;
@@ -113,8 +120,9 @@ router.get('/list_detail/:schedule_id', function(req, res){
                            }
                     date += (24 * 60 * 60 * 1000);
                 }
+                console.log(detail_id);
                 res.render('schedule_list_detail', { title: 'Schedule Detail', schedule: schedule, date_gap: date_gap, dates: dates,
-                    check:detail_check, detail_title: detail_title, detail_content: detail_content, detail_pic : detail_pic});
+                    check:detail_check, detail_title: detail_title, detail_content: detail_content, detail_pic : detail_pic, detail_id : detail_id});
             });
         }
     });
