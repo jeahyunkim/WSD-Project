@@ -9,6 +9,6 @@ var commentSchema = mongoose.Schema({
     detail_id : String,
     day : Date,
     content : String
-})
+});
 
 module.exports = mongoose.model('comment',commentSchema);
