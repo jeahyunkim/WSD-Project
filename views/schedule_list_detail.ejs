@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<%- include Header.ejs %>
+	<body class="smoothscroll enable-animation">
+
+		<!-- SLIDE TOP -->
+		<div id="slidetop">
+
+			<div class="container">
+				
+				<div class="row">
+
+					<div class="col-md-4">
+						<h6><i class="icon-heart"></i> WHY SMARTY?</h6>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
+					</div>
+
+					<div class="col-md-4">
+						<h6><i class="icon-attachment"></i> RECENTLY VISITED</h6>
+						<ul class="list-unstyled">
+							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very very very very very very very very </a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
+						</ul>
+					</div>
+
+					<div class="col-md-4">
+						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
+						<ul class="list-unstyled">
+							<li><b>Address:</b> PO Box 21132, Here Weare St, <br /> Melbourne, Vivas 2355 Australia</li>
+							<li><b>Phone:</b> 1-800-565-2390</li>
+							<li><b>Email:</b> <a href="mailto:support@yourname.com">support@yourname.com</a></li>
+						</ul>
+					</div>
+
+				</div>
+
+			</div>
+
+			<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
+
+		</div>
+		<!-- /SLIDE TOP -->
+
+
+		<!-- wrapper -->
+		<div id="wrapper">
+
+			<div id="header" class="sticky clearfix">
+
+				<!-- TOP NAV -->
+				<%- include TopNav.ejs %>
+				<!-- /Top Nav -->
+
+			</div>
+
+			<section class="page-header dark page-header-xs">
+				<div class="container">
+
+					<h1><%=schedule.title%></h1>
+
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb">
+						<li><a href="/">Home</a></li>
+						<li><a href="#">일정</a></li>
+						<li><a href="/schedule/list">일정 목록</a></li>
+						<li class="#"><%=schedule.title%></li>
+					</ol><!-- /breadcrumbs -->
+
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->
+
+
+
+
+			<!-- -->
+			<section>
+				<div class="container">
+					<!-- LEFT -->
+					<div class="col-md-9 col-sm-9">
+						<!-- TIMELINE -->
+
+						<div class="timeline"><!-- .timeline-inverse = right position [left on RTL] -->
+							<div class="timeline-hline"><!-- horizontal line --></div>
+
+							<% for(var i = 1; i <= date_gap; i++) {%>
+								<!-- POST ITEM -->
+								<div class="blog-post-item">
+
+									<!-- timeline entry -->
+									<div class="timeline-entry rounded"><!-- .rounded = entry -->
+										<!--29<span>Jun</span>-->
+										<span>Day</span><%=i%>
+										<div class="timeline-vline"><!-- vertical line --></div>
+									</div>
+									<!-- /timeline entry -->
+									<% if(check[i-1] == true) {%>
+										<!-- IMAGE -->
+										<figure class="margin-bottom-20">
+											<%if(detail_pic[i-1] != ''){%>
+												<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Not Found">
+												(<%=detail_pic[i-1]%>)
+											<%}else {%>
+												<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Sample Image">
+												(Sample Image)
+											<%}%>
+										</figure>
+										<h2><a href="#"><%=detail_title[i-1]%></a></h2>
+									<%} else {%>
+										<br><br>
+									<% } %>
+									<ul class="blog-post-info list-inline">
+										<li>
+											<a href="#">
+												<i class="fa fa-clock-o"></i>
+												<span class="font-lato"><%=dates[i-1]%></span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="fa fa-user"></i>
+												<span class="font-lato">John Doe</span>
+											</a>
+										</li>
+									</ul>
+
+									<% if(check[i-1] == true) {%>
+										<p><%=detail_content[i-1]%></p>
+										<a href="#" class="btn btn-reveal btn-default">
+											<i class="fa fa-book"></i>
+											<span>자세히 보기</span>
+										</a>
+									<%} else {%>
+										<a href="/detail/register?id=<%=schedule.id%>&date=<%=dates[i-1]%>" class="btn btn-reveal btn-default">
+											<i class="fa fa-plus"></i>
+											<span>작성 하기</span>
+										</a>
+									<% } %>
+								</div>
+								<!-- /POST ITEM -->
+							<% }%>
+
+						</div>
+						<!-- /TIMELINE -->
+					</div>
+
+					<!-- RIGHT -->
+					<div class="col-md-3 col-sm-3">
+
+
+						<!-- side navigation -->
+						<div class="side-nav margin-bottom-60 margin-top-30">
+
+							<div class="side-nav-head">
+								<button class="fa fa-bars"></button>
+								<h4><%=schedule.title%></h4>
+							</div>
+							<ul class="list-group list-group-bordered list-group-noicon uppercase">
+								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">지역 : </span> <%=schedule.location%></a></li>
+								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">세부지역 : </span> <%=schedule.detailLocation%></a></li>
+								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">설명 : </span> <%=schedule.description%></a></li>
+								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">시작날짜 : </span> <%=dates[0]%></a></li>
+								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">마지막 날짜 : </span> <%=dates[date_gap-1]%></a></li>
+							</ul>
+							<!-- /side navigation -->
+						</div>
+
+						<!-- TAGS -->
+						<h3 class="hidden-xs size-16 margin-bottom-20">TAGS</h3>
+						<div class="hidden-xs margin-bottom-60">
+
+							<a class="tag" href="#">
+								<span class="txt">RESPONSIVE</span>
+								<span class="num">12</span>
+							</a>
+							<a class="tag" href="#">
+								<span class="txt">CSS</span>
+								<span class="num">3</span>
+							</a>
+							<a class="tag" href="#">
+								<span class="txt">HTML</span>
+								<span class="num">1</span>
+							</a>
+							<a class="tag" href="#">
+								<span class="txt">JAVASCRIPT</span>
+								<span class="num">28</span>
+							</a>
+							<a class="tag" href="#">
+								<span class="txt">DESIGN</span>
+								<span class="num">6</span>
+							</a>
+							<a class="tag" href="#">
+								<span class="txt">DEVELOPMENT</span>
+								<span class="num">3</span>
+							</a>
+						</div>
+
+						<hr />
+						<!-- SOCIAL ICONS -->
+						<div class="hidden-xs margin-top-30 margin-bottom-60">
+							<a href="#" class="social-icon social-icon-border social-facebook pull-left" data-toggle="tooltip" data-placement="top" title="Facebook">
+								<i class="icon-facebook"></i>
+								<i class="icon-facebook"></i>
+							</a>
+
+							<a href="#" class="social-icon social-icon-border social-twitter pull-left" data-toggle="tooltip" data-placement="top" title="Twitter">
+								<i class="icon-twitter"></i>
+								<i class="icon-twitter"></i>
+							</a>
+
+							<a href="#" class="social-icon social-icon-border social-gplus pull-left" data-toggle="tooltip" data-placement="top" title="Google plus">
+								<i class="icon-gplus"></i>
+								<i class="icon-gplus"></i>
+							</a>
+
+							<a href="#" class="social-icon social-icon-border social-linkedin pull-left" data-toggle="tooltip" data-placement="top" title="Linkedin">
+								<i class="icon-linkedin"></i>
+								<i class="icon-linkedin"></i>
+							</a>
+
+							<a href="#" class="social-icon social-icon-border social-rss pull-left" data-toggle="tooltip" data-placement="top" title="Rss">
+								<i class="icon-rss"></i>
+								<i class="icon-rss"></i>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<!-- / -->
+
+
+
+
+			<!-- FOOTER -->
+			<%- include Footer.ejs %>
+			<!-- /FOOTER -->
+
+		</div>
+		<!-- /wrapper -->
+
+
+		<!-- SCROLL TO TOP -->
+		<a href="#" id="toTop"></a>
+
+
+		<!-- PRELOADER -->
+		<div id="preloader">
+			<div class="inner">
+				<span class="loader"></span>
+			</div>
+		</div><!-- /PRELOADER -->
+
+
+		<!-- JAVASCRIPT FILES -->
+		<!--<script type="text/javascript">var plugin_path = '/assets/plugins/';</script>-->
+		<script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+
+		<script type="text/javascript" src="/assets/js/scripts.js"></script>
+		
+		<!-- STYLESWITCHER - REMOVE -->
+		<script async type="text/javascript" src="/assets/plugins/styleswitcher/styleswitcher.js"></script>
+	</body>
+</html>

@@ -98,18 +98,18 @@
 	<section>
 		<div class="container">
 
-			<h1 class="blog-post-title"><%= blogtitle %></h1>
+			<h1 class="blog-post-title"><%= detail.title %></h1>
 			<ul class="blog-post-info list-inline">
 				<li>
 					<a href="#">
 						<i class="fa fa-clock-o"></i>
-						<span class="font-lato"><%= detailday %></span>
+						<span class="font-lato"><%= detail.detailDate %></span>
 					</a>
 				</li>
 				<li>
 					<a href="#">
 						<i class="fa fa-comment-o"></i>
-						<span class="font-lato"><%= comments.length %></span>
+						<span class="font-lato"><%= comment.length %></span>
 					</a>
 				</li>
 				<!--<li>
@@ -125,16 +125,16 @@
 				<li>
 					<a href="#">
 						<i class="fa fa-user"></i>
-						<span class="font-lato"><%= writer %></span>
+						<span class="font-lato"><%= author %></span>
 					</a>
 				</li>
 			</ul>
 
 			<!-- OWL SLIDER -->
 			<div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"items": 1, "autoPlay": 4500, "autoHeight": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
-				<% for(var i = 0; i < photos.length; i++){ %>
-				<a class ="lightbox" href="<%= photos[i] %>" data-plugin-options='{"type":"image"}' >
-					<img class="img-responsive" src="<%= photos[i] %>" alt="" />
+				<% for(var i = 0; i < detail.pictureName.length; i++){ %>
+				<a class ="lightbox" href="<%= detail.pictureName[i] %>" data-plugin-options='{"type":"image"}' >
+					<img class="img-responsive" src="<%= detail.pictureName[i] %>" alt="" />
 				</a>
 				<% } %>
 			</div>
@@ -158,7 +158,7 @@
 
 
 			<!-- article content -->
-			<p class="dropcap"><%= contents %></p>
+			<div><%= detail.contents %></div>
 			<!-- /article content -->
 
 
@@ -181,23 +181,22 @@
 			<div id="comments" class="comments">
 
 				<h4 class="page-header margin-bottom-60 size-20">
-					<span><%= comments.length %></span> COMMENTS
+					<span><%= comment.length %></span> COMMENTS
 				</h4>
-				<% for(var i = 0; i < comments.length; i++){ %>
+				<% if( comment.length > 0){%>
+				<% for(var i = 0; i < comment.length; i++){ %>
 				<!-- comment item -->
 				<div class="comment-item">
 					<!-- user-avatar -->
-					<span class="user-avatar">
-								<img class="pull-left media-object" src="<%= comments[i].commentavartar%>" width="64" height="64" alt="">
-							</span>
+
 
 					<div class="media-body">
-						<a href="#commentForm" class="scrollTo comment-reply">reply</a>
-						<h4 class="media-heading bold"><%= comments[i].commentwriter%></h4>
-						<small class="block"><%= comments[i].commentday%></small>
-						<%= comments[i].commentcontent%>
+						<h4 class="media-heading bold"><%= comment[i].user_id %></h4>
+						<small class="block"><%= comment[i].day%></small>
+						<%= comment[i].content%>
 					</div>
 				</div>
+				<% } %>
 				<% } %>
 
 				<h4 class="page-header size-20 margin-bottom-60 margin-top-100">
@@ -205,7 +204,7 @@
 				</h4>
 
 				<!-- Form -->
-				<form action="#" method="post">
+				<form action="/schedule/detail/comment/insert" method="post">
 					<div class="row">
 						<div class="form-group">
 							<div class="col-md-12">
@@ -222,6 +221,7 @@
 								<i class="fa fa-check"></i>
 								<span>SUBMIT MESSAGE</span>
 							</button>
+							<input type="hidden" name="detail_id" value="<%= detail._id %>" />
 
 						</div>
 					</div>

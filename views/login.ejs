@@ -236,16 +236,16 @@
 											<h2 class="size-20">Register</h2>
 										</div>
 
-										<form class="nomargin sky-form" action="#" method="post">
+										<form class="nomargin sky-form" action="/login/register" method="post">
 											<fieldset>
 
 												<div class="row">
 													<div class="form-group">
 														<div class="col-md-12">
-															<label for="register:last_name">Name</label>
+															<label for="register:last_name">Name *</label>
 															<label class="input margin-bottom-10">
 																<i class="ico-append fa fa-user"></i>
-																<input required="" type="text">
+																<input required="" type="text" name="userName">
 																<b class="tooltip tooltip-bottom-right">Your Name</b>
 															</label>
 														</div>
@@ -260,7 +260,7 @@
 															<label for="register:id">ID *</label>
 															<label class="input margin-bottom-10">
 																<i class="ico-append fa fa-envelope"></i>
-																<input required="" type="text">
+																<input required="" type="text" name="ID">
 																<b class="tooltip tooltip-bottom-right">Your ID</b>
 															</label>
 														</div>
@@ -276,7 +276,7 @@
 															<label for="register:pass1">Password *</label>
 															<label class="input margin-bottom-10">
 																<i class="ico-append fa fa-lock"></i>
-																<input required="" type="password" class="err">
+																<input required="" type="password" class="err" name="password">
 																<b class="tooltip tooltip-bottom-right">Min. 6 characters</b>
 															</label>
 														</div>
@@ -285,7 +285,7 @@
 															<label for="register:pass2">Password Again *</label>
 															<label class="input margin-bottom-10">
 																<i class="ico-append fa fa-lock"></i>
-																<input required="" type="password" class="err">
+																<input required="" type="password" class="err" name="passwordConfirm">
 																<b class="tooltip tooltip-bottom-right">Type the password again</b>
 															</label>
 														</div>
