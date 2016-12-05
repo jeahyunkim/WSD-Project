@@ -87,5 +87,37 @@ router.get('/list', function(req, res, next){
     });
 });
 
+router.get('/list_detail/:schedule_id', function(req, res){
+    schedule.findById(req.params.schedule_id, function (err, schedule) {
+        if(err) console.log("Error!!");
+        else{
+            var dates = [];
+            var detail_check  = [];
+            var detail_title = [];
+            var detail_content = [];
+            var detail_pic = [];
+            var date = new Date(schedule.startDate).getTime();
+            var date_gap = (schedule.endDate - schedule.startDate) / (60 * 60 * 24 * 1000) + 1;
+
+            schedule_detail.find({scheduleID: req.params.schedule_id }, function (err, details) {
+                for (var i = 0; i < date_gap; i++) {
+                    dates.push(new Date(date).toDateString());
+                       for(var j =0; j < details.length; j++){
+                               if(details[j].detailDate.toDateString() ===  new Date(date).toDateString()){
+                                       detail_check[i] = true;
+                                       detail_title[i] = details[j].title;
+                                       detail_content[i] = details[j].contents;
+                                       detail_pic[i] = details[j].pictureName;
+                                       break;
+                                   }
+                           }
+                    date += (24 * 60 * 60 * 1000);
+                }
+                res.render('schedule_list_detail', { title: 'Schedule Detail', schedule: schedule, date_gap: date_gap, dates: dates,
+                    check:detail_check, detail_title: detail_title, detail_content: detail_content, detail_pic : detail_pic});
+            });
+        }
+    });
+});
 
 module.exports = router;
