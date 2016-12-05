@@ -50,8 +50,8 @@ router.post('/add', function (req, res) {
     }
     imgNumber = 0;
     for (var i = 0; i < fileNumber; i++) {
-        var img = 'img' + imgNumber;
-        if (i != 0 && !req.files[img].name == '') {
+            var img = 'img' + imgNumber;
+            if (i != 0 && !req.files[img].name == '') {
             req.files[img].mv('/Temp/' + req.files[img].name, function (err) {
                 if (err) {
                     res.status(500).send(err);

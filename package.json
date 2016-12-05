@@ -6,12 +6,18 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "assert": "^1.4.1",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "ejs": "~2.5.2",
     "express": "~4.14.0",
+    "express-fileupload": "0.0.5",
+    "mongodb": "^2.2.12",
+    "mongoose": "~4.4.9",
     "morgan": "~1.7.0",
+    "multer": "^1.2.0",
+    "path": "^0.12.7",
     "serve-favicon": "~2.3.0"
   }
 }

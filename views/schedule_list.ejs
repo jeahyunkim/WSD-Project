@@ -35,36 +35,42 @@
     </div>
 
 
-    <section>
-        <div class="container">
+<section>
+    <div class="container">
 
-            <div id="blog" class="clearfix blog-isotope blog-isotope-3">
+        <div id="blog" class="clearfix blog-isotope blog-isotope-3">
 
-                <% for(var i = 0; i < scheduleList.length; i++) { %>
+
+            <% for(var i = 0; i < scheduleList.length; i++) { %>
+            <div class="blog-post-item">
+
+                <figure class="margin-bottom-20">
+                    <img class="img-responsive" src="/uploads/<%=scheduleList[i].imageUrl%>" alt="">
+                </figure>
+
+
+
+                <!-- POST ITEM -->
                 <div class="blog-post-item">
 
-                    <figure class="margin-bottom-20">
-                        <img class="img-responsive" src="/uploads/"+<%=scheduleList[i].imageUrl%> alt="">
-                    </figure>
-
-                    <h2><a href="blog-single-default.html"><%= scheduleList[i].title%></a></h2>
+                    <h2><a href="/schedule/list_detail/<%=scheduleList[i].id%>"><%=scheduleList[i].title%></a></h2>
 
                     <ul class="blog-post-info list-inline">
                         <li>
                             <a href="#">
                                 <i class="fa fa-clock-o"></i>
-                                <span class="font-lato"><%= scheduleList[i].writeDate%></span>
+                                <span class="font-lato">June 29, 2015</span>
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <i class="fa fa-comment-o"></i>
-                                <span class="font-lato"><%= scheduleList[i].recommend%></span>
+                                <span class="font-lato">28</span>
                             </a>
                         </li>
                     </ul>
 
-                    <p><%= scheduleList[i].description%></p>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable There are many.</p>
 
                     <button class="btn btn-reveal btn-default" data-toggle="modal" data-target=".bs-example-modal-full">
                         <i class="fa fa-plus"></i>
@@ -72,16 +78,18 @@
                     </button>
 
                 </div>
-                <% } %>
+                <!-- /POST ITEM -->
 
-            </div>
-
+            <% } %>
 
         </div>
-    </section>
+        </div>
+
+    </div>
+</section>
 
 
-    <%- include Footer.ejs %>
+<%- include Footer.ejs %>
 </div>
 
 <!-- JAVASCRIPT FILES -->
