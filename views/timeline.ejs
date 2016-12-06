@@ -27,14 +27,13 @@
 			<section class="page-header dark page-header-xs">
 				<div class="container">
 
-					<h1>TimeLine</h1>
+					<h1>Travel TimeLine</h1>
 
 					<!-- breadcrumbs -->
 					<ol class="breadcrumb">
 						<li><a href="/">Home</a></li>
-						<li><a href="#">일정</a></li><!--
-						<li><a href="/schedule/list">일정 목록</a></li>
-						<li class="#"></li>-->
+						<li><a href="#">TimeLine</a></li>
+						<li class="#"><%=order%></li>
 					</ol><!-- /breadcrumbs -->
 
 				</div>
@@ -48,81 +47,73 @@
 			<section>
 				<div class="container">
 					<!-- LEFT -->
-					<div class="col-md-9 col-sm-9">
+					<div class="col-md-12 col-sm-12" style="margin-top:-50px;margin-bottom:70px;">
+						<div class="row box-gradient box-teal">
+							<div class="col-md-3 col-sm-3" style="margin:20px; padding:10px;">
+								<i class="fa fa fa-pencil-square-o fa-4x"></i>
+								<h2 class="countTo font-raleway" data-speed="2000"><%=details.length%></h2>
+							</div>
+							<div class="col-md-3 col-sm-3" style="margin:20px;  padding:10px;">
+								<i class="fa fa-heart fa-4x"></i>
+								<h2 class="countTo font-raleway" data-speed="2000" id="total_heart">123</h2>
+							</div>
+							<div class="col-md-3 col-sm-3" style="margin:20px;  padding:10px;">
+								<i class="fa fa-comment fa-4x"></i>
+								<h2 class="countTo font-raleway" data-speed="2000" id="total_comment"><%=comments.length%></h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-10 col-sm-10">
 						<!-- TIMELINE -->
 						<div class="timeline"><!-- .timeline-inverse = right position [left on RTL] -->
 							<div class="timeline-hline"><!-- horizontal line --></div>
 
-							<!-- POST ITEM -->
-							<div class="blog-post-item" style="margin-bottom:20px; padding-bottom:20px;">
-								<!-- timeline entry -->
-								<div class="timeline-entry rounded"><!-- .rounded = entry -->
-									<a class="heart_icon" data-value="1" ><i id="i_1" class="fa fa-heart" ></i></a>
-									<span id="s_1" style="color:lightslategray">12</span>
-									<div class="timeline-vline"><!-- vertical line --></div>
-								</div>
-								<!-- /timeline entry -->
-								<!-- IMAGE -->
-								<figure class="margin-bottom-10">
-									<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Sample Image">
-								</figure>
-								<h2><a href="#">title</a></h2>
-								<ul class="blog-post-info list-inline">
-									<li>
-										<a href="#">
-											<i class="fa fa-comment-o"></i>
-											<span class="font-lato">123</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fa fa-clock-o"></i>
-											<span class="font-lato">2011.11.11</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fa fa-user"></i>
-											<span class="font-lato">John Doe</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-							<!-- /POST ITEM -->
+							<%for(var i =0; i < 10; i++){%>
+								<!-- POST ITEM -->
+								<div class="blog-post-item" style="margin-bottom:20px; padding-bottom:20px;">
+									<!-- timeline entry -->
+									<div class="timeline-entry rounded"><!-- .rounded = entry -->
+										<a class="heart_icon" data-value="<%=details[i].id%>" ><i id="i_<%=details[i].id%>" class="fa fa-heart" ></i></a>
+										<span id="s_<%=details[i].id%>" style="color:lightslategray">12</span>
+										<div class="timeline-vline"><!-- vertical line --></div>
+									</div>
+									<!-- /timeline entry -->
 
-							<!-- POST ITEM -->
-							<div class="blog-post-item">
-								<!-- timeline entry -->
-								<div class="timeline-entry rounded"><!-- .rounded = entry -->
-									<a class="heart_icon" data-value="2" ><i id="i_2" class="fa fa-heart" ></i></a>
-									<!--<span>12</span>-->
-									<span id="s_2" style="color:lightslategray">12</span>
-									<div class="timeline-vline"><!-- vertical line --></div>
+									<!-- IMAGE -->
+									<a href="/schedule/detail/<%=details[i].id%>">
+									<figure class="margin-bottom-10">
+										<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Sample Image">
+									</figure>
+									</a>
+									<h2><a href="/schedule/detail/<%=details[i].id%>"><%=details[i].title%></a></h2>
+									<ul class="blog-post-info list-inline">
+										<li>
+											<a href="#">
+												<i class="fa fa-comment-o"></i>
+												<span class="font-lato">123</span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="fa fa-clock-o"></i>
+												<span class="font-lato"><%=details[i].detailDate.toDateString()%></span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="fa fa-user"></i>
+												<span class="font-lato">John Doe</span>
+											</a>
+										</li>
+									</ul>
+									<% if(details[i].contents.length < 50 ) {%>
+										<%=details[i].contents%>
+									<%} else {%>
+										<%=(details[i].contents).substring(1,50)%>	...
+									<% } %>
 								</div>
-								<!-- /timeline entry -->
-								<!-- IMAGE -->
-								<figure class="margin-bottom-20">
-									<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Sample Image">
-									(Title)
-								</figure>
-								<h2><a href="#">title</a></h2>
-								<ul class="blog-post-info list-inline">
-									<li>
-										<a href="#">
-											<i class="fa fa-clock-o"></i>
-											<span class="font-lato">2011.11.11</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fa fa-user"></i>
-											<span class="font-lato">John Doe</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-							<!-- /POST ITEM -->
-
+								<!-- /POST ITEM -->
+							<% }%>
 
 						</div>
 						<!-- /TIMELINE -->
@@ -168,6 +159,8 @@
 					if(!$("#i_" +  content_id).hasClass("after_heart")) {
 						$("#i_" + content_id).addClass("after_heart");
 						$("#s_" + content_id).text($("#s_" + content_id).text() * 1 + 1);
+						$("#s_" + content_id).css("color", "red");
+						$("#total_heart").text($("#total_heart").text() * 1 + 1);
 					}
 				});
 			});
