@@ -53,9 +53,15 @@
 								<i class="fa fa fa-pencil-square-o fa-4x"></i>
 								<h2 class="countTo font-raleway" data-speed="2000"><%=details.length%></h2>
 							</div>
+							<%
+								var total_recommends = 0;
+								for(var k=0; k < details.length; k++) {
+									total_recommends += details[k].recommend;
+								}
+							%>
 							<div class="col-md-3 col-sm-3" style="margin:20px;  padding:10px;">
 								<i class="fa fa-heart fa-4x"></i>
-								<h2 class="countTo font-raleway" data-speed="2000" id="total_heart">123</h2>
+								<h2 class="countTo font-raleway" data-speed="2000" id="total_heart"><%=total_recommends%></h2>
 							</div>
 							<div class="col-md-3 col-sm-3" style="margin:20px;  padding:10px;">
 								<i class="fa fa-comment fa-4x"></i>
@@ -69,12 +75,13 @@
 							<div class="timeline-hline"><!-- horizontal line --></div>
 
 							<%for(var i =0; i < 10; i++){%>
+
 								<!-- POST ITEM -->
 								<div class="blog-post-item" style="margin-bottom:20px; padding-bottom:20px;">
 									<!-- timeline entry -->
 									<div class="timeline-entry rounded"><!-- .rounded = entry -->
 										<a class="heart_icon" data-value="<%=details[i].id%>" ><i id="i_<%=details[i].id%>" class="fa fa-heart" ></i></a>
-										<span id="s_<%=details[i].id%>" style="color:lightslategray">12</span>
+										<span id="s_<%=details[i].id%>" style="color:lightslategray"><%=details[i].recommend%></span>
 										<div class="timeline-vline"><!-- vertical line --></div>
 									</div>
 									<!-- /timeline entry -->
@@ -87,12 +94,6 @@
 									</a>
 									<h2><a href="/schedule/detail/<%=details[i].id%>"><%=details[i].title%></a></h2>
 									<ul class="blog-post-info list-inline">
-										<li>
-											<a href="#">
-												<i class="fa fa-comment-o"></i>
-												<span class="font-lato">123</span>
-											</a>
-										</li>
 										<li>
 											<a href="#">
 												<i class="fa fa-clock-o"></i>
@@ -154,14 +155,24 @@
 		<script>
 			$(document).ready(function (){
 				$(".heart_icon").click(function(event){
-					//event.preventDefault();
-					var content_id = $(this).data("value");
-					if(!$("#i_" +  content_id).hasClass("after_heart")) {
-						$("#i_" + content_id).addClass("after_heart");
-						$("#s_" + content_id).text($("#s_" + content_id).text() * 1 + 1);
-						$("#s_" + content_id).css("color", "red");
-						$("#total_heart").text($("#total_heart").text() * 1 + 1);
-					}
+						//event.preventDefault();
+						var content_id = $(this).data("value");
+						if(!$("#i_" +  content_id).hasClass("after_heart")) {
+							$.ajax({
+								type:"POST",
+								url:"/timeline/heart",
+								data: { id: content_id},
+								success:function(data){
+									$("#i_" + content_id).addClass("after_heart");
+									$("#s_" + content_id).text($("#s_" + content_id).text() * 1 + 1);
+									$("#s_" + content_id).css("color", "red");
+									$("#total_heart").text($("#total_heart").text() * 1 + 1);
+								},
+								error:function(e){
+									alert(e.responseText);
+								}
+							});
+						}
 				});
 			});
 		</script>

@@ -18,18 +18,28 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/recommend', function(req, res, next) {
-  schedule_detail.find({}).sort({detailDate: 'desc'}).exec(function(err, details){
+  schedule_detail.find({}).sort({recommend: 'desc'}).exec(function(err, details){
     comment.find({},function (err, comments) {
       res.render('timeline', { title: 'Time Line', order: 'Recommend', details: details, comments: comments });
     });
   });
 });
+
 router.get('/comments', function(req, res, next) {
   schedule_detail.find({}).sort({detailDate: 'desc'}).exec(function(err, details){
     comment.find({},function (err, comments) {
       res.render('timeline', { title: 'Time Line', order: 'Comments', details: details, comments: comments });
     });
   });
+});
+
+// heart ajax code
+router.post('/heart', function(req, res, next) {
+  schedule_detail.findById(req.body.id, function (err, result) {
+    result.recommend +=1;
+    result.save();
+  });
+  res.send({'result': true});
 });
 
 module.exports = router;
