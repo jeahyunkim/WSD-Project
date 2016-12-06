@@ -4,18 +4,31 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var MongoDBStore = require('connect-mongodb-session')(session);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var make_plan = require('./routes/make_plan');
 var schedule = require('./routes/schedule');
 var detail_schedule = require('./routes/detail_schedule');
+var mypage = require('./routes/mypage');
+
 var mongoose = require('mongoose');
 var connection = mongoose.connect('mongodb://52.78.124.66:27017/triptter');
 
 var make_detail = require('./routes/make_detail');
 // var fileUpload = require('express-fileupload');
 var app = express();
+
+var store = new MongoDBStore({
+  uri: "mongodb://52.78.124.66:27017/triptter",
+  collection: 'Sessions'
+});
+store.on('error', function(error){
+  assert.ifError(error),
+      assert.ok(false)
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +44,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'WSD-Project',
+  resave: false,
+  store: store,
+  saveUninitialized: false
+}));
+
 // app.use(fileUpload());
 app.use('/', index);
 app.use('/users', users);
@@ -38,6 +58,7 @@ app.use('/plan', make_plan);
 app.use('/schedule',schedule);
 app.use('/detail',make_detail);
 app.use('/schedule/detail',detail_schedule);
+app.use('/mypage',mypage);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

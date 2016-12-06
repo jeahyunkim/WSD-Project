@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<%- include Header.ejs %>
+<body class="smoothscroll enable-animation">
+
+<!-- SLIDE TOP -->
+<div id="slidetop">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <h6><i class="icon-heart"></i> WHY SMARTY?</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
+            </div>
+
+            <div class="col-md-4">
+                <h6><i class="icon-attachment"></i> RECENTLY VISITED</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very very very very very very very very </a></li>
+                    <li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <h6><i class="icon-envelope"></i> CONTACT INFO</h6>
+                <ul class="list-unstyled">
+                    <li><b>Address:</b> PO Box 21132, Here Weare St, <br /> Melbourne, Vivas 2355 Australia</li>
+                    <li><b>Phone:</b> 1-800-565-2390</li>
+                    <li><b>Email:</b> <a href="mailto:support@yourname.com">support@yourname.com</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <a class="slidetop-toggle" href="#"><!-- toggle button --></a>
+
+</div>
+<!-- /SLIDE TOP -->
+
+
+<!-- wrapper -->
+<div id="wrapper">
+
+
+
+    <!--
+        AVAILABLE HEADER CLASSES
+
+        Default nav height: 96px
+        .header-md 		= 70px nav height
+        .header-sm 		= 60px nav height
+
+        .noborder 		= remove bottom border (only with transparent use)
+        .transparent	= transparent header
+        .translucent	= translucent header
+        .sticky			= sticky header
+        .static			= static header
+        .dark			= dark header
+        .bottom			= header on bottom
+
+        shadow-before-1 = shadow 1 header top
+        shadow-after-1 	= shadow 1 header bottom
+        shadow-before-2 = shadow 2 header top
+        shadow-after-2 	= shadow 2 header bottom
+        shadow-before-3 = shadow 3 header top
+        shadow-after-3 	= shadow 3 header bottom
+
+        .clearfix		= required for mobile menu, do not remove!
+
+        Example Usage:  class="clearfix sticky header-sm transparent noborder"
+    -->
+    <div id="header" class="sticky clearfix">
+
+        <!-- TOP NAV -->
+        <%- include TopNav.ejs %>
+        <!-- /Top Nav -->
+
+    </div>
+
+
+    <!--
+        PAGE HEADER
+
+        CLASSES:
+            .page-header-xs	= 20px margins
+            .page-header-md	= 50px margins
+            .page-header-lg	= 80px margins
+            .page-header-xlg= 130px margins
+            .dark			= dark page header
+
+            .shadow-before-1 	= shadow 1 header top
+            .shadow-after-1 	= shadow 1 header bottom
+            .shadow-before-2 	= shadow 2 header top
+            .shadow-after-2 	= shadow 2 header bottom
+            .shadow-before-3 	= shadow 3 header top
+            .shadow-after-3 	= shadow 3 header bottom
+    -->
+    <section class="page-header page-header-xs dark">
+        <div class="container">
+
+            <h1>MyPage</h1>
+
+            <!-- breadcrumbs -->
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Pages</a></li>
+                <li class="active">Login</li>
+            </ol><!-- /breadcrumbs -->
+
+            <!-- page tabs -->
+            <ul class="page-header-tabs list-inline">
+                <li class="active"><a href="#login" data-toggle="tab">MyPost</a></li>
+                <li><a href="#register" data-toggle="tab">BookMark</a></li>
+            </ul><!-- /page tabs -->
+
+        </div>
+    </section>
+    <!-- /PAGE HEADER -->
+
+
+
+
+    <!-- -->
+    <section>
+        <div class="container">
+
+
+            <div class="tab-content clearfix blog-isotope blog-isotope-3">
+                <!-- LOGIN -->
+                <div class="tab-pane fade in active">
+                    <div class="row">
+                        <div id="blog" class="clearfix blog-isotope blog-isotope-3">
+
+
+                            <% for(var i = 0; i < scheduleList.length; i++) { %>
+
+
+                            <!-- POST ITEM -->
+                            <div class="blog-post-item">
+                                <figure class="margin-bottom-20">
+                                    <img class="img-responsive" src="/uploads/<%=scheduleList[i].imageUrl%>" alt="">
+                                </figure>
+
+                                <h2><a href="/schedule/list_detail/<%=scheduleList[i].id%>"><%=scheduleList[i].title%></a></h2>
+
+                                <ul class="blog-post-info list-inline">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-clock-o"></i>
+                                            <span class="font-lato"><%= scheduleList[i].writeDate%></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-comment-o"></i>
+                                            <span class="font-lato"><%= scheduleList[i].recommend%></span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <p><%= scheduleList[i].description%></p>
+
+                                <a href="/schedule/list_detail/<%=scheduleList[i].id%>" class="btn btn-reveal btn-default" data-toggle="modal">
+                                    <i class="fa fa-plus"></i>
+                                    <span>Read More</span>
+                                </a>
+
+                            </div>
+                            <!-- /POST ITEM -->
+
+
+
+
+                            <% } %>
+                        </div>
+                    </div>
+                </div><!-- /LOGIN -->
+
+                <!-- REGISTER -->
+                <div class="tab-pane fade">
+                    <div class="row">
+                        <div id="blog" class="clearfix blog-isotope blog-isotope-3">
+
+
+                            <% for(var i = 0; i < scheduleList.length; i++) { %>
+
+
+                            <!-- POST ITEM -->
+                            <div class="blog-post-item">
+                                <figure class="margin-bottom-20">
+                                    <img class="img-responsive" src="/uploads/<%=scheduleList[i].imageUrl%>" alt="">
+                                </figure>
+
+                                <h2><a href="/schedule/list_detail/<%=scheduleList[i].id%>"><%=scheduleList[i].title%></a></h2>
+
+                                <ul class="blog-post-info list-inline">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-clock-o"></i>
+                                            <span class="font-lato"><%= scheduleList[i].writeDate%></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-comment-o"></i>
+                                            <span class="font-lato"><%= scheduleList[i].recommend%></span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <p><%= scheduleList[i].description%></p>
+
+                                <a href="/schedule/list_detail/<%=scheduleList[i].id%>" class="btn btn-reveal btn-default" data-toggle="modal">
+                                    <i class="fa fa-plus"></i>
+                                    <span>Read More</span>
+                                </a>
+
+                            </div>
+                            <!-- /POST ITEM -->
+
+
+
+
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <!-- /REGISTER -->
+
+            </div>
+
+        </div>
+    </section>
+    <!-- / -->
+
+
+
+
+
+
+
+
+    <!-- FOOTER -->
+    <%- include Footer.ejs %>
+    <!-- /FOOTER -->
+
+</div>
+<!-- /wrapper -->
+
+
+<!-- SCROLL TO TOP -->
+<a href="#" id="toTop"></a>
+
+
+<!-- PRELOADER -->
+<div id="preloader">
+    <div class="inner">
+        <span class="loader"></span>
+    </div>
+</div><!-- /PRELOADER -->
+
+
+<!-- JAVASCRIPT FILES -->
+<script type="text/javascript">var plugin_path = '/assets/plugins/';</script>
+<script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/scripts.js"></script>
+
+<!-- STYLESWITCHER - REMOVE -->
+<script async type="text/javascript" src="/assets/plugins/styleswitcher/styleswitcher.js"></script>
+
+<!-- PAGE LEVEL SCRIPTS -->
+<script type="text/javascript">
+
+    /**
+     Checkbox on "I agree" modal Clicked!
+     **/
+    jQuery("#terms-agree").click(function(){
+        jQuery('#termsModal').modal('toggle');
+
+        // Check Terms and Conditions checkbox if not already checked!
+        if(!jQuery("#checked-agree").checked) {
+            jQuery("input.checked-agree").prop('checked', true);
+        }
+
+    });
+</script>
+</body>
+</html>

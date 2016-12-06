@@ -133,7 +133,21 @@
 
 
 					<div class="tab-content">
-
+						<% if(loginFail == true){%>
+						<div class="alert alert-mini alert-danger margin-bottom-30 col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+							<strong>Oh snap!</strong> Login Incorrect!
+						</div>
+						<% } %>
+						<% if(registerSuc == true){%>
+						<div class="alert alert-mini alert-danger margin-bottom-30 col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+							<strong>Oh!</strong> Register Success!
+						</div>
+						<% } %>
+						<% if(registerFail == true){%>
+						<div class="alert alert-mini alert-danger margin-bottom-30 col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+							<strong>Oh snap!</strong> Register Password do not match!
+						</div><!-- /ALERT -->
+						<% } %>
 						<!-- LOGIN -->
 						<div class="tab-pane fade in active" id="login">
 
@@ -141,9 +155,7 @@
 								<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
 
 									<!-- ALERT -->
-									<div class="alert alert-mini alert-danger margin-bottom-30">
-										<strong>Oh snap!</strong> Login Incorrect!
-									</div>
+
 									<!-- /ALERT -->
 
 									<div class="box-static box-transparent box-bordered padding-30">
@@ -151,7 +163,7 @@
 											<h2 class="size-20">Login</h2>
 										</div>
 
-										<form class="sky-form" method="post" action="#" autocomplete="off">
+										<form class="sky-form" method="post" action="/login" autocomplete="off">
 											<div class="clearfix">
 
 												<!-- Email -->
@@ -159,7 +171,7 @@
 													<label>ID</label>
 													<label class="input margin-bottom-10">
 														<i class="ico-append fa fa-envelope"></i>
-														<input required="" type="text">
+														<input required="" type="text" name="user_id">
 														<b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
 													</label>
 												</div>
@@ -169,7 +181,7 @@
 													<label>Password</label>
 													<label class="input margin-bottom-10">
 														<i class="ico-append fa fa-lock"></i>
-														<input required="" type="password">
+														<input required="" type="password" name="user_pw">
 														<b class="tooltip tooltip-bottom-right">Type your account password</b>
 													</label>
 												</div>
@@ -189,7 +201,7 @@
 
 												<div class="col-md-6 col-sm-6 col-xs-6 text-right">
 
-													<button class="btn btn-primary"><i class="fa fa-check"></i> LOGIN</button>
+													<button class="btn btn-primary" name="but" value="LOGIN"><i class="fa fa-check"></i> LOGIN</button>
 
 												</div>
 
@@ -226,9 +238,6 @@
 								<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
 
 									<!-- ALERT -->
-									<div class="alert alert-mini alert-danger margin-bottom-30">
-										<strong>Oh snap!</strong> Password do not match!
-									</div><!-- /ALERT -->
 
 									<div class="box-static box-transparent box-bordered padding-30">
 
@@ -236,7 +245,7 @@
 											<h2 class="size-20">Register</h2>
 										</div>
 
-										<form class="nomargin sky-form" action="/login/register" method="post">
+										<form class="nomargin sky-form" action="/login" method="post">
 											<fieldset>
 
 												<div class="row">
@@ -298,7 +307,7 @@
 											<hr />
 											<div class="row">
 												<div class="col-md-12">
-													<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> REGISTER</button>
+													<button type="submit" class="btn btn-primary" name="but" value="REGISTER"><i class="fa fa-check"></i> REGISTER</button>
 												</div>
 											</div>
 
