@@ -99,6 +99,7 @@
 									<% if(check[i-1] == true) {%>
 										<!-- IMAGE -->
 										<figure class="margin-bottom-20">
+											<a href="/schedule/detail/<%=detail_id[i-1]%>">
 											<%if(detail_pic[i-1] != ''){%>
 												<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Not Found">
 												(<%=detail_pic[i-1]%>)
@@ -106,8 +107,9 @@
 												<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Sample Image">
 												(Sample Image)
 											<%}%>
+											</a>
 										</figure>
-										<h2><a href="#"><%=detail_title[i-1]%></a></h2>
+										<h2><a href="/schedule/detail/<%=detail_id[i-1]%>"><%=detail_title[i-1]%></a></h2>
 									<%} else {%>
 										<br><br>
 									<% } %>

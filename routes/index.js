@@ -14,11 +14,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/timeline', function(req, res, next) {
-  res.render('timeline', { title: 'Express' });
-});
-
-
 router.get('/login', function(req, res, next) {
   if(req.session.userInfo != null) {
     res.redirect('/');

@@ -6,6 +6,7 @@ var detailSchema = new Schema({
     title: String,
     contents: String,
     detailDate: Date,
+    recommend: { type: Number, default: 0 },
     commentID: [String],
     pictureName: [String]
 });

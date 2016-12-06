@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <%- include Header.ejs %>
 <style>
-	#heart_icon {
+	.heart_icon {
 		color: black;
 	}
-	#heart_icon:hover {
+	.heart_icon:hover {
 		color: red;
 	}
 	.after_heart {
@@ -54,53 +54,56 @@
 							<div class="timeline-hline"><!-- horizontal line --></div>
 
 							<!-- POST ITEM -->
-								<div class="blog-post-item">
-									<!-- timeline entry -->
-									<div class="timeline-entry rounded"><!-- .rounded = entry -->
-										<a href="#" id="heart_icon" ><i class="fa fa-heart" ></i></a>
-										<!--<span>12</span>-->
-										<span style="color:lightslategray">12</span>
-										<div class="timeline-vline"><!-- vertical line --></div>
-									</div>
-									<!-- /timeline entry -->
-										<!-- IMAGE -->
-										<figure class="margin-bottom-20">
-												<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Sample Image">
-												(Title)
-										</figure>
-										<h2><a href="#">title</a></h2>
-									<ul class="blog-post-info list-inline">
-										<li>
-											<a href="#">
-												<i class="fa fa-clock-o"></i>
-												<span class="font-lato">2011.11.11</span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="fa fa-user"></i>
-												<span class="font-lato">John Doe</span>
-											</a>
-										</li>
-									</ul>
-									asdf
+							<div class="blog-post-item" style="margin-bottom:20px; padding-bottom:20px;">
+								<!-- timeline entry -->
+								<div class="timeline-entry rounded"><!-- .rounded = entry -->
+									<a class="heart_icon" data-value="1" ><i id="i_1" class="fa fa-heart" ></i></a>
+									<span id="s_1" style="color:lightslategray">12</span>
+									<div class="timeline-vline"><!-- vertical line --></div>
 								</div>
+								<!-- /timeline entry -->
+								<!-- IMAGE -->
+								<figure class="margin-bottom-10">
+									<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Sample Image">
+								</figure>
+								<h2><a href="#">title</a></h2>
+								<ul class="blog-post-info list-inline">
+									<li>
+										<a href="#">
+											<i class="fa fa-comment-o"></i>
+											<span class="font-lato">123</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fa fa-clock-o"></i>
+											<span class="font-lato">2011.11.11</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fa fa-user"></i>
+											<span class="font-lato">John Doe</span>
+										</a>
+									</li>
+								</ul>
+							</div>
 							<!-- /POST ITEM -->
 
 							<!-- POST ITEM -->
 							<div class="blog-post-item">
 								<!-- timeline entry -->
 								<div class="timeline-entry rounded"><!-- .rounded = entry -->
-									<a href="#" id="heart_icon" ><i class="fa fa-heart" ></i></a>
+									<a class="heart_icon" data-value="2" ><i id="i_2" class="fa fa-heart" ></i></a>
 									<!--<span>12</span>-->
-									<span style="color:lightslategray">12</span>
+									<span id="s_2" style="color:lightslategray">12</span>
 									<div class="timeline-vline"><!-- vertical line --></div>
 								</div>
 								<!-- /timeline entry -->
 								<!-- IMAGE -->
 								<figure class="margin-bottom-20">
 									<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Sample Image">
-									(Sample Image)
+									(Title)
 								</figure>
 								<h2><a href="#">title</a></h2>
 								<ul class="blog-post-info list-inline">
@@ -119,6 +122,7 @@
 								</ul>
 							</div>
 							<!-- /POST ITEM -->
+
 
 						</div>
 						<!-- /TIMELINE -->
@@ -156,6 +160,17 @@
 		<script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 
 		<script type="text/javascript" src="/assets/js/scripts.js"></script>
-
+		<script>
+			$(document).ready(function (){
+				$(".heart_icon").click(function(event){
+					//event.preventDefault();
+					var content_id = $(this).data("value");
+					if(!$("#i_" +  content_id).hasClass("after_heart")) {
+						$("#i_" + content_id).addClass("after_heart");
+						$("#s_" + content_id).text($("#s_" + content_id).text() * 1 + 1);
+					}
+				});
+			});
+		</script>
 	</body>
 </html>
