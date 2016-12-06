@@ -10,6 +10,7 @@ var comment = require('../models/comment.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log(req.session.userInfo.user_id);
   schedule_detail.find({}).sort({detailDate: 'desc'}).exec(function(err, details){
     comment.find({},function (err, comments) {
       res.render('timeline', { title: 'Time Line', order: 'Date', details: details, comments: comments });
@@ -36,7 +37,11 @@ router.get('/comments', function(req, res, next) {
 // heart ajax code
 router.post('/heart', function(req, res, next) {
   schedule_detail.findById(req.body.id, function (err, result) {
+    console.log(result);
     result.recommend +=1;
+    if(req.session.userInfo.user_id != null) {
+      result.recommendID.push(req.session.userInfo.user_id);
+    }
     result.save();
   });
   res.send({'result': true});
