@@ -14,7 +14,7 @@ var schedule = require('./routes/schedule');
 var detail_schedule = require('./routes/detail_schedule');
 var mypage = require('./routes/mypage');
 var timeline = require('./routes/timeline');
-
+var search = require('./routes/search_plan');
 var mongoose = require('mongoose');
 var connection = mongoose.connect('mongodb://52.78.124.66:27017/triptter');
 
@@ -55,6 +55,7 @@ app.use(session({
 // app.use(fileUpload());
 
 app.use('/', index);
+app.use('/search',search);
 app.use('/users', users);
 app.use('/plan', make_plan);
 app.use('/schedule',schedule);
