@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var MongoDBStore = require('connect-mongodb-session')(session);
-
+var fileUpload = require('express-fileupload');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var make_plan = require('./routes/make_plan');
@@ -19,7 +19,7 @@ var mongoose = require('mongoose');
 var connection = mongoose.connect('mongodb://52.78.124.66:27017/triptter');
 
 var make_detail = require('./routes/make_detail');
-// var fileUpload = require('express-fileupload');
+
 var app = express();
 
 var store = new MongoDBStore({
@@ -42,7 +42,7 @@ app.set('port', process.env.PORT || 9000);
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
@@ -53,15 +53,16 @@ app.use(session({
 }));
 
 // app.use(fileUpload());
+
 app.use('/', index);
 app.use('/users', users);
 app.use('/plan', make_plan);
 app.use('/schedule',schedule);
-app.use('/detail',make_detail);
 app.use('/schedule/detail',detail_schedule);
 app.use('/mypage',mypage);
 app.use('/timeline',timeline);
-
+app.use(fileUpload());
+app.use('/detail',make_detail);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -81,7 +82,6 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
 
 //Create Server
 var server = app.listen(app.get('port'), function(){

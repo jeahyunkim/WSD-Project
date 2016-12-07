@@ -1,9 +1,14 @@
+
 var express = require('express');
 var mongoose = require('mongoose');
 var router = express.Router();
+// default options
+
 
 /* Get Models */
 var schedule_detail = require('../models/schedule_detail.js');
+
+
 
 var imgNumber = 0;
 
@@ -18,6 +23,7 @@ router.post('/add', function (req, res) {
     var fileNumber = 0;
     for (x in req.files) {
         fileNumber++;
+        console.log("file Number : "+fileNumber);
     }
 
     detail.scheduleID = req.body.schedule_id;
@@ -52,8 +58,9 @@ router.post('/add', function (req, res) {
     for (var i = 0; i < fileNumber; i++) {
             var img = 'img' + imgNumber;
             if (i != 0 && !req.files[img].name == '') {
-            req.files[img].mv('/Temp/' + req.files[img].name, function (err) {
+            req.files[img].mv(process.cwd()+'/public/uploads/' + req.files[img].name, function (err) {
                 if (err) {
+                    console.log("file not upload");
                     res.status(500).send(err);
                 }
             });
