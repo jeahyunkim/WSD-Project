@@ -73,14 +73,21 @@
 						<!-- TIMELINE -->
 						<div class="timeline"><!-- .timeline-inverse = right position [left on RTL] -->
 							<div class="timeline-hline"><!-- horizontal line --></div>
-
 							<%for(var i =0; i < 10; i++){%>
-
 								<!-- POST ITEM -->
 								<div class="blog-post-item" style="margin-bottom:20px; padding-bottom:20px;">
 									<!-- timeline entry -->
 									<div class="timeline-entry rounded"><!-- .rounded = entry -->
-										<a class="heart_icon" data-value="<%=details[i].id%>" ><i id="i_<%=details[i].id%>" class="fa fa-heart" ></i></a>
+										<%
+											var check_heart = "";
+											for(var t=0; t < details[i].recommendID.length; t++ ) {
+												if(details[i].recommendID[t] == user){
+													check_heart = "after_heart"
+													break;
+												}
+											}
+										%>
+										<a class="heart_icon" data-value="<%=details[i].id%>" ><i id="i_<%=details[i].id%>" class="fa fa-heart <%=check_heart%>" ></i></a>
 										<span id="s_<%=details[i].id%>" style="color:lightslategray"><%=details[i].recommend%></span>
 										<div class="timeline-vline"><!-- vertical line --></div>
 									</div>
