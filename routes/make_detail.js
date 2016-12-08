@@ -58,7 +58,7 @@ router.post('/add', function (req, res) {
     for (var i = 0; i < fileNumber; i++) {
             var img = 'img' + imgNumber;
             if (i != 0 && !req.files[img].name == '') {
-            req.files[img].mv(process.cwd()+'/public/uploads/detail' + req.files[img].name, function (err) {
+            req.files[img].mv(process.cwd()+'/public/uploads/detail/' + req.files[img].name, function (err) {
                 if (err) {
                     console.log("file not upload");
                     res.status(500).send(err);

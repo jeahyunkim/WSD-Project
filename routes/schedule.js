@@ -12,6 +12,7 @@ var router = express.Router();
 var storage = multer.diskStorage({
     destination: function (request, file, callback) {
         console.log(process.cwd());
+        console.log(path.join(process.cwd()+'/public/uploads/'));
         callback(null, path.join(process.cwd()+'/public/uploads/'));
     },
     filename: function (request, file, callback) {
