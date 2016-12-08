@@ -73,17 +73,19 @@
 						<!-- TIMELINE -->
 						<div class="timeline"><!-- .timeline-inverse = right position [left on RTL] -->
 							<div class="timeline-hline"><!-- horizontal line --></div>
-							<%for(var i =0; i < 10; i++){%>
+							<%for(var i =0; i < details.length; i++){%>
 								<!-- POST ITEM -->
 								<div class="blog-post-item" style="margin-bottom:20px; padding-bottom:20px;">
 									<!-- timeline entry -->
 									<div class="timeline-entry rounded"><!-- .rounded = entry -->
 										<%
 											var check_heart = "";
-											for(var t=0; t < details[i].recommendID.length; t++ ) {
-												if(details[i].recommendID[t] == user){
-													check_heart = "after_heart"
-													break;
+											if(details[i].recommendID != null){
+												for(var t=0; t < details[i].recommendID.length; t++ ) {
+													if(details[i].recommendID[t] == user){
+														check_heart = "after_heart"
+														break;
+													}
 												}
 											}
 										%>
@@ -114,9 +116,9 @@
 											</a>
 										</li>
 									</ul>
-									<% if(details[i].contents.length < 50 ) {%>
+									<% if(details[i].contents != null && details[i].contents.length < 50 ) {%>
 										<%=details[i].contents%>
-									<%} else {%>
+									<%} else if(details[i].contents != null){%>
 										<%=(details[i].contents).substring(1,50)%>	...
 									<% } %>
 								</div>

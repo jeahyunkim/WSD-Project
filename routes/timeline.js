@@ -10,12 +10,15 @@ var comment = require('../models/comment.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    if(req.session.userInfo == null)  res.redirect('/login');
-  schedule_detail.find({}).sort({detailDate: 'desc'}).exec(function(err, details){
-    comment.find({},function (err, comments) {
-      res.render('timeline', { title: 'Time Line', order: 'Date', details: details, comments: comments, user: req.session.userInfo.user_id });
-    });
-  });
+    if(req.session.userInfo == null){
+        res.redirect('/login');
+    } else {
+      schedule_detail.find({}).sort({detailDate: 'desc'}).exec(function(err, details){
+        comment.find({},function (err, comments) {
+          res.render('timeline', { title: 'Time Line', order: 'Date', details: details, comments: comments, user: req.session.userInfo.user_id });
+        });
+      });
+    }
 });
 
 router.get('/recommend', function(req, res, next) {
