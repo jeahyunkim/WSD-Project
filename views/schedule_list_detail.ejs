@@ -113,12 +113,14 @@
 										<br><br>
 									<% } %>
 									<ul class="blog-post-info list-inline">
+										<%if(detail_recommend[i-1] != null){%>
 										<li>
 											<a href="#">
 												<i class="fa fa-heart-o"></i>
 												<span class="font-lato"><%=detail_recommend[i-1]%></span>
 											</a>
 										</li>
+										<%}%>
 										<li>
 											<a href="#">
 												<i class="fa fa-clock-o"></i>
