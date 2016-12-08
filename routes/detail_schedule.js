@@ -45,14 +45,23 @@ router.post('/comment/insert',function(req,res,next){
         'content' : req.body.comment,
         'detail_id' : req.body.detail_id,
         'day' : new Date().toDateString()
-    })
-    comment.save(function(err,silence){
+    });
+
+
+
+
+    comment.save(function(err,comment){
         if(err){
             console.log(err);
             res.status(500).send('update error');
             return;
+        } else {
+            Detail.findOne({_id: Mongo.ObjectID(req.body.detail_id)}, function (err, docs) {
+                docs.commentID.push(comment._id);
+                docs.save();
+            });
+            res.redirect('/schedule/detail/'+ req.body.detail_id);
         }
-        res.redirect('/schedule/detail/'+ req.body.detail_id);
     });
 })
 

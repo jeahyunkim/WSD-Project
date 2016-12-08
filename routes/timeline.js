@@ -37,7 +37,7 @@ router.get('/comments', function(req, res, next) {
     if(req.session.userInfo == null) {
         res.redirect('/login');
     } else {
-      schedule_detail.find({}).sort({detailDate: 'desc'}).exec(function(err, details){
+      schedule_detail.find({}).sort({}).exec(function(err, details){
         comment.find({},function (err, comments) {
           res.render('timeline', { title: 'Time Line', order: 'Comments', details: details, comments: comments, user: req.session.userInfo.user_id  });
         });
