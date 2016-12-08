@@ -14,7 +14,11 @@ router.get('/:schedule_id', function(req, res, next) {
     var author;
     var detail = new Detail();
     var comment = new Comment();
-
+    var isLogin;
+    if(req.session.userInfo != null) {
+        isLogin = true;
+    }else
+        isLogin = false;
     Detail.findOne({_id : Mongo.ObjectID(req.params.schedule_id)}, function(err,docs){//req.params.detail_id
         if(err) return console.log("detail err");
         if(!docs) return console.log("detail not find");
@@ -30,7 +34,8 @@ router.get('/:schedule_id', function(req, res, next) {
                 res.render('travel_plan_detail',{title: 'Express',
                     author : author,
                     detail : detail,
-                    comment : comment
+                    comment : comment,
+                    isLogin : isLogin
                 })
             });
         })

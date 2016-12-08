@@ -198,12 +198,13 @@
 				</div>
 				<% } %>
 				<% } %>
-
+				<% if(isLogin == true){%>
 				<h4 class="page-header size-20 margin-bottom-60 margin-top-100">
 					LEAVE A <span>COMMENT</span>
 				</h4>
 
 				<!-- Form -->
+
 				<form action="/schedule/detail/comment/insert" method="post">
 					<div class="row">
 						<div class="form-group">
@@ -227,6 +228,7 @@
 					</div>
 
 				</form>
+				<%}%>
 				<!-- /Form -->
 
 			</div>
