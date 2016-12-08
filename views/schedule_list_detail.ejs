@@ -100,9 +100,9 @@
 										<!-- IMAGE -->
 										<figure class="margin-bottom-20">
 											<a href="/schedule/detail/<%=detail_id[i-1]%>">
-											<%if(detail_pic[i-1] != ''){%>
+											<%if(detail_pic[i-1] != null){%>
 												<img class="img-responsive" src="/uploads/detail/<%=detail_pic[i-1][0]%>" alt="Not Found">
-											<%}else {%>
+											<%}else{%>
 												<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Sample Image">
 												(Sample Image)
 											<%}%>
@@ -128,7 +128,7 @@
 										<li>
 											<a href="#">
 												<i class="fa fa-user"></i>
-												<span class="font-lato">John Doe</span>
+												<span class="font-lato"><%=schedule.author%></span>
 											</a>
 										</li>
 									</ul>
@@ -139,7 +139,7 @@
 											<i class="fa fa-book"></i>
 											<span>자세히 보기</span>
 										</a>
-									<%} else {%>
+									<%} else if(login & user_id == schedule.author){%>
 										<a href="/detail/register?id=<%=schedule.id%>&date=<%=dates[i-1]%>" class="btn btn-reveal btn-default">
 											<i class="fa fa-plus"></i>
 											<span>작성 하기</span>
@@ -159,12 +159,12 @@
 
 						<!-- side navigation -->
 						<div class="side-nav margin-bottom-60 margin-top-30">
-
 							<div class="side-nav-head">
 								<button class="fa fa-bars"></button>
 								<h4><%=schedule.title%></h4>
 							</div>
 							<ul class="list-group list-group-bordered list-group-noicon uppercase">
+								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">작성자 : </span> <%=schedule.author%></a></li>
 								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">지역 : </span> <%=schedule.location%></a></li>
 								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">세부지역 : </span> <%=schedule.detailLocation%></a></li>
 								<li class="list-group-item"><a href="#"><span class="size-11 text-muted pull">설명 : </span> <%=schedule.description%></a></li>

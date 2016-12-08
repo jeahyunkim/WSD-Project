@@ -85,7 +85,7 @@ router.post('/add', function(req, res, next) {
 });
 
 router.get('/list', function(req, res, next){
-    schedule.find({author:' '},function (err, result) {
+    schedule.find({},function (err, result) {
         assert.equal(err,null);
         res.render('schedule_list', { title: 'Express' ,scheduleList: result});
     });
@@ -104,26 +104,36 @@ router.get('/list_detail/:schedule_id', function(req, res){
             var detail_pic = [];
             var date = new Date(schedule.startDate).getTime();
             var date_gap = (schedule.endDate - schedule.startDate) / (60 * 60 * 24 * 1000) + 1;
+                schedule_detail.find({scheduleID: req.params.schedule_id}, function (err, details) {
+                    for (var i = 0; i < date_gap; i++) {
+                        dates.push(new Date(date).toDateString());
+                        for (var j = 0; j < details.length; j++) {
+                            if (details[j].detailDate.toDateString() === new Date(date).toDateString()) {
+                                detail_check[i] = true;
+                                detail_id[i] = details[j]._id;
+                                detail_title[i] = details[j].title;
+                                detail_content[i] = details[j].contents;
+                                detail_pic[i] = details[j].pictureName;
+                                detail_recommend[i] = details[j].recommend;
+                                break;
+                            }
+                        }
+                        date += (24 * 60 * 60 * 1000);
+                    }
+                    res.render('schedule_list_detail', {
+                        title: 'Schedule Detail',
+                        schedule: schedule,
+                        date_gap: date_gap,
+                        dates: dates,
+                        check: detail_check,
+                        detail_title: detail_title,
+                        detail_content: detail_content,
+                        detail_pic: detail_pic,
+                        detail_id: detail_id,
+                        detail_recommend: detail_recommend
+                    });
+                });
 
-            schedule_detail.find({scheduleID: req.params.schedule_id }, function (err, details) {
-                for (var i = 0; i < date_gap; i++) {
-                    dates.push(new Date(date).toDateString());
-                       for(var j =0; j < details.length; j++){
-                               if(details[j].detailDate.toDateString() ===  new Date(date).toDateString()){
-                                       detail_check[i] = true;
-                                       detail_id[i] = details[j]._id;
-                                       detail_title[i] = details[j].title;
-                                       detail_content[i] = details[j].contents;
-                                       detail_pic[i] = details[j].pictureName;
-                                       detail_recommend[i] = details[j].recommend;
-                                       break;
-                                   }
-                           }
-                    date += (24 * 60 * 60 * 1000);
-                }
-                res.render('schedule_list_detail', { title: 'Schedule Detail', schedule: schedule, date_gap: date_gap, dates: dates,
-                    check:detail_check, detail_title: detail_title, detail_content: detail_content, detail_pic : detail_pic, detail_id : detail_id, detail_recommend: detail_recommend});
-            });
         }
     });
 });
