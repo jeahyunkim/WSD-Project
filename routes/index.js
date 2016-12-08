@@ -4,14 +4,28 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 
 var User = require('../models/user.js');
+/* Get Models */
+var schedule_detail = require('../models/schedule_detail.js');
+var comment = require('../models/comment.js');
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  console.log(req.session.id);
-  if(req.session.userInfo != null)
-    console.log("아이디 :" +req.session.userInfo.user_id);
-  res.render('index', { title: 'Express' });
+router.get('/', function (req, res, next) {
+    console.log(req.session.id);
+    if (req.session.userInfo != null)
+        console.log("아이디 :" + req.session.userInfo.user_id);
+
+    schedule_detail.find({}).sort({recommend: 'desc'}).exec(function (err, details) {
+        comment.find({}, function (err, comments) {
+            res.render('index', {
+                title: 'Time Line',
+                order: 'Recommend',
+                details: details,
+                comments: comments,
+                user: req.session.userInfo.user_id
+            });
+        });
+    });
 });
 
 router.get('/login', function(req, res, next) {
@@ -30,7 +44,7 @@ router.get('/logout', function(req, res, next) {
 
 router.post('/login',function(req, res, next){
   if(req.body.but == "LOGIN") {
-    User.findOne({"_id": req.body.user_id, password: req.body.user_pw}, function (err, docs) {
+    User.findOne({id: req.body.user_id, password: req.body.user_pw}, function (err, docs) {
       if (err) return console.log("auth err");
       if (!docs) {
         res.render('login', {title: 'Express', loginFail: true, registerSuc: false, registerFail: false});
@@ -46,7 +60,7 @@ router.post('/login',function(req, res, next){
     if (req.body.password == req.body.passwordConfirm) {
       var user = new User({
         userName: req.body.userName,
-        "_id": req.body.ID,
+        id: req.body.ID,
         password: req.body.password
       });
       user.save(function(err,silence){

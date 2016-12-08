@@ -88,7 +88,7 @@
                   <div class="text-center col-md-8 col-xs-12 col-md-offset-2">
 
                     <h1 class="bold font-raleway wow fadeInUp" data-wow-delay="0.4s">WELCOME TO TRIPTTER</h1>
-                    <p class="lead font-lato weight-300 hidden-xs wow fadeInUp" data-wow-delay="0.6s">이 페이지에는 상세 일정 미리 보기가 들어갑니다</p>
+                    <p class="lead font-lato weight-300 hidden-xs wow fadeInUp" data-wow-delay="0.6s">내 일정을 등록해보세요</p>
 
                   </div>
                 </div>
@@ -113,7 +113,7 @@
                   <div class="text-center col-md-8 col-xs-12 col-md-offset-2">
 
                     <h1 class="bold font-raleway wow fadeInUp" data-wow-delay="0.4s">WELCOME TO TRIPTTER</h1>
-                    <p class="lead font-lato weight-300 hidden-xs wow fadeInUp" data-wow-delay="0.6s">이 페이지에는 상세 일정 미리 보기가 들어갑니다</p>
+                    <p class="lead font-lato weight-300 hidden-xs wow fadeInUp" data-wow-delay="0.6s">남들과 여행을 공유할 수 있어요</p>
 
                   </div>
                 </div>
@@ -145,9 +145,9 @@
     <div class="container">
 
       <div class="text-center">
-        <h3 class="size-30">Call now at <strong>+800-565-2390</strong> and get 15% discount!</h3>
+        <h3 class="size-30">Triptter 인기글 베스트 3</h3>
         <p class="font-lato size-20">
-          We truly care about our users and our product.
+          추천이 높은 일정들을 둘러보세요
         </p>
       </div>
 
@@ -159,74 +159,80 @@
 
   <!-- -->
   <section>
+
+          <!-- /TIMELINE -->
+
+
+
+
+
+
     <div class="container">
       <div class="row">
 
-        <div class="col-md-4">
 
-          <div class="heading-title heading-border-bottom heading-color">
-            <h3>Passion</h3>
-          </div>
+            <!-- TIMELINE -->
+            <div class="timeline"><!-- .timeline-inverse = right position [left on RTL] -->
+                <div class="timeline-hline"><!-- horizontal line --></div>
+                <%for(var i =0; i < 3; i++){%>
+                <div class="col-md-4">
+                <!-- POST ITEM -->
+                <div class="blog-post-item" style="margin-bottom:20px; padding-bottom:20px;">
+                    <!-- timeline entry -->
+                    <!-- /timeline entry -->
 
-          <p>Fabulas definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii propriae philosophia cu mea. Utinam ipsum everti necessitatibus at fuisset splendide.</p>
+                    <!-- IMAGE -->
+                    <a href="/schedule/detail/<%=details[i].id%>">
+                        <figure class="margin-bottom-10">
+                            <%if(details[i].pictureName != null){%>
+                            <img class="img-responsive" src="/uploads/detail/<%=details[i].pictureName[0]%>" alt="Not Found Image">
+                            <% } else { %>
+                            <img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Sample Image">
+                            <% } %>
+                        </figure>
+                    </a>
+                    <h2><a href="/schedule/detail/<%=details[i].id%>"><%=details[i].title%></a></h2>
+                    <ul class="blog-post-info list-inline">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-comment-o"></i>
+                                <span class="font-lato"><%=details[i].commentID.length%></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-clock-o"></i>
+                                <span class="font-lato"><%=details[i].detailDate.toDateString()%></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span class="font-lato">John Doe</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <% if(details[i].contents != null && details[i].contents.length < 50 ) {%>
+                    <%=details[i].contents%>
+                    <%} else if(details[i].contents != null){%>
+                    <%=(details[i].contents).substring(1,50)%>	...
+                    <% } %>
+                </div>
+                <!-- /POST ITEM -->
+                </div>
+                <% }%>
 
-          <a href="#">
-            Read
-            <!-- /word rotator -->
-            <span class="word-rotator" data-delay="2000">
-									<span class="items">
-										<span>more</span>
-										<span>now</span>
-									</span>
-								</span><!-- /word rotator -->
-            <i class="glyphicon glyphicon-menu-right size-12"></i>
-          </a>
+            </div>
 
-        </div>
 
-        <div class="col-md-4">
-          <div class="heading-title heading-border-bottom heading-color">
-            <h3>Precision</h3>
-          </div>
-          <p>Fabulas definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii propriae philosophia cu mea. Utinam ipsum everti necessitatibus at fuisset splendide.</p>
 
-          <a href="#">
-            Read
-            <!-- /word rotator -->
-            <span class="word-rotator" data-delay="2000">
-									<span class="items">
-										<span>more</span>
-										<span>now</span>
-									</span>
-								</span><!-- /word rotator -->
-            <i class="glyphicon glyphicon-menu-right size-12"></i>
-          </a>
-
-        </div>
-
-        <div class="col-md-4">
-          <div class="heading-title heading-border-bottom heading-color">
-            <h3>Simplicity</h3>
-          </div>
-          <p>Fabulas definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii propriae philosophia cu mea. Utinam ipsum everti necessitatibus at fuisset splendide.</p>
-
-          <a href="#">
-            Read
-            <!-- /word rotator -->
-            <span class="word-rotator" data-delay="2000">
-									<span class="items">
-										<span>more</span>
-										<span>now</span>
-									</span>
-								</span><!-- /word rotator -->
-            <i class="glyphicon glyphicon-menu-right size-12"></i>
-          </a>
 
         </div>
+
 
       </div>
 
-    </div>
+
   </section>
   <!-- / -->
 
