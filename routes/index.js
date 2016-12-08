@@ -10,7 +10,7 @@ var User = require('../models/user.js');
 router.get('/', function(req, res, next) {
   console.log(req.session.id);
   if(req.session.userInfo != null)
-    console.log(req.session.userInfo.user_id);
+    console.log("아이디 :" +req.session.userInfo.user_id);
   res.render('index', { title: 'Express' });
 });
 
