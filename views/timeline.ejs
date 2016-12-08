@@ -98,7 +98,11 @@
 									<!-- IMAGE -->
 									<a href="/schedule/detail/<%=details[i].id%>">
 									<figure class="margin-bottom-10">
+										<%if(details[i].pictureName != null){%>
+										<img class="img-responsive" src="/uploads/detail/<%=details[i].pictureName[0]%>" alt="Not Found Image">
+										<% } else { %>
 										<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Sample Image">
+										<% } %>
 									</figure>
 									</a>
 									<h2><a href="/schedule/detail/<%=details[i].id%>"><%=details[i].title%></a></h2>
