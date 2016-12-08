@@ -41,10 +41,10 @@ router.get('/:schedule_id', function(req, res, next) {
 
 router.post('/comment/insert',function(req,res,next){
     var comment = new Comment({
-        'user_id' : req.cookies.id,
+        'user_id' : req.session.userInfo.user_id,
         'content' : req.body.comment,
         'detail_id' : req.body.detail_id,
-        'day' : new Date()
+        'day' : new Date().toDateString()
     })
     comment.save(function(err,silence){
         if(err){
