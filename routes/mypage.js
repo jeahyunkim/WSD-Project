@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 var Schedule = require('../models/schedule.js');
 
 router.get('/', function(req, res, next){
-    Schedule.find({author:' '},function (err, result) {
+    Schedule.find({author:req.session.userInfo.user_id},function (err, result) {
         res.render('mypage', { title: 'Express' ,scheduleList: result});
     });
 });

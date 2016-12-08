@@ -30,7 +30,7 @@ router.get('/logout', function(req, res, next) {
 
 router.post('/login',function(req, res, next){
   if(req.body.but == "LOGIN") {
-    User.findOne({id: req.body.user_id, password: req.body.user_pw}, function (err, docs) {
+    User.findOne({"_id": req.body.user_id, password: req.body.user_pw}, function (err, docs) {
       if (err) return console.log("auth err");
       if (!docs) {
         res.render('login', {title: 'Express', loginFail: true, registerSuc: false, registerFail: false});
@@ -46,7 +46,7 @@ router.post('/login',function(req, res, next){
     if (req.body.password == req.body.passwordConfirm) {
       var user = new User({
         userName: req.body.userName,
-        id: req.body.ID,
+        "_id": req.body.ID,
         password: req.body.password
       });
       user.save(function(err,silence){
