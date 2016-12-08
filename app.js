@@ -54,10 +54,12 @@ app.use(session({
 
 // app.use(fileUpload());
 app.use(function (req, res, next) {
-    if (req.session.userInfo != null)
+    if (req.session.userInfo != null) {
         res.locals.login = true;
-    else
+        res.locals.user_id = req.session.userInfo.user_id;
+    }else {
         res.locals.login = false;
+    }
     next();
 });
 
