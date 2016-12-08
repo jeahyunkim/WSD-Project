@@ -22,7 +22,6 @@ router.get('/', function (req, res, next) {
                 order: 'Recommend',
                 details: details,
                 comments: comments,
-                user: req.session.userInfo.user_id
             });
         });
     });
