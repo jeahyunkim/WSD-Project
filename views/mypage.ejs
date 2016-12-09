@@ -109,17 +109,10 @@
 
             <!-- breadcrumbs -->
             <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Pages</a></li>
+                <li><a href="/mypage">나의 글</a></li>
+                <li><a href="/mypage/bookmark">즐겨찾기</a></li>
                 <li class="active">Login</li>
             </ol><!-- /breadcrumbs -->
-
-            <!-- page tabs -->
-            <ul class="page-header-tabs list-inline">
-                <li class="active"><a href="#login" data-toggle="tab">MyPost</a></li>
-                <li><a href="#register" data-toggle="tab">BookMark</a></li>
-            </ul><!-- /page tabs -->
-
         </div>
     </section>
     <!-- /PAGE HEADER -->
@@ -131,109 +124,48 @@
     <section>
         <div class="container">
 
-
-            <div class="tab-content clearfix blog-isotope blog-isotope-3">
-                <!-- LOGIN -->
-                <div class="tab-pane fade in active">
-                    <div class="row">
-                        <div id="blog" class="clearfix blog-isotope blog-isotope-3">
+            <div id="blog" class="clearfix blog-isotope blog-isotope-3">
 
 
-                            <% for(var i = 0; i < scheduleList.length; i++) { %>
+                <% for(var i = 0; i < scheduleList.length; i++) { %>
 
 
-                            <!-- POST ITEM -->
-                            <div class="blog-post-item">
-                                <figure class="margin-bottom-20">
-                                    <img class="img-responsive" src="/uploads/<%=scheduleList[i].imageUrl%>" alt="">
-                                </figure>
+                <!-- POST ITEM -->
+                <div class="blog-post-item">
+                    <figure class="margin-bottom-20">
+                        <img class="img-responsive" src="/uploads/<%=scheduleList[i].imageUrl%>" alt="">
+                    </figure>
 
-                                <h2><a href="/schedule/list_detail/<%=scheduleList[i].id%>"><%=scheduleList[i].title%></a></h2>
+                    <h2><a href="/schedule/list_detail/<%=scheduleList[i].id%>"><%=scheduleList[i].title%></a></h2>
 
-                                <ul class="blog-post-info list-inline">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-clock-o"></i>
-                                            <span class="font-lato"><%= scheduleList[i].writeDate%></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-comment-o"></i>
-                                            <span class="font-lato"><%= scheduleList[i].recommend%></span>
-                                        </a>
-                                    </li>
-                                </ul>
+                    <ul class="blog-post-info list-inline">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-clock-o"></i>
+                                <span class="font-lato"><%= scheduleList[i].writeDate%></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-comment-o"></i>
+                                <span class="font-lato"><%= scheduleList[i].recommend%></span>
+                            </a>
+                        </li>
+                    </ul>
 
-                                <p><%= scheduleList[i].description%></p>
+                    <p><%= scheduleList[i].description%></p>
 
-                                <a href="/schedule/list_detail/<%=scheduleList[i].id%>" class="btn btn-reveal btn-default" data-toggle="modal">
-                                    <i class="fa fa-plus"></i>
-                                    <span>Read More</span>
-                                </a>
-
-                            </div>
-                            <!-- /POST ITEM -->
-
-
-
-
-                            <% } %>
-                        </div>
-                    </div>
-                </div><!-- /LOGIN -->
-
-                <!-- REGISTER -->
-                <div class="tab-pane fade">
-                    <div class="row">
-                        <div id="blog" class="clearfix blog-isotope blog-isotope-3">
-
-
-                            <% for(var i = 0; i < scheduleList.length; i++) { %>
-
-
-                            <!-- POST ITEM -->
-                            <div class="blog-post-item">
-                                <figure class="margin-bottom-20">
-                                    <img class="img-responsive" src="/uploads/<%=scheduleList[i].imageUrl%>" alt="">
-                                </figure>
-
-                                <h2><a href="/schedule/list_detail/<%=scheduleList[i].id%>"><%=scheduleList[i].title%></a></h2>
-
-                                <ul class="blog-post-info list-inline">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-clock-o"></i>
-                                            <span class="font-lato"><%= scheduleList[i].writeDate%></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-comment-o"></i>
-                                            <span class="font-lato"><%= scheduleList[i].recommend%></span>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <p><%= scheduleList[i].description%></p>
-
-                                <a href="/schedule/list_detail/<%=scheduleList[i].id%>" class="btn btn-reveal btn-default" data-toggle="modal">
-                                    <i class="fa fa-plus"></i>
-                                    <span>Read More</span>
-                                </a>
-
-                            </div>
-                            <!-- /POST ITEM -->
-
-
-
-
-                            <% } %>
-                        </div>
-                    </div>
+                    <a href="/schedule/list_detail/<%=scheduleList[i].id%>" class="btn btn-reveal btn-default" data-toggle="modal">
+                        <i class="fa fa-plus"></i>
+                        <span>Read More</span>
+                    </a>
                 </div>
-                <!-- /REGISTER -->
+                <!-- /POST ITEM -->
 
+
+
+
+                <% } %>
             </div>
 
         </div>
@@ -270,27 +202,7 @@
 <!-- JAVASCRIPT FILES -->
 <script type="text/javascript">var plugin_path = '/assets/plugins/';</script>
 <script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
-
 <script type="text/javascript" src="/assets/js/scripts.js"></script>
 
-<!-- STYLESWITCHER - REMOVE -->
-<script async type="text/javascript" src="/assets/plugins/styleswitcher/styleswitcher.js"></script>
-
-<!-- PAGE LEVEL SCRIPTS -->
-<script type="text/javascript">
-
-    /**
-     Checkbox on "I agree" modal Clicked!
-     **/
-    jQuery("#terms-agree").click(function(){
-        jQuery('#termsModal').modal('toggle');
-
-        // Check Terms and Conditions checkbox if not already checked!
-        if(!jQuery("#checked-agree").checked) {
-            jQuery("input.checked-agree").prop('checked', true);
-        }
-
-    });
-</script>
 </body>
 </html>

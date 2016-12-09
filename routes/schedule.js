@@ -25,6 +25,24 @@ var storage = multer.diskStorage({
 });
 
 var upload = multer({storage: storage}).single('photo');
+
+var removeDuple = function removeDupl(arr){
+    var preArr = arr;
+    var curArr =[];
+    var arrNum = 0;
+    preArr.sort();
+    while(preArr.length>0){
+        var tempArr = preArr.shift();
+        if(arrNum==0){
+            curArr.push(tempArr);
+            arrNum++
+        }else if(curArr[arrNum-1] != tempArr){
+            curArr.push(tempArr);
+            arrNum++;
+        }
+    }
+    return curArr;
+}
 /*
 var schema = new Schema({
     'title' : String,
@@ -46,6 +64,7 @@ var schedule = mongoose.model('schedule',schema);
 /* Get Models */
 var schedule_detail = require('../models/schedule_detail.js');
 var schedule = require('../models/schedule.js');
+var user = require('../models/user');
 
 
 /* GET home page. */
@@ -137,5 +156,15 @@ router.get('/list_detail/:schedule_id', function(req, res){
         }
     });
 });
+router.get('/addBookmark/:schedule_id',function(req,res){
+    user.findOne({_id : req.session.userInfo.user_id}, function(err, docs){
+        for(var i = 0; i < docs.bookmarkID.length; i++)
+            if(docs.bookmarkID[i] == req.params.schedule_id)
+                return res.redirect('/schedule/list');
+        docs.bookmarkID.push(req.params.schedule_id);
+        docs.save();
+        res.redirect('/schedule/list');
+    })
+})
 
 module.exports = router;

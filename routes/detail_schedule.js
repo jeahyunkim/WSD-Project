@@ -64,8 +64,8 @@ router.post('/comment/insert',function(req,res,next){
             Detail.findOne({_id: Mongo.ObjectID(req.body.detail_id)}, function (err, docs) {
                 docs.commentID.push(comment._id);
                 docs.save();
+                res.redirect('/schedule/detail/'+ req.body.detail_id);
             });
-            res.redirect('/schedule/detail/'+ req.body.detail_id);
         }
     });
 })
