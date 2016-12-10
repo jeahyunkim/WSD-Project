@@ -9,7 +9,7 @@ var Message = require('../models/message');
 
 router.post('/getMessage',function (req, res) {
     Message.find({location:req.body.location},function (err, result) {
-        res.send({messages: result});
+        res.send({messages: result, id:req.session.userInfo.user_id});
     })
 });
 
@@ -31,11 +31,11 @@ router.websocket('/',function (info, cb, next) {
 
         socket.on('message',function (message) {
             var chatMessage = new Message();
+            var senderId = info.req.session.userInfo.user_id;
             chatMessage.location = info.req.query.location;
-            chatMessage.userId = info.req.session.userInfo.user_id;
+            chatMessage.userId = senderId;
             chatMessage.message = message;
             chatMessage.time = new Date();
-
             chatMessage.save(function (err) {
                 if(err) console.log("Something went wrong while saving the thing");
                 else{

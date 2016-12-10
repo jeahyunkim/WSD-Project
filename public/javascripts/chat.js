@@ -5,9 +5,12 @@ $(document).ready(function () {
 
     var temp = null;
     var webSocket = null;
+    var sender = null;
 
     function onMessage(event) {
-        console.log("상대 : " + event.data );
+        // var reciveData = event.data.split('/');
+        // console.log(event.date.sender+ ": " + event.data.message );
+        // console.log(reciveData[1]);
         $('#messageList').append('<div class="chatReciveMessage">' + event.data +'</div><br/><br/>');
     }
     function onOpen(event) {
@@ -21,6 +24,7 @@ $(document).ready(function () {
 
 
     $("#showSwitcher").click(function () {
+
         if($("#showSwitcher").is(":visible")){
             var _identifier = "#showSwitcher";
             $("#switcher").animate({"margin-left": "0px"}, 500).show();
@@ -61,20 +65,19 @@ $(document).ready(function () {
             dataType: 'json',
             data: {'location' : this.id},
             success: function (data) {
+                sender = data.id;
                 temp = $('#chatList');
                 $('#chatList').remove();
                 var chatRoom =
                     '<div id="content-switcher" class="content-switcher">' +
                     '<button id="backBtn" class="btn btn-3d btn-teal btn-block margin-top-30">뒤로가기</button>'+
                     '<div id="messageList">';
-                    console.log()
                 for(var i = 0; i < data.messages.length; i++){
 
-
-                    if(data.messages[i].userId != '<%= user_id %>') {
+                    if(data.messages[i].userId != data.id) {
                         chatRoom += '<div><div>' + data.messages[i].userId + '</div><div class="chatReciveMessage">' + data.messages[i].message + '</div></div><br/><br/><br/>'
                     }else{
-                        chatRoom += '<div><div>' + data.messages[i].userId + '</div><div class="messageSend">' + data.messages[i].message + '</div></div><br/><br/><br/>'
+                        chatRoom += '<div><div class="messageSend">' + data.messages[i].message + '</div></div><br/><br/><br/>'
                     }
                 }
 
@@ -98,7 +101,8 @@ $(document).ready(function () {
 
 
     $(document).on('click','#messageSend',function () {
-        webSocket.send($('#inputText').val());
+        console.log(sender);
+        webSocket.send({message:$('#inputText').val(), sneder:sender});
     });
 
     $(document).on('click','#backBtn',function () {
