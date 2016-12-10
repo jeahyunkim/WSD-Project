@@ -9,6 +9,7 @@ var detailSchema = new Schema({
     recommend: { type: Number, default: 0 },
     recommendID: [String],
     commentID: [String],
+    commentCnt :  { type: Number, default: 0 },
     pictureName: [String]
 });
 
