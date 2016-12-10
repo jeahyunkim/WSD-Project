@@ -88,7 +88,6 @@ $(document).ready(function () {
                     '<div class="inputBox" id="inputBox"><textarea id="inputText" class="form-control" rows="2"></textarea><button id="messageSend" class="btn btn-3d btn-teal btn-block">보내기</button></div>'+
                     '</div>';
                 $('#content').append(chatRoom);
-                console.log($('#messageList').height());
                 $('#messageList').scrollTop(99999999999);
 
             },
@@ -101,7 +100,6 @@ $(document).ready(function () {
 
 
     $(document).on('click','#messageSend',function () {
-        console.log(sender);
         webSocket.send($('#inputText').val());
     });
 
