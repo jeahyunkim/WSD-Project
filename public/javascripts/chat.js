@@ -10,10 +10,11 @@ $(document).ready(function () {
     function onMessage(event) {
         var message = event.data.split('/');
         if(sender == message[1]){
-            $('#messageList').append('<div class="message"><div class="messageSend">' + message[0] +'</div></div><br/>');
+            $('#messageList').append('<div class="message"><div class="messageSend">' + message[0] +'</div></div><br/><br/><br/>');
         }else{
-            $('#messageList').append('<div class="message"><div>'+message[1]+'</div><div class="chatReciveMessage">' + message[0] +'</div></div><br/>');
+            $('#messageList').append('<div class="message"><div>'+message[1]+'</div><div class="chatReciveMessage">' + message[0] +'</div></div><br/><br/><br/>');
         }
+        $('#messageList').scrollTop(99999999999);
     }
     function onOpen(event) {
         console.log("연결")
@@ -87,6 +88,8 @@ $(document).ready(function () {
                     '<div class="inputBox" id="inputBox"><textarea id="inputText" class="form-control" rows="2"></textarea><button id="messageSend" class="btn btn-3d btn-teal btn-block">보내기</button></div>'+
                     '</div>';
                 $('#content').append(chatRoom);
+                console.log($('#messageList').height());
+                $('#messageList').scrollTop(99999999999);
 
             },
             error: function (jqXHR, textStatus, errorThrown) {
