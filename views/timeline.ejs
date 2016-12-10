@@ -105,10 +105,10 @@
 									<!-- IMAGE -->
 									<a href="/schedule/detail/<%=details[i].id%>">
 									<figure class="margin-bottom-10">
-										<%if(details[i].pictureName != null){%>
-										<img class="img-responsive" src="/uploads/detail/<%=details[i].pictureName[0]%>" alt="Not Found Image">
+										<%if(details[i].pictureName != ''){%>
+										<img class="img-responsive" src="/uploads/detail/<%=details[i].pictureName[0]%>" alt=" <%=details[i].pictureName[0]%> Not Found Image">
 										<% } else { %>
-										<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Sample Image">
+										<img class="img-responsive" src="/images/noimage.jpg" alt="No Image">
 										<% } %>
 									</figure>
 									</a>
@@ -129,7 +129,7 @@
 										<li>
 											<a href="#">
 												<i class="fa fa-user"></i>
-												<span class="font-lato">John Doe</span>
+												<span class="font-lato"><%=details[i].author%></span>
 											</a>
 										</li>
 									</ul>
