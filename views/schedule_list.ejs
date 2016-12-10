@@ -47,7 +47,11 @@
                 <!-- POST ITEM -->
                 <div class="blog-post-item">
                     <figure class="margin-bottom-20">
-                        <img class="img-responsive" src="/uploads/<%=scheduleList[i].imageUrl%>" alt="">
+                        <%if(scheduleList[i].imageUrl != '') {%>
+                        <img class="img-responsive" src="/uploads/<%=scheduleList[i].imageUrl%>" alt="<%=scheduleList[i].imageUrl%>">
+                        <%} else {%>
+                        <img class="img-responsive" src="/images/noimage.jpg" alt="No Image">
+                        <% } %>
                     </figure>
 
                     <h2><a href="/schedule/list_detail/<%=scheduleList[i].id%>"><%=scheduleList[i].title%></a></h2>

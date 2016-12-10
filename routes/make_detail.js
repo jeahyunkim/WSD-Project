@@ -29,6 +29,7 @@ router.post('/add', function (req, res) {
     detail.scheduleID = req.body.schedule_id;
     detail.title = req.body.title;
     detail.contents = req.body.contents;
+    detail.author = req.session.userInfo.user_id;
     detail.detailDate = new Date(req.body.schedule_date);
     var loopNumber = 0;
     for (var i = 0; i < fileNumber; i++) {
