@@ -28,6 +28,8 @@ router.get('/bookmark', function(req, res, next){
                 }
             })
         }
+        if(user.bookmarkID.length == 0)
+            res.render('mypage', {title: 'Express', scheduleList: bookmarkList});
     })
 
 });

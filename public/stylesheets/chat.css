@@ -1,0 +1,27 @@
+.chatReciveMessage{
+    max-width: 80%;
+    padding: 5px;
+    word-wrap: break-word;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    position: relative;
+    float: left;
+    background: #f0f0f0;
+}
+
+.messageList{
+    display: inline-block;
+    width: 90%;
+    height: 700px;
+    overflow: auto;
+}
+
+#switcher{
+    height: 90%;
+}
+
+/*.inputBox{*/
+    /*display: inline-block;*/
+    /*position: relative;*/
+/*}*/

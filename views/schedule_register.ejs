@@ -21,7 +21,9 @@
     <!-- PAGE LEVEL SCRIPTS -->
     <link href="/assets/css/header-1.css" rel="stylesheet" type="text/css" />
     <link href="/assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
+    <link href="/assets/plugins/styleswitcher/styleswitcher.css" rel="stylesheet" type="text/css" />
 
+    <link href="/stylesheets/chat.css" rel="stylesheet" type="text/css"/>
 
 </head>
 <body class="smoothscroll enable-animation">
@@ -37,119 +39,113 @@
     </div>
 
 
-<section>
-    <div class="container">
-        <div class="col-md-12 col-sm-12">
-            <div class="panel panel-default">
-                <div class="panel-heading panel-heading-transparent">
-                    <h2 class="panel-title">여행 일정 등록!!</h2>
-                </div>
+    <section>
+        <div class="container">
+            <div class="col-md-12 col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading panel-heading-transparent">
+                        <h2 class="panel-title">여행 일정 등록!!</h2>
+                    </div>
 
-                <div class="panel-body">
-                    <form id="addForm" class="validate" action="/schedule/add" method="post" enctype="multipart/form-data">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                                <figure class="margin-bottom-20">
-                                    <img id="imagePreview" class="img-responsive" src="/assets/images/demo/content_slider/10-min.jpg" alt="">
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group">
+                    <div class="panel-body">
+                        <form id="addForm" class="validate" action="/schedule/add" method="post" enctype="multipart/form-data">
+                            <div class="row">
                                 <div class="col-md-12 col-sm-12">
-                                    <label>제목 *</label>
-                                    <input type="text" name="title" value="" class="form-control required">
+                                    <figure class="margin-bottom-20">
+                                        <img id="imagePreview" class="img-responsive" src="/assets/images/demo/content_slider/10-min.jpg" alt="">
+                                    </figure>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6">
-                                    <label>지역 *</label>
-                                    <select name="location" class="form-control pointer required">
-                                        <option value="">--- Select ---</option>
-                                        <option value="경기">경기</option>
-                                        <option value="서울">서울</option>
-                                        <option value="충북">충북</option>
-                                        <option value="충남">충남</option>
-                                        <option value="경북">경북</option>
-                                        <option value="경남">경남</option>
-                                        <option value="전북">전북</option>
-                                        <option value="전남">전남</option>
-                                        <option value="제주">제주</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <label>세부지역 *</label>
-                                    <input type="text" name="detailLocation" value="" class="form-control required">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12">
+                                        <label>제목 *</label>
+                                        <input type="text" name="title" value="" class="form-control required">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6">
-                                    <label>시작 날짜 *</label>
-                                    <input type="text" name="startDate" value="" class="form-control datepicker required" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false">
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <label>마지막 날짜 *</label>
-                                    <input type="text" name="endDate" value="" class="form-control datepicker required" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-12 col-sm-12">
-                                    <label>설명 *</label>
-                                    <textarea name="description" rows="4" class="form-control required"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6">
-                                    <input class="custom-file-upload" type="file" id="photo" name="photo" data-btn-text="Select a File" />
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <label class="switch switch switch-round">
-                                        <input type="checkbox" name ="publicType" checked="">
-                                        <span class="switch-label" data-on="YES" data-off="NO"></span>
-                                        <span> 공개 여부</span>
-                                    </label>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6">
+                                        <label>지역 *</label>
+                                        <select name="location" class="form-control pointer required">
+                                            <option value="">--- Select ---</option>
+                                            <option value="경기">경기</option>
+                                            <option value="서울">서울</option>
+                                            <option value="충북">충북</option>
+                                            <option value="충남">충남</option>
+                                            <option value="경북">경북</option>
+                                            <option value="경남">경남</option>
+                                            <option value="전북">전북</option>
+                                            <option value="전남">전남</option>
+                                            <option value="제주">제주</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <label>세부지역 *</label>
+                                        <input type="text" name="detailLocation" value="" class="form-control required">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!--<div class="row">-->
-                            <!--<div class="col-md-12">-->
-                                <!--<div class="form-group">-->
-                                    <!--<input class="custom-file-upload" type="file" id="file" name="image" data-btn-text="Select a File" />-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <button id="addScheduleBtn" type="submit" class="btn btn-3d btn-teal btn-xlg btn-block margin-top-30">
-                                    등록
-                                </button>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6">
+                                        <label>시작 날짜 *</label>
+                                        <input type="text" name="startDate" value="" class="form-control datepicker required" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <label>마지막 날짜 *</label>
+                                        <input type="text" name="endDate" value="" class="form-control datepicker required" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                    </form>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12">
+                                        <label>설명 *</label>
+                                        <textarea name="description" rows="4" class="form-control required"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="custom-file-upload" type="file" id="photo" name="photo" data-btn-text="Select a File" />
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <label class="switch switch switch-round">
+                                            <input type="checkbox" name ="publicType" checked="">
+                                            <span class="switch-label" data-on="YES" data-off="NO"></span>
+                                            <span> 공개 여부</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button id="addScheduleBtn" type="submit" class="btn btn-3d btn-teal btn-xlg btn-block margin-top-30">
+                                        등록
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
 
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<%- include Footer.ejs %>
+        <%- include chat.ejs%>
+    </section>
+
+    <%- include Footer.ejs %>
 
 </div>
 <!-- JAVASCRIPT FILES -->
@@ -157,6 +153,9 @@
 <script type="text/javascript">plugin_path = '/assets/plugins/';</script>
 <script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 <script type="text/javascript" src="/javascripts/schedule_register.js"></script>
+
+<script type="text/javascript" src="/javascripts/chat.js"></script>
+
 <script type="text/javascript" src="/assets/js/scripts.js"></script>
 
 </body>
