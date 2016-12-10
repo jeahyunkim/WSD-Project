@@ -33,70 +33,72 @@
 
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-6 col-sm-6">
 
-                <!-- Links -->
-                <h4 class="letter-spacing-1">EXPLORE SMARTY</h4>
-                <ul class="footer-links list-unstyled">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Our Clients</a></li>
-                    <li><a href="#">Our Pricing</a></li>
-                    <li><a href="#">Smarty Tour</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-                <!-- /Links -->
+                <h4 class="letter-spacing-1">Triptter 만든 사람들</h4>
 
-            </div>
+                <!--
+                    data-plugin-options:
+                        "transitionStyle":"fadeUp" (fade,backSlide,goDown,fadeUp)
 
-            <div class="col-md-4">
+                    Note: remove class="rounded" from the img for squared image!
+                -->
+                <div class="owl-carousel text-center owl-mini-testimonial nomargin" data-plugin-options='{"singleItem": true, "autoPlay": 4000, "navigation": false, "pagination": true, "transitionStyle":"goDown"}'>
 
-                <!-- Newsletter Form -->
-                <h4 class="letter-spacing-1">KEEP IN TOUCH</h4>
-                <p>Subscribe to Our Newsletter to get Important News &amp; Offers</p>
-
-                <form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                        <input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
-                        <span class="input-group-btn">
-										<button class="btn btn-success" type="submit">Subscribe</button>
-									</span>
+                    <div class="testimonial">
+                        <figure>
+                            <img class="rounded" src="assets/images/demo/people/300x300/people.jpg" alt="" />
+                        </figure>
+                        <div class="testimonial-content nopadding">
+                            <p>올바로 동작하지 않더라도 걱정말아라. 모든 것이 그랬다면, 넌 직업을 잃었을테니까</p>
+                            <cite>
+                                김재현
+                                <span>프로그래머</span>
+                            </cite>
+                        </div>
                     </div>
-                </form>
-                <!-- /Newsletter Form -->
 
-                <!-- Social Icons -->
-                <div class="margin-top-20">
-                    <a href="#" class="social-icon social-icon-border social-facebook pull-left" data-toggle="tooltip" data-placement="top" title="Facebook">
+                    <div class="testimonial">
+                        <figure>
+                            <img class="rounded" src="assets/images/demo/people/300x300/people.jpg" alt="" />
+                        </figure>
+                        <div class="testimonial-content nopadding">
+                            <p>결국 당신 코드를 유지보수하게 될 친구가 당신이 어디에 사는지 아는 광폭한 싸이코패스가 될 것이라고 여기고 코드를 작성하라</p>
+                            <cite>
+                         남기욱
+                                <span>프로그래머</span>
+                            </cite>
+                        </div>
+                    </div>
 
-                        <i class="icon-facebook"></i>
-                        <i class="icon-facebook"></i>
-                    </a>
+                    <div class="testimonial">
+                        <figure>
+                            <img class="rounded" src="assets/images/demo/people/300x300/people.jpg" alt="" />
+                        </figure>
+                        <div class="testimonial-content nopadding">
+                            <p>좋은 프로그래머 대부분은 돈이나 대중에게 받을 찬사를 기대하고 프로그래밍을 하지 않고 프로그래밍이 재미 있어서 한다</p>
+                            <cite>
+                                백규철
+                                <span>프로그래머</span>
+                            </cite>
+                        </div>
+                    </div>
 
-                    <a href="#" class="social-icon social-icon-border social-twitter pull-left" data-toggle="tooltip" data-placement="top" title="Twitter">
-                        <i class="icon-twitter"></i>
-                        <i class="icon-twitter"></i>
-                    </a>
-
-                    <a href="#" class="social-icon social-icon-border social-gplus pull-left" data-toggle="tooltip" data-placement="top" title="Google plus">
-                        <i class="icon-gplus"></i>
-                        <i class="icon-gplus"></i>
-                    </a>
-
-                    <a href="#" class="social-icon social-icon-border social-linkedin pull-left" data-toggle="tooltip" data-placement="top" title="Linkedin">
-                        <i class="icon-linkedin"></i>
-                        <i class="icon-linkedin"></i>
-                    </a>
-
-                    <a href="#" class="social-icon social-icon-border social-rss pull-left" data-toggle="tooltip" data-placement="top" title="Rss">
-                        <i class="icon-rss"></i>
-                        <i class="icon-rss"></i>
-                    </a>
+                    <div class="testimonial">
+                        <figure>
+                            <img class="rounded" src="assets/images/demo/people/300x300/people.jpg" alt="" />
+                        </figure>
+                        <div class="testimonial-content nopadding">
+                            <p>코드 줄 수로 프로그래밍 진척을 측정하는 것은 무게로 비행기 제작 진척도를 측정하는 것과 같다 </p>
+                            <cite>
+                                이진호
+                                <span>프로그래머</span>
+                            </cite>
+                        </div>
+                    </div>
 
                 </div>
-                <!-- /Social Icons -->
+
 
             </div>
 
@@ -107,11 +109,9 @@
     <div class="copyright">
         <div class="container">
             <ul class="pull-right nomargin list-inline mobile-block">
-                <li><a href="#">Terms &amp; Conditions</a></li>
-                <li>&bull;</li>
-                <li><a href="#">Privacy</a></li>
+                <li><a href="#">HOME</a></li>
             </ul>
-            &copy; All Rights Reserved, Company LTD
+            &copy; All Rights Reserved, Company Triptter
         </div>
     </div>
 </footer>
