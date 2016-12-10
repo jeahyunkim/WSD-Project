@@ -19,13 +19,13 @@ var timeline = require('./routes/timeline');
 var search = require('./routes/search_plan');
 var chat = require('./routes/chat');
 var mongoose = require('mongoose');
-var connection = mongoose.connect('mongodb://52.78.124.66:27017/triptter');
+var connection = mongoose.connect('mongodb://52.78.124.66:27017/triptter2');
 
 var make_detail = require('./routes/make_detail');
 // var app = express();
 
 var store = new MongoDBStore({
-    uri: "mongodb://52.78.124.66:27017/triptter",
+    uri: "mongodb://52.78.124.66:27017/triptter2",
     collection: 'Sessions'
 });
 store.on('error', function (error) {

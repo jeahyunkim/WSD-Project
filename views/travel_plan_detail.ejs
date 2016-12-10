@@ -131,7 +131,7 @@
 			</ul>
 
 			<!-- OWL SLIDER -->
-			<div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"items": 1, "autoPlay": 4500, "autoHeight": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
+			<div style="text-align: center" class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"items": 1, "autoPlay": 4500, "autoHeight": false, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
 				<% for(var i = 0; i < detail.pictureName.length; i++){ %>
 				<a class ="lightbox" href="/uploads/detail/<%= detail.pictureName[i] %>" data-plugin-options='{"type":"image"}' >
 					<img class="img-responsive" src="/uploads/detail/<%= detail.pictureName[i]%>" alt="" />
