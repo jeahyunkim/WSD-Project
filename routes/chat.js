@@ -30,6 +30,7 @@ router.websocket('/',function (info, cb, next) {
         })
 
         socket.on('message',function (message) {
+
             var chatMessage = new Message();
             var senderId = info.req.session.userInfo.user_id;
             chatMessage.location = info.req.query.location;
@@ -42,7 +43,7 @@ router.websocket('/',function (info, cb, next) {
                     var clients = eval('CLIENT.'+info.req.query.location);
                     console.log(clients.length);
                     for(var i = 0; i < clients.length; i++){
-                        clients[i].send(message);
+                        clients[i].send(message+'/'+senderId);
                     }
                 }
             })

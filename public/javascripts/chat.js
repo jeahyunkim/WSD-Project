@@ -8,10 +8,12 @@ $(document).ready(function () {
     var sender = null;
 
     function onMessage(event) {
-        // var reciveData = event.data.split('/');
-        // console.log(event.date.sender+ ": " + event.data.message );
-        // console.log(reciveData[1]);
-        $('#messageList').append('<div class="chatReciveMessage">' + event.data +'</div><br/><br/>');
+        var message = event.data.split('/');
+        if(sender == message[1]){
+            $('#messageList').append('<div class="message"><div class="messageSend">' + message[0] +'</div></div><br/>');
+        }else{
+            $('#messageList').append('<div class="message"><div>'+message[1]+'</div><div class="chatReciveMessage">' + message[0] +'</div></div><br/>');
+        }
     }
     function onOpen(event) {
         console.log("연결")
@@ -70,8 +72,8 @@ $(document).ready(function () {
                 $('#chatList').remove();
                 var chatRoom =
                     '<div id="content-switcher" class="content-switcher">' +
-                    '<button id="backBtn" class="btn btn-3d btn-teal btn-block margin-top-30">뒤로가기</button>'+
-                    '<div id="messageList">';
+                    '<button id="backBtn" class="btn btn-3d btn-teal btn-block">뒤로가기</button>'+
+                    '<div class="messageList" id="messageList">';
                 for(var i = 0; i < data.messages.length; i++){
 
                     if(data.messages[i].userId != data.id) {
@@ -82,14 +84,9 @@ $(document).ready(function () {
                 }
 
                 chatRoom += '</div>' +
-                    '<div class="inputBox" id="inputBox"><textarea id="inputText" class="form-control" rows="2"></textarea><button id="messageSend" class="btn btn-3d btn-teal btn-block margin-top-30">보내기</button></div>'+
+                    '<div class="inputBox" id="inputBox"><textarea id="inputText" class="form-control" rows="2"></textarea><button id="messageSend" class="btn btn-3d btn-teal btn-block">보내기</button></div>'+
                     '</div>';
-                $('#switcher').append(chatRoom);
-                $('#content-switcher').css('height','90%');
-                // $('#messageList').css('overflow','scroll').css('height','60%');
-                $('#messageList').css('height','50%').css('overflow','auto').css('width','90%');
-                // $('#messageList').scrollTop($(document).height());
-                $('#inputBox').css('position','absolute').css('bottom','10px').css('width','90%');
+                $('#content').append(chatRoom);
 
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -102,13 +99,13 @@ $(document).ready(function () {
 
     $(document).on('click','#messageSend',function () {
         console.log(sender);
-        webSocket.send({message:$('#inputText').val(), sneder:sender});
+        webSocket.send($('#inputText').val());
     });
 
     $(document).on('click','#backBtn',function () {
         webSocket.close();
         $('#content-switcher').remove();
-        $('#switcher').append(temp);
+        $('#content').append(temp);
 
     });
 

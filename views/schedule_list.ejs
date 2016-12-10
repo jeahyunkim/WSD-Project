@@ -22,6 +22,10 @@
     <link href="/assets/css/header-1.css" rel="stylesheet" type="text/css" />
     <link href="/assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
 
+    <link href="/assets/plugins/styleswitcher/styleswitcher.css" rel="stylesheet" type="text/css" />
+
+    <link href="/stylesheets/chat.css" rel="stylesheet" type="text/css"/>
+
 </head>
 <body class="smoothscroll enable-animation">
 <div id="wrapper">
@@ -99,6 +103,9 @@
         </div>
 
     </div>
+    <% if (login) { %>
+    <%- include chat.ejs %>
+    <% } %>
 </section>
 
 
@@ -109,6 +116,7 @@
 
 <script type="text/javascript">plugin_path = '/assets/plugins/';</script>
 <script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="/javascripts/chat.js"></script>
 <script type="text/javascript" src="/assets/js/scripts.js"></script>
 
 </body>

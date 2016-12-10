@@ -64,6 +64,9 @@
 
             </form>
         </div>
+        <% if (login) { %>
+        <%- include chat.ejs %>
+        <% } %>
     </section>
     <!-- FOOTER -->
     <%- include Footer.ejs %>
@@ -115,7 +118,7 @@
 </script>
 
 <script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
-
+<script type="text/javascript" src="/javascripts/chat.js"></script>
 <script type="text/javascript" src="/assets/js/scripts.js">
     $('#summernote').summernote({
         height: 590,
