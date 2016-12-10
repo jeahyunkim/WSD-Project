@@ -108,15 +108,16 @@
 				</li>
 				<li>
 					<%
-						var check_heart = "-o";
-						if(detail.recommendID != null) {
-							for (var t = 0; t < detail.recommendID.length; t++) {
-								if (detail.recommendID[t] == user_id) {
-									check_heart = " after_heart"
-									break;
+						if(login) {
+							var check_heart = "-o";
+							if (detail.recommendID != null) {
+								for (var t = 0; t < detail.recommendID.length; t++) {
+									if (detail.recommendID[t] == user_id) {
+										check_heart = " after_heart"
+										break;
+									}
 								}
 							}
-						}
 					%>
 				<li>
 					<a class="heart_icon" data-value="<%=detail.id%>"  >
@@ -124,6 +125,7 @@
 						<span class="font-lato  <%=check_heart%>" id="s_<%=detail.id%>"><%= detail.recommendID.length %></span>
 					</a>
 				</li>
+				<%}%>
 				<li>
 					<a href="#">
 						<i class="fa fa-comment-o"></i>
