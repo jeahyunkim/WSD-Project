@@ -184,10 +184,10 @@
                     <!-- IMAGE -->
                     <a href="/schedule/detail/<%=details[i].id%>">
                         <figure class="margin-bottom-10">
-                            <%if(details[i].pictureName != null){%>
-                            <img class="img-responsive" src="/uploads/detail/<%=details[i].pictureName[0]%>" alt="Not Found Image">
+                            <%if(details[i].pictureName[0] != ''){%>
+                            <img class="img-responsive" src="/uploads/detail/<%=details[i].pictureName[0]%>" alt="<%=details[i].pictureName[0]%>">
                             <% } else { %>
-                            <img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Sample Image">
+                            <img class="img-responsive" src="/images/noimage.jpg" alt="">
                             <% } %>
                         </figure>
                     </a>
@@ -231,8 +231,9 @@
 
 
       </div>
-
-
+      <% if(login){%>
+      <%- include chat.ejs %>
+      <% }%>
   </section>
   <!-- / -->
 
@@ -267,10 +268,9 @@
 <script type="text/javascript" src="/assets/js/scripts.js"></script>
 
 <!-- STYLESWITCHER - REMOVE -->
-<script async type="text/javascript" src="/assets/plugins/styleswitcher/styleswitcher.js"></script>
-
 <!-- SWIPER SLIDER -->
 <script type="text/javascript" src="/assets/plugins/slider.swiper/dist/js/swiper.min.js"></script>
 <script type="text/javascript" src="/assets/js/view/demo.swiper_slider.js"></script>
+<script type="text/javascript" src="/javascripts/chat.js"></script>
 </body>
 </html>

@@ -111,7 +111,7 @@
             <ol class="breadcrumb">
                 <li><a href="/mypage">나의 글</a></li>
                 <li><a href="/mypage/bookmark">즐겨찾기</a></li>
-                <li><a href="/mypage/modify">정보수정</a></li>
+                <li><a href="/mypage/modify">정보 수정</a></li>
             </ol><!-- /breadcrumbs -->
         </div>
     </section>
@@ -123,55 +123,92 @@
     <!-- -->
     <section>
         <div class="container">
-
-            <div id="blog" class="clearfix blog-isotope blog-isotope-3">
-
-
-                <% for(var i = 0; i < scheduleList.length; i++) { %>
-
-
-                <!-- POST ITEM -->
-                <div class="blog-post-item">
-                    <figure class="margin-bottom-20">
-                        <%if(scheduleList[i].imageUrl != ''){%>
-                        <img class="img-responsive" src="/uploads/<%=scheduleList[i].imageUrl%>" alt="">
-                        <%} else {%>
-                        <img class="img-responsive" src="/images/noimage.jpg" alt="">
+            <div id="register">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+                        <!-- ALERT -->
+                        <% if(!diff){%>
+                        <div class="alert alert-mini alert-danger margin-bottom-30 col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+                            <strong>Oh snap!</strong> Password Different!
+                        </div>
                         <% } %>
-                    </figure>
+                        <div class="box-static box-transparent box-bordered padding-30">
+                            <div class="box-title margin-bottom-30">
+                                <h2 class="size-20">회원 정보 수정</h2>
+                            </div>
+                            <form class="nomargin sky-form" action="/mypage/modify" method="post">
+                                <fieldset>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label for="register:last_name">Name *</label>
+                                                <label class="input margin-bottom-10">
+                                                    <i class="ico-append fa fa-user"></i>
+                                                    <input required="" type="text" name="userName" value="<%= user.userName%>" readonly>
+                                                    <b class="tooltip tooltip-bottom-right">Your Name</b>
+                                                </label>
+                                            </div>
 
-                    <h2><a href="/schedule/list_detail/<%=scheduleList[i].id%>"><%=scheduleList[i].title%></a></h2>
+                                        </div>
+                                    </div>
 
-                    <ul class="blog-post-info list-inline">
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-clock-o"></i>
-                                <span class="font-lato"><%= scheduleList[i].writeDate%></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-comment-o"></i>
-                                <span class="font-lato"><%= scheduleList[i].recommend%></span>
-                            </a>
-                        </li>
-                    </ul>
+                                    <div class="row">
+                                        <div class="form-group">
 
-                    <p><%= scheduleList[i].description%></p>
+                                            <div class="col-md-12">
+                                                <label for="register:id">ID *</label>
+                                                <label class="input margin-bottom-10">
+                                                    <i class="ico-append fa fa-envelope"></i>
+                                                    <input required="" type="text" name="ID" value="<%= user._id%>" readonly>
+                                                    <b class="tooltip tooltip-bottom-right">Your ID</b>
+                                                </label>
+                                            </div>
 
-                    <a href="/schedule/list_detail/<%=scheduleList[i].id%>" class="btn btn-reveal btn-default" data-toggle="modal">
-                        <i class="fa fa-plus"></i>
-                        <span>Read More</span>
-                    </a>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+
+                                            <div class="col-md-12">
+                                                <label for="register:pass1">Password *</label>
+                                                <label class="input margin-bottom-10">
+                                                    <i class="ico-append fa fa-lock"></i>
+                                                    <input required="" type="password" class="err" name="password">
+                                                    <b class="tooltip tooltip-bottom-right">Min. 6 characters</b>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label for="register:pass2">Password Again *</label>
+                                                <label class="input margin-bottom-10">
+                                                    <i class="ico-append fa fa-lock"></i>
+                                                    <input required="" type="password" class="err" name="passwordConfirm">
+                                                    <b class="tooltip tooltip-bottom-right">Type the password again</b>
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+
+                                <hr />
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-primary" name="but" value="REGISTER"><i class="fa fa-check"></i> REGISTER</button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
                 </div>
-                <!-- /POST ITEM -->
 
-
-
-
-                <% } %>
             </div>
-
         </div>
         <%- include chat.ejs %>
     </section>
@@ -209,7 +246,6 @@
 <script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 <script type="text/javascript" src="/assets/js/scripts.js"></script>
 <script type="text/javascript" src="/javascripts/chat.js"></script>
-
 
 </body>
 </html>

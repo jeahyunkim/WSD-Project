@@ -63,6 +63,7 @@ router.post('/comment/insert',function(req,res,next){
         } else {
             Detail.findOne({_id: Mongo.ObjectID(req.body.detail_id)}, function (err, docs) {
                 docs.commentID.push(comment._id);
+                docs.commentCnt += 1;
                 docs.save();
                 res.redirect('/schedule/detail/'+ req.body.detail_id);
             });

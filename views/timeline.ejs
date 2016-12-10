@@ -50,9 +50,12 @@
 					<div class="col-md-12 col-sm-12" style="margin-top:-50px;margin-bottom:70px;">
 						<div class="row box-gradient box-gray">
 							<div class="col-md-4 col-sm-4" style="">
-								<i class="fa fa fa-pencil-square-o fa-4x"></i>
-								<h2 class="countTo font-raleway" data-speed="2000"><%=details.length%></h2>
+								<a href="/timeline" style="color:white">
+									<i class="fa fa fa-pencil-square-o fa-4x"></i>
+									<h2 class="countTo font-raleway" data-speed="2000"><%=details.length%></h2>
+								</a>
 							</div>
+
 							<%
 								var total_recommends = 0;
 								for(var k=0; k < details.length; k++) {
@@ -60,12 +63,16 @@
 								}
 							%>
 							<div class="col-md-4 col-sm-4" style="">
-								<i class="fa fa-heart fa-4x"></i>
-								<h2 class="countTo font-raleway" data-speed="2000" id="total_heart"><%=total_recommends%></h2>
+								<a href="/timeline/recommend" style="color:white">
+									<i class="fa fa-heart fa-4x"></i>
+									<h2 class="countTo font-raleway" data-speed="2000" id="total_heart"><%=total_recommends%></h2>
+								</a>
 							</div>
 							<div class="col-md-4 col-sm-4" style="">
-								<i class="fa fa-comment fa-4x"></i>
-								<h2 class="countTo font-raleway" data-speed="2000" id="total_comment"><%=comments.length%></h2>
+								<a href="/timeline/comments" style="color:white">
+									<i class="fa fa-comment fa-4x"></i>
+									<h2 class="countTo font-raleway" data-speed="2000" id="total_comment"><%=comments.length%></h2>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -98,10 +105,10 @@
 									<!-- IMAGE -->
 									<a href="/schedule/detail/<%=details[i].id%>">
 									<figure class="margin-bottom-10">
-										<%if(details[i].pictureName != null){%>
-										<img class="img-responsive" src="/uploads/detail/<%=details[i].pictureName[0]%>" alt="Not Found Image">
+										<%if(details[i].pictureName != ''){%>
+										<img class="img-responsive" src="/uploads/detail/<%=details[i].pictureName[0]%>" alt=" <%=details[i].pictureName[0]%> Not Found Image">
 										<% } else { %>
-										<img class="img-responsive" src="/assets/images/demo/content_slider/3-min.jpg" alt="Sample Image">
+										<img class="img-responsive" src="/images/noimage.jpg" alt="No Image">
 										<% } %>
 									</figure>
 									</a>
@@ -122,7 +129,7 @@
 										<li>
 											<a href="#">
 												<i class="fa fa-user"></i>
-												<span class="font-lato">John Doe</span>
+												<span class="font-lato"><%=details[i].author%></span>
 											</a>
 										</li>
 									</ul>

@@ -9,7 +9,9 @@ var detailSchema = new Schema({
     recommend: { type: Number, default: 0 },
     recommendID: [String],
     commentID: [String],
-    pictureName: [String]
+    commentCnt :  { type: Number, default: 0 },
+    pictureName: [String],
+    author: String
 });
 
 module.exports = mongoose.model('detail',detailSchema);
