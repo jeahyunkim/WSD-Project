@@ -174,7 +174,8 @@
             <!-- TIMELINE -->
             <div class="timeline"><!-- .timeline-inverse = right position [left on RTL] -->
                 <div class="timeline-hline"><!-- horizontal line --></div>
-                <%for(var i =0; i < 3; i++){%>
+                <%var t = details.length>3? 3 : details.length;%>
+                <%for(var i =0; i < t; i++){%>
                 <div class="col-md-4">
                 <!-- POST ITEM -->
                 <div class="blog-post-item" style="margin-bottom:20px; padding-bottom:20px;">

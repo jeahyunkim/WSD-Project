@@ -19,13 +19,13 @@ var timeline = require('./routes/timeline');
 var search = require('./routes/search_plan');
 var chat = require('./routes/chat');
 var mongoose = require('mongoose');
-var connection = mongoose.connect('mongodb://52.78.124.66:27017/triptter');
+var connection = mongoose.connect('mongodb://52.78.124.66:27017/triptter2');
 
 var make_detail = require('./routes/make_detail');
 // var app = express();
 
 var store = new MongoDBStore({
-    uri: "mongodb://52.78.124.66:27017/triptter",
+    uri: "mongodb://52.78.124.66:27017/triptter2",
     collection: 'Sessions'
 });
 store.on('error', function (error) {
@@ -74,8 +74,8 @@ app.use('/schedule/detail', detail_schedule);
 app.use('/mypage', mypage);
 app.use('/timeline', timeline);
 app.use('/chat',chat);
-app.use(fileUpload());
 app.use('/detail', make_detail);
+app.use(fileUpload());
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
