@@ -90,7 +90,11 @@ router.post('/add', function(req, res, next) {
         addSchedule.endDate = req.body.endDate;
         addSchedule.description = req.body.description;
         addSchedule.recommend = 0;
-        addSchedule.imageUrl = req.file.filename;
+        if(!req.file){
+            addSchedule.imageUrl='';
+        }else {
+            addSchedule.imageUrl = req.file.filename;
+        }
         addSchedule.author =  req.session.userInfo.user_id;
         addSchedule.writeDate = currentDate.getFullYear() +'-'+(currentDate.getMonth()+1)+'-'+currentDate.getDate() ;
         addSchedule.public = req.body.publicType;

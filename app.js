@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var MongoDBStore = require('connect-mongodb-session')(session);
 var fileUpload = require('express-fileupload');
+
+var app = require('express-ws-routes')();
 var index = require('./routes/index');
 var users = require('./routes/users');
 var make_plan = require('./routes/make_plan');
@@ -15,12 +17,12 @@ var detail_schedule = require('./routes/detail_schedule');
 var mypage = require('./routes/mypage');
 var timeline = require('./routes/timeline');
 var search = require('./routes/search_plan');
+var chat = require('./routes/chat');
 var mongoose = require('mongoose');
 var connection = mongoose.connect('mongodb://52.78.124.66:27017/triptter');
 
 var make_detail = require('./routes/make_detail');
-
-var app = express();
+// var app = express();
 
 var store = new MongoDBStore({
     uri: "mongodb://52.78.124.66:27017/triptter",
@@ -71,6 +73,7 @@ app.use('/schedule', schedule);
 app.use('/schedule/detail', detail_schedule);
 app.use('/mypage', mypage);
 app.use('/timeline', timeline);
+app.use('/chat',chat);
 app.use(fileUpload());
 app.use('/detail', make_detail);
 // catch 404 and forward to error handler
