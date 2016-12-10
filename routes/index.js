@@ -60,7 +60,7 @@ router.post('/login',function(req, res, next){
       var user = new User({
           userName: req.body.userName,
           "_id": req.body.ID,
-          password: req.body.password,
+          password: req.body.password
       });
       user.save(function(err,silence){
         if(err){
