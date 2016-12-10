@@ -171,24 +171,25 @@
       <div class="row">
 
 
-            <!-- TIMELINE -->
-            <div class="timeline"><!-- .timeline-inverse = right position [left on RTL] -->
-                <div class="timeline-hline"><!-- horizontal line --></div>
-                <%var t = details.length>3? 3 : details.length;%>
-                <%for(var i =0; i < t; i++){%>
-                <div class="col-md-4">
-                <!-- POST ITEM -->
-                <div class="blog-post-item" style="margin-bottom:20px; padding-bottom:20px;">
-                    <!-- timeline entry -->
-                    <!-- /timeline entry -->
+                <!-- TIMELINE -->
+                <div class="timeline"><!-- .timeline-inverse = right position [left on RTL] -->
+                    <div class="timeline-hline"><!-- horizontal line --></div>
+                    <% var t = details.length < 3 ? details.length : 3 ;%>
+                    <% for(var i = 0; i < t ; i++){ %>
+                    <div class="col-md-4">
+                        <!-- POST ITEM -->
+                        <div class="blog-post-item" style="margin-bottom:20px; padding-bottom:20px;">
+                            <!-- timeline entry -->
+                            <!-- /timeline entry -->
+
 
                     <!-- IMAGE -->
                     <a href="/schedule/detail/<%=details[i].id%>">
                         <figure class="margin-bottom-10">
                             <%if(details[i].pictureName[0] != ''){%>
-                            <img class="img-responsive" src="/uploads/detail/<%=details[i].pictureName[0]%>" alt="<%=details[i].pictureName[0]%>" style="height:250px; weight:500px;">
+                            <img class="img-responsive" src="/uploads/detail/<%=details[i].pictureName[0]%>" alt="<%=details[i].pictureName[0]%>">
                             <% } else { %>
-                            <img class="img-responsive" src="/images/noimage.jpg" alt=""  style="height:250px; weight:500px;">
+                            <img class="img-responsive" src="/images/noimage.jpg" alt="">
                             <% } %>
                         </figure>
                     </a>
@@ -232,9 +233,9 @@
 
 
       </div>
-      <% if(login){%>
+
       <%- include chat.ejs %>
-      <% }%>
+
   </section>
   <!-- / -->
 
