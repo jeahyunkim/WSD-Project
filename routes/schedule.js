@@ -123,6 +123,7 @@ router.get('/list_detail/:schedule_id', function(req, res){
             var detail_title = [];
             var detail_content = [];
             var detail_recommend = [];
+            var detail_recommendID = [];
             var detail_pic = [];
             var date = new Date(schedule.startDate).getTime();
             var date_gap = (schedule.endDate - schedule.startDate) / (60 * 60 * 24 * 1000) + 1;
@@ -137,6 +138,7 @@ router.get('/list_detail/:schedule_id', function(req, res){
                                 detail_content[i] = details[j].contents;
                                 detail_pic[i] = details[j].pictureName;
                                 detail_recommend[i] = details[j].recommend;
+                                detail_recommendID[i] = details[j].recommendID;
                                 break;
                             }
                         }
@@ -152,7 +154,8 @@ router.get('/list_detail/:schedule_id', function(req, res){
                         detail_content: detail_content,
                         detail_pic: detail_pic,
                         detail_id: detail_id,
-                        detail_recommend: detail_recommend
+                        detail_recommend: detail_recommend,
+                        detail_recommendID: detail_recommendID
                     });
                 });
 

@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<style>
+	.heart_icon {
+		color: black;
+	}
+	.heart_icon:hover {
+		color: red;
+	}
+	.after_heart {
+		color:red !important;
+	}
+</style>
 <%- include Header.ejs %>
 	<body class="smoothscroll enable-animation">
 
@@ -112,11 +123,21 @@
 										<br><br>
 									<% } %>
 									<ul class="blog-post-info list-inline">
-										<%if(detail_recommend[i-1] != null){%>
+										<%if(detail_recommend[i-1] != null){
+											var check_heart = "";
+											if(detail_recommendID[i-1] != null){
+												for(var t=0; t < detail_recommendID[i-1].length; t++ ) {
+													if(login & detail_recommendID[i-1][t] == user_id){;
+														check_heart = "after_heart"
+														break;
+													}
+												}
+											}
+										%>
 										<li>
-											<a href="#">
-												<i class="fa fa-heart-o"></i>
-												<span class="font-lato"><%=detail_recommend[i-1]%></span>
+											<a class="heart_icon" data-value="<%=detail_id[i-1]%>"  >
+												<i class="fa fa-heart-o <%=check_heart%>" id="i_<%=detail_id[i-1]%>"></i>
+												<span class="font-lato  <%=check_heart%>" id="s_<%=detail_id[i-1]%>"><%=detail_recommend[i-1]%></span>
 											</a>
 										</li>
 										<%}%>
@@ -266,6 +287,29 @@
 		<script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 
 		<script type="text/javascript" src="/assets/js/scripts.js"></script>
-
+		<script>
+			$(document).ready(function (){
+				$(".heart_icon").click(function(event){
+					//event.preventDefault();
+					var content_id = $(this).data("value");
+					//alert(content_id);
+					if(!$("#i_" +  content_id).hasClass("after_heart")) {
+						$.ajax({
+							type:"POST",
+							url:"/timeline/heart",
+							data: { id: content_id},
+							success:function(data){
+								$("#i_" + content_id).addClass("after_heart");
+								$("#s_" + content_id).text($("#s_" + content_id).text() * 1 + 1);
+								$("#s_" + content_id).css("color", "red");
+							},
+							error:function(e){
+								alert(e.responseText);
+							}
+						});
+					}
+				});
+			});
+		</script>
 	</body>
 </html>
