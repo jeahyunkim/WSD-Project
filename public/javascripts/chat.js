@@ -67,9 +67,15 @@ $(document).ready(function () {
                     '<div id="content-switcher" class="content-switcher">' +
                     '<button id="backBtn" class="btn btn-3d btn-teal btn-block margin-top-30">뒤로가기</button>'+
                     '<div id="messageList">';
-
+                    console.log()
                 for(var i = 0; i < data.messages.length; i++){
-                    chatRoom += '<div><div>'+data.messages[i].userId+'</div><div class="chatReciveMessage">' + data.messages[i].message +'</div></div><br/><br/><br/>'
+
+
+                    if(data.messages[i].userId != '<%= user_id %>') {
+                        chatRoom += '<div><div>' + data.messages[i].userId + '</div><div class="chatReciveMessage">' + data.messages[i].message + '</div></div><br/><br/><br/>'
+                    }else{
+                        chatRoom += '<div><div>' + data.messages[i].userId + '</div><div class="messageSend">' + data.messages[i].message + '</div></div><br/><br/><br/>'
+                    }
                 }
 
                 chatRoom += '</div>' +

@@ -10,6 +10,18 @@
     background: #f0f0f0;
 }
 
+.messageSend{
+    max-width: 80%;
+    padding: 5px;
+    word-wrap: break-word;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    position: relative;
+    float: right;
+    background: #f0f0f0;
+}
+
 .messageList{
     display: inline-block;
     width: 90%;

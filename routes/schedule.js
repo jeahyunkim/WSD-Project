@@ -70,9 +70,8 @@ var user = require('../models/user');
 /* GET home page. */
 
 router.get('/register', function(req, res, next) {
-    res.render('schedule_register', { title: 'Express' });
+    res.render('schedule_register', { title: 'Express', isLogin:req.session.userInfo });
 });
-
 router.post('/add', function(req, res, next) {
     upload(req,res, function (err) {
        if(err){
