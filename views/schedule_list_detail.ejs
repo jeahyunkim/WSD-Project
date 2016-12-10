@@ -1,58 +1,7 @@
 <!DOCTYPE html>
-<style>
-	.heart_icon {
-		color: black;
-	}
-	.heart_icon:hover {
-		color: red;
-	}
-	.after_heart {
-		color:red !important;
-	}
-</style>
 <%- include Header.ejs %>
 	<body class="smoothscroll enable-animation">
 
-		<!-- SLIDE TOP -->
-		<div id="slidetop">
-
-			<div class="container">
-
-				<div class="row">
-
-					<div class="col-md-4">
-						<h6><i class="icon-heart"></i> WHY SMARTY?</h6>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
-					</div>
-
-					<div class="col-md-4">
-						<h6><i class="icon-attachment"></i> RECENTLY VISITED</h6>
-						<ul class="list-unstyled">
-							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very very very very very very very very </a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
-						</ul>
-					</div>
-
-					<div class="col-md-4">
-						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
-						<ul class="list-unstyled">
-							<li><b>Address:</b> PO Box 21132, Here Weare St, <br /> Melbourne, Vivas 2355 Australia</li>
-							<li><b>Phone:</b> 1-800-565-2390</li>
-							<li><b>Email:</b> <a href="mailto:support@yourname.com">support@yourname.com</a></li>
-						</ul>
-					</div>
-
-				</div>
-
-			</div>
-
-			<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
-
-		</div>
-		<!-- /SLIDE TOP -->
 
 
 		<!-- wrapper -->
@@ -124,11 +73,11 @@
 									<% } %>
 									<ul class="blog-post-info list-inline">
 										<%if(detail_recommend[i-1] != null){
-											var check_heart = "";
+											var check_heart = "-o";
 											if(detail_recommendID[i-1] != null){
 												for(var t=0; t < detail_recommendID[i-1].length; t++ ) {
 													if(login & detail_recommendID[i-1][t] == user_id){;
-														check_heart = "after_heart"
+														check_heart = " after_heart"
 														break;
 													}
 												}
@@ -136,7 +85,7 @@
 										%>
 										<li>
 											<a class="heart_icon" data-value="<%=detail_id[i-1]%>"  >
-												<i class="fa fa-heart-o <%=check_heart%>" id="i_<%=detail_id[i-1]%>"></i>
+												<i class="fa fa-heart<%=check_heart%>" id="i_<%=detail_id[i-1]%>"></i>
 												<span class="font-lato  <%=check_heart%>" id="s_<%=detail_id[i-1]%>"><%=detail_recommend[i-1]%></span>
 											</a>
 										</li>
@@ -285,31 +234,7 @@
 		<!-- JAVASCRIPT FILES -->
         <script type="text/javascript">var plugin_path = '/assets/plugins/';</script>
 		<script type="text/javascript" src="/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
-
 		<script type="text/javascript" src="/assets/js/scripts.js"></script>
-		<script>
-			$(document).ready(function (){
-				$(".heart_icon").click(function(event){
-					//event.preventDefault();
-					var content_id = $(this).data("value");
-					//alert(content_id);
-					if(!$("#i_" +  content_id).hasClass("after_heart")) {
-						$.ajax({
-							type:"POST",
-							url:"/timeline/heart",
-							data: { id: content_id},
-							success:function(data){
-								$("#i_" + content_id).addClass("after_heart");
-								$("#s_" + content_id).text($("#s_" + content_id).text() * 1 + 1);
-								$("#s_" + content_id).css("color", "red");
-							},
-							error:function(e){
-								alert(e.responseText);
-							}
-						});
-					}
-				});
-			});
-		</script>
+		<script type="text/javascript" src="/javascripts/heart.js"></script>
 	</body>
 </html>

@@ -107,6 +107,24 @@
 					</a>
 				</li>
 				<li>
+					<%
+						var check_heart = "-o";
+						if(detail.recommendID != null) {
+							for (var t = 0; t < detail.recommendID.length; t++) {
+								if (detail.recommendID[t] == user_id) {
+									check_heart = " after_heart"
+									break;
+								}
+							}
+						}
+					%>
+				<li>
+					<a class="heart_icon" data-value="<%=detail.id%>"  >
+						<i class="fa fa-heart<%=check_heart%>" id="i_<%=detail.id%>"></i>
+						<span class="font-lato  <%=check_heart%>" id="s_<%=detail.id%>"><%= detail.recommendID.length %></span>
+					</a>
+				</li>
+				<li>
 					<a href="#">
 						<i class="fa fa-comment-o"></i>
 						<span class="font-lato"><%= comment.length %></span>
@@ -261,6 +279,7 @@
 
 <script type="text/javascript" src="/assets/js/scripts.js"></script>
 <script type="text/javascript" src="/javascripts/chat.js"></script>
+<script type="text/javascript" src="/javascripts/heart.js"></script>
 
 
 </body>

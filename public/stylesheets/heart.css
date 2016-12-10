@@ -1,0 +1,10 @@
+
+.heart_icon {
+    color: black;
+}
+.heart_icon:hover {
+    color: red;
+}
+.after_heart {
+    color:red !important;
+}
