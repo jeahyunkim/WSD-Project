@@ -210,15 +210,10 @@
                         <li>
                             <a href="#">
                                 <i class="fa fa-user"></i>
-                                <span class="font-lato">John Doe</span>
+                                <span class="font-lato"><%=details[i].author%></span>
                             </a>
                         </li>
                     </ul>
-                    <% if(details[i].contents != null && details[i].contents.length < 50 ) {%>
-                    <%=details[i].contents%>
-                    <%} else if(details[i].contents != null){%>
-                    <%=(details[i].contents).substring(1,50)%>	...
-                    <% } %>
                 </div>
                 <!-- /POST ITEM -->
                 </div>
