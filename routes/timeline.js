@@ -47,6 +47,7 @@ router.get('/comments', function(req, res, next) {
 
 // heart ajax code
 router.post('/heart', function(req, res, next) {
+    console.log(req.body.id);
   schedule_detail.findById(req.body.id, function (err, result) {
     console.log(result);
     result.recommend +=1;

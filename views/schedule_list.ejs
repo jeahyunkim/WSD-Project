@@ -46,14 +46,16 @@
 
                 <!-- POST ITEM -->
                 <div class="blog-post-item">
+
+                    <a href="/schedule/list_detail/<%=scheduleList[i].id%>">
                     <figure class="margin-bottom-20">
                         <%if(scheduleList[i].imageUrl != '') {%>
-                        <img class="img-responsive" src="/uploads/<%=scheduleList[i].imageUrl%>" alt="<%=scheduleList[i].imageUrl%>">
+                        <img class="img-responsive" src="/uploads/<%=scheduleList[i].imageUrl%>" alt="<%=scheduleList[i].imageUrl%>" style="height:250px;weight:500px;">
                         <%} else {%>
-                        <img class="img-responsive" src="/images/noimage.jpg" alt="No Image">
+                        <img class="img-responsive" src="/images/noimage.jpg" alt="No Image"  style="height:250px;weight:500px;">
                         <% } %>
                     </figure>
-
+                    </a>
                     <h2><a href="/schedule/list_detail/<%=scheduleList[i].id%>"><%=scheduleList[i].title%></a></h2>
 
                     <ul class="blog-post-info list-inline">

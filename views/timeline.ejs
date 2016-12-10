@@ -1,16 +1,5 @@
 <!DOCTYPE html>
 <%- include Header.ejs %>
-<style>
-	.heart_icon {
-		color: black;
-	}
-	.heart_icon:hover {
-		color: red;
-	}
-	.after_heart {
-		color:red;
-	}
-</style>
 	<body class="smoothscroll enable-animation">
 
 		<!-- wrapper -->
@@ -106,9 +95,9 @@
 									<a href="/schedule/detail/<%=details[i].id%>">
 									<figure class="margin-bottom-10">
 										<%if(details[i].pictureName != ''){%>
-										<img class="img-responsive" src="/uploads/detail/<%=details[i].pictureName[0]%>" alt=" <%=details[i].pictureName[0]%> Not Found Image">
+										<img class="img-responsive" src="/uploads/detail/<%=details[i].pictureName[0]%>" alt=" <%=details[i].pictureName[0]%> Not Found Image"  style="height:400px;weight:900px;">
 										<% } else { %>
-										<img class="img-responsive" src="/images/noimage.jpg" alt="No Image">
+										<img class="img-responsive" src="/images/noimage.jpg" alt="No Image"  style="height:400px;weight:900px;">
 										<% } %>
 									</figure>
 									</a>
@@ -133,11 +122,7 @@
 											</a>
 										</li>
 									</ul>
-									<% if(details[i].contents != null && details[i].contents.length < 50 ) {%>
-										<%=details[i].contents%>
-									<%} else if(details[i].contents != null){%>
-										<%=(details[i].contents).substring(1,50)%>	...
-									<% } %>
+
 								</div>
 								<!-- /POST ITEM -->
 							<% }%>

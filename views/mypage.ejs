@@ -4,44 +4,6 @@
 <body class="smoothscroll enable-animation">
 
 <!-- SLIDE TOP -->
-<div id="slidetop">
-
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-md-4">
-                <h6><i class="icon-heart"></i> WHY SMARTY?</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
-            </div>
-
-            <div class="col-md-4">
-                <h6><i class="icon-attachment"></i> RECENTLY VISITED</h6>
-                <ul class="list-unstyled">
-                    <li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very very very very very very very very </a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
-                </ul>
-            </div>
-
-            <div class="col-md-4">
-                <h6><i class="icon-envelope"></i> CONTACT INFO</h6>
-                <ul class="list-unstyled">
-                    <li><b>Address:</b> PO Box 21132, Here Weare St, <br /> Melbourne, Vivas 2355 Australia</li>
-                    <li><b>Phone:</b> 1-800-565-2390</li>
-                    <li><b>Email:</b> <a href="mailto:support@yourname.com">support@yourname.com</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-    </div>
-
-    <a class="slidetop-toggle" href="#"><!-- toggle button --></a>
-
-</div>
 <!-- /SLIDE TOP -->
 
 
@@ -132,13 +94,15 @@
 
                 <!-- POST ITEM -->
                 <div class="blog-post-item">
+                    <a href="/schedule/list_detail/<%=scheduleList[i].id%>">
                     <figure class="margin-bottom-20">
                         <%if(scheduleList[i].imageUrl != ''){%>
-                        <img class="img-responsive" src="/uploads/<%=scheduleList[i].imageUrl%>" alt="">
+                        <img class="img-responsive" src="/uploads/<%=scheduleList[i].imageUrl%>" alt=""  style="height:250px;weight:500px;">
                         <%} else {%>
-                        <img class="img-responsive" src="/images/noimage.jpg" alt="">
+                        <img class="img-responsive" src="/images/noimage.jpg" alt=""  style="height:250px;weight:500px;">
                         <% } %>
                     </figure>
+                    </a>
 
                     <h2><a href="/schedule/list_detail/<%=scheduleList[i].id%>"><%=scheduleList[i].title%></a></h2>
 
