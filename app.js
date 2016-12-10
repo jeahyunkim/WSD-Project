@@ -74,8 +74,8 @@ app.use('/schedule/detail', detail_schedule);
 app.use('/mypage', mypage);
 app.use('/timeline', timeline);
 app.use('/chat',chat);
-app.use('/detail', make_detail);
 app.use(fileUpload());
+app.use('/detail', make_detail);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');

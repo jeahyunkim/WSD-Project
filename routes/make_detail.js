@@ -18,11 +18,14 @@ router.get('/register', function (req, res) {
 
 router.post('/add', function (req, res) {
 
+    console.log("ㅏ일" +req.files);
+
+
     var detail = new schedule_detail();
     //file 있는지 여부 검사
     var fileNumber = 0;
     for (x in req.files) {
-        fileNumber++;
+            fileNumber++;
         console.log("file Number : "+fileNumber);
     }
 
