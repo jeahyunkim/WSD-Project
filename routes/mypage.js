@@ -17,7 +17,6 @@ router.get('/', function(req, res, next){
 router.get('/bookmark', function(req, res, next){
     User.findOne({_id : req.session.userInfo.user_id},function(err,user){
         var bookmarkList = [];
-        var _result;
         var j =0;
         for(var i = 0; i<user.bookmarkID.length; i++){
             Schedule.findOne({_id : Mongo.ObjectID(user.bookmarkID[i])},function(err,result){
@@ -33,5 +32,22 @@ router.get('/bookmark', function(req, res, next){
     })
 
 });
+router.get('/modify',function(req, res, next) {
+    User.findOne({_id : req.session.userInfo.user_id},function(err,user){
+        res.render('usermodify', {title: 'Express', user: user, diff:true});
+    })
+})
+
+router.post('/modify',function(req, res, next) {
+    User.findOne({_id: req.session.userInfo.user_id}, function (err, user) {
+        if (req.body.password == req.body.passwordConfirm) {
+            user.password = req.body.password;
+            user.save();
+            res.render('usermodify', {title: 'Express', user: user, diff: true});
+        }else {
+            res.render('usermodify', {title: 'Express', user: user, diff: false});
+        }
+    })
+})
 
 module.exports = router;
