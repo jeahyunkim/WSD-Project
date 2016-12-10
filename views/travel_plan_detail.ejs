@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
-<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
-<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>
+<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html> <!--<![endif]-->
 <%- include Header.ejs %>
 <!--
     AVAILABLE BODY CLASSES:
@@ -29,7 +32,7 @@
 <!-- wrapper -->
 <div id="wrapper">
 
-	<!--
+    <!--
         AVAILABLE HEADER CLASSES
 
         Default nav height: 96px
@@ -55,14 +58,14 @@
 
         Example Usage:  class="clearfix sticky header-sm transparent noborder"
     -->
-	<div id="header" class="sticky clearfix">
+    <div id="header" class="sticky clearfix">
 
-		<%- include TopNav.ejs %>
+        <%- include TopNav.ejs %>
 
-	</div>
+    </div>
 
 
-	<!--
+    <!--
         PAGE HEADER
 
         CLASSES:
@@ -79,189 +82,195 @@
             .shadow-before-3 	= shadow 3 header top
             .shadow-after-3 	= shadow 3 header bottom
     -->
-	<section class="page-header dark page-header-xs">
-		<div class="container">
+    <section class="page-header dark page-header-xs">
+        <div class="container">
 
-			<h1>BLOG</h1>
+            <h1>BLOG</h1>
 
-			<!-- breadcrumbs -->
-			<ol class="breadcrumb">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Blog</a></li>
-				<li class="active">Single</li>
-			</ol><!-- /breadcrumbs -->
+            <!-- breadcrumbs -->
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Blog</a></li>
+                <li class="active">Single</li>
+            </ol><!-- /breadcrumbs -->
 
-		</div>
-	</section>
-	<!-- /PAGE HEADER -->
-	<!-- -->
-	<section>
-		<div class="container">
+        </div>
+    </section>
+    <!-- /PAGE HEADER -->
+    <!-- -->
+    <section>
+        <div class="container">
 
-			<h1 class="blog-post-title"><%= detail.title %></h1>
-			<ul class="blog-post-info list-inline">
-				<li>
-					<a href="#">
-						<i class="fa fa-clock-o"></i>
-						<span class="font-lato"><%= detail.detailDate %></span>
-					</a>
-				</li>
-				<li>
-					<%
-						if(login) {
-							var check_heart = "-o";
-							if (detail.recommendID != null) {
-								for (var t = 0; t < detail.recommendID.length; t++) {
-									if (detail.recommendID[t] == user_id) {
-										check_heart = " after_heart"
-										break;
-									}
-								}
-							}
-					%>
-				<li>
-					<a class="heart_icon" data-value="<%=detail.id%>"  >
-						<i class="fa fa-heart<%=check_heart%>" id="i_<%=detail.id%>"></i>
-						<span class="font-lato  <%=check_heart%>" id="s_<%=detail.id%>"><%= detail.recommendID.length %></span>
-					</a>
-				</li>
-				<%}%>
-				<li>
-					<a href="#">
-						<i class="fa fa-comment-o"></i>
-						<span class="font-lato"><%= comment.length %></span>
-					</a>
-				</li>
-				<!--<li>
-					<i class="fa fa-folder-open-o"></i>
+            <h1 class="blog-post-title"><%= detail.title %></h1>
+            <ul class="blog-post-info list-inline">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-clock-o"></i>
+                        <span class="font-lato"><%= detail.detailDate %></span>
+                    </a>
+                </li>
+                <li>
+                    <%
+                    if(login) {
+                        var check_heart = "-o";
+                        if (detail.recommendID != null) {
+                            for (var t = 0; t < detail.recommendID.length; t++) {
+                                if (detail.recommendID[t] == user_id) {
+                                    check_heart = " after_heart"
+                                    break;
+                                }
+                            }
+                        }
+                    %>
+                <li>
+                    <a class="heart_icon" data-value="<%= detail.id %>">
+                        <i class="fa fa-heart<%= check_heart %>" id="i_<%= detail.id %>"></i>
+                        <span class="font-lato  <%= check_heart %>"
+                              id="s_<%= detail.id %>"><%= detail.recommendID.length %></span>
+                    </a>
+                </li>
+                <% } %>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-comment-o"></i>
+                        <span class="font-lato"><%= comment.length %></span>
+                    </a>
+                </li>
+                <!--<li>
+                    <i class="fa fa-folder-open-o"></i>
 
-					<a class="category" href="#">
-						<span class="font-lato">Design</span>
-					</a>
-					<a class="category" href="#">
-						<span class="font-lato">Photography</span>
-					</a>
-				</li> -->
-				<li>
-					<a href="#">
-						<i class="fa fa-user"></i>
-						<span class="font-lato"><%= author %></span>
-					</a>
-				</li>
-			</ul>
+                    <a class="category" href="#">
+                        <span class="font-lato">Design</span>
+                    </a>
+                    <a class="category" href="#">
+                        <span class="font-lato">Photography</span>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="#">
+                        <i class="fa fa-user"></i>
+                        <span class="font-lato"><%= author %></span>
+                    </a>
+                </li>
+            </ul>
 
-			<!-- OWL SLIDER -->
-			<div style="text-align: center" class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"items": 1, "autoPlay": 4500, "autoHeight": false, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
-				<% for(var i = 0; i < detail.pictureName.length; i++){ %>
-				<a class ="lightbox" href="/uploads/detail/<%= detail.pictureName[i] %>" data-plugin-options='{"type":"image"}' >
-					<img class="img-responsive" src="/uploads/detail/<%= detail.pictureName[i]%>" alt="" />
-				</a>
-				<% } %>
-			</div>
-			<!-- /OWL SLIDER -->
+            <!-- OWL SLIDER -->
+            <div style="text-align: center" class="owl-carousel buttons-autohide controlls-over"
+                 data-plugin-options='{"items": 1, "autoPlay": 4500, "autoHeight": false, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
+                <% for(var i = 0; i < detail.pictureName.length; i++){ %>
+                <a class="lightbox" href="/uploads/detail/<%= detail.pictureName[i] %>"
+                   data-plugin-options='{"type":"image"}'>
+                    <img class="img-responsive" src="/uploads/detail/<%= detail.pictureName[i] %>" alt=""/>
+                </a>
+                <% } %>
+            </div>
+            <!-- /OWL SLIDER -->
 
-			<!-- IMAGE -->
-			<!--
+            <!-- IMAGE -->
+            <!--
             <figure class="margin-bottom-20">
                 <img class="img-responsive" src="assets/images/demo/content_slider/10-min.jpg" alt="img" />
             </figure>
             -->
-			<!-- /IMAGE -->
+            <!-- /IMAGE -->
 
-			<!-- VIDEO -->
-			<!--
+            <!-- VIDEO -->
+            <!--
             <div class="margin-bottom-20 embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="http://player.vimeo.com/video/8408210" width="800" height="450"></iframe>
             </div>
             -->
-			<!-- /VIDEO -->
+            <!-- /VIDEO -->
 
 
-			<!-- article content -->
-			<div><%- detail.contents %></div>
-			<!-- /article content -->
+            <!-- article content -->
+            <div><%- detail.contents %></div>
+            <!-- /article content -->
 
 
-			<div class="divider divider-dotted"><!-- divider --></div>
+            <div class="divider divider-dotted"><!-- divider --></div>
 
 
-			<div class="divider"><!-- divider --></div>
+            <div class="divider"><!-- divider --></div>
 
 
-			<ul class="pager">
-				<li class="previous"><a class="noborder" href="#">&larr; Previous Post</a></li>
-				<li class="next"><a class="noborder" href="#">Next Post &rarr;</a></li>
-			</ul>
+            <ul class="pager">
+                <li class="previous"><a class="noborder" href="#">&larr; Previous Post</a></li>
+                <li class="next"><a class="noborder" href="#">Next Post &rarr;</a></li>
+            </ul>
 
 
-			<div class="divider"><!-- divider --></div>
+            <div class="divider"><!-- divider --></div>
 
 
-			<!-- COMMENTS -->
-			<div id="comments" class="comments">
+            <!-- COMMENTS -->
+            <div id="comments" class="comments">
 
-				<h4 class="page-header margin-bottom-60 size-20">
-					<span><%= comment.length %></span> COMMENTS
-				</h4>
-				<% if( comment.length > 0){%>
-				<% for(var i = 0; i < comment.length; i++){ %>
-				<!-- comment item -->
-				<div class="comment-item">
-					<!-- user-avatar -->
-
-
-					<div class="media-body">
-						<h4 class="media-heading bold"><%= comment[i].user_id %></h4>
-						<small class="block"><%= comment[i].day%></small>
-						<%= comment[i].content%>
-					</div>
-				</div>
-				<% } %>
-				<% } %>
-				<% if(isLogin == true){%>
-				<h4 class="page-header size-20 margin-bottom-60 margin-top-100">
-					LEAVE A <span>COMMENT</span>
-				</h4>
-
-				<!-- Form -->
-
-				<form action="/schedule/detail/comment/insert" method="post">
-					<div class="row">
-						<div class="form-group">
-							<div class="col-md-12">
-								<label>COMMENT</label>
-								<textarea required="required" maxlength="5000" rows="5" class="form-control" name="comment" id="comment"></textarea>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-md-12">
-
-							<button class="btn btn-3d btn-lg btn-reveal btn-black">
-								<i class="fa fa-check"></i>
-								<span>SUBMIT MESSAGE</span>
-							</button>
-							<input type="hidden" name="detail_id" value="<%= detail._id %>" />
-
-						</div>
-					</div>
-
-				</form>
-				<%}%>
-				<!-- /Form -->
-
-			</div>
-			<!-- /COMMENTS -->
+                <h4 class="page-header margin-bottom-60 size-20">
+                    <span><%= comment.length %></span> COMMENTS
+                </h4>
+                <% if( comment.length > 0){ %>
+                <% for(var i = 0; i < comment.length; i++){ %>
+                <!-- comment item -->
+                <div class="comment-item">
+                    <!-- user-avatar -->
 
 
-		</div>
-	</section>
-	<!-- / -->
+                    <div class="media-body">
+                        <h4 class="media-heading bold"><%= comment[i].user_id %></h4>
+                        <small class="block"><%= comment[i].day %></small>
+                        <%= comment[i].content %>
+                    </div>
+                </div>
+                <% } %>
+                <% } %>
+                <% if(isLogin == true){ %>
+                <h4 class="page-header size-20 margin-bottom-60 margin-top-100">
+                    LEAVE A <span>COMMENT</span>
+                </h4>
+
+                <!-- Form -->
+
+                <form action="/schedule/detail/comment/insert" method="post">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label>COMMENT</label>
+                                <textarea required="required" maxlength="5000" rows="5" class="form-control"
+                                          name="comment" id="comment"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <button class="btn btn-3d btn-lg btn-reveal btn-black">
+                                <i class="fa fa-check"></i>
+                                <span>SUBMIT MESSAGE</span>
+                            </button>
+                            <input type="hidden" name="detail_id" value="<%= detail._id %>"/>
+
+                        </div>
+                    </div>
+
+                </form>
+                <% } %>
+                <!-- /Form -->
+
+            </div>
+            <!-- /COMMENTS -->
+
+
+        </div>
+    </section>
+    <!-- / -->
 
 </div>
 <!-- /wrapper -->
+<% if (login) { %>
 <%- include chat.ejs %>
+<% } %>
 
 <!-- SCROLL TO TOP -->
 <a href="#" id="toTop"></a>
@@ -269,9 +278,9 @@
 
 <!-- PRELOADER -->
 <div id="preloader">
-	<div class="inner">
-		<span class="loader"></span>
-	</div>
+    <div class="inner">
+        <span class="loader"></span>
+    </div>
 </div><!-- /PRELOADER -->
 
 

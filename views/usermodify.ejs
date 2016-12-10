@@ -125,13 +125,19 @@
         <div class="container">
             <div id="register">
                 <div class="row">
+                    <% if(!diff){%>
+                    <div class="alert alert-mini alert-danger margin-bottom-30 col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+                        <strong>Oh snap!</strong> Password Different!
+                    </div>
+                    <% } %>
+                    <% if(!succ){%>
+                    <div class="alert alert-mini alert-success margin-bottom-30 col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+                        <strong>Oh!</strong> Success!
+                    </div>
+                    <% } %>
+
                     <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
                         <!-- ALERT -->
-                        <% if(!diff){%>
-                        <div class="alert alert-mini alert-danger margin-bottom-30 col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
-                            <strong>Oh snap!</strong> Password Different!
-                        </div>
-                        <% } %>
                         <div class="box-static box-transparent box-bordered padding-30">
                             <div class="box-title margin-bottom-30">
                                 <h2 class="size-20">회원 정보 수정</h2>
@@ -197,7 +203,7 @@
                                 <hr />
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn btn-primary" name="but" value="REGISTER"><i class="fa fa-check"></i> REGISTER</button>
+                                        <button type="submit" class="btn btn-primary" name="but" value=""><i class="fa fa-check"></i> Update</button>
                                     </div>
                                 </div>
 

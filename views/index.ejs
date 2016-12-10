@@ -3,178 +3,133 @@
 <%- include Header.ejs %>
 <body class="smoothscroll enable-animation">
 
-<!-- SLIDE TOP -->
-<div id="slidetop">
-
-  <div class="container">
-
-    <div class="row">
-
-      <div class="col-md-4">
-        <h6><i class="icon-heart"></i> WHY SMARTY?</h6>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
-      </div>
-
-      <div class="col-md-4">
-        <h6><i class="icon-attachment"></i> RECENTLY VISITED</h6>
-        <ul class="list-unstyled">
-          <li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
-          <li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very very very very very very very very </a></li>
-          <li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>
-          <li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
-          <li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
-        </ul>
-      </div>
-
-      <div class="col-md-4">
-        <h6><i class="icon-envelope"></i> CONTACT INFO</h6>
-        <ul class="list-unstyled">
-          <li><b>Address:</b> PO Box 21132, Here Weare St, <br /> Melbourne, Vivas 2355 Australia</li>
-          <li><b>Phone:</b> 1-800-565-2390</li>
-          <li><b>Email:</b> <a href="mailto:support@yourname.com">support@yourname.com</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-  </div>
-
-  <a class="slidetop-toggle" href="#"><!-- toggle button --></a>
-
-</div>
-<!-- /SLIDE TOP -->
-
 
 <!-- wrapper -->
 <div id="wrapper">
 
-  <div id="header" class="sticky clearfix">
+    <div id="header" class="sticky clearfix">
 
-    <!-- TOP NAV -->
-    <%- include TopNav.ejs %>
-    <!-- /Top Nav -->
+        <!-- TOP NAV -->
+        <%- include TopNav.ejs %>
+        <!-- /Top Nav -->
 
-  </div>
+    </div>
 
-
-
-
-  <!--
-      SLIDER
-
-      Classes:
-          .fullheight = full height slider
-  -->
-  <section id="slider" class="fullheight parallax-slider">
 
     <!--
-        SWIPPER SLIDER PARAMS
+        SLIDER
 
-        data-effect="slide|fade|coverflow"
-        data-autoplay="2500|false" 						(remove to disable autoplay)
+        Classes:
+            .fullheight = full height slider
     -->
-    <div class="swiper-container" data-effect="fade" data-autoplay="false">
-      <div class="swiper-wrapper">
+    <section id="slider" class="fullheight parallax-slider">
 
-        <!-- SLIDE 1 -->
-        <div class="swiper-slide" style="background-image: url('/assets/images/demo/1200x800/13-min.jpg');">
-          <div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
+        <!--
+            SWIPPER SLIDER PARAMS
 
-          <div class="display-table">
-            <div class="display-table-cell vertical-align-middle">
-              <div class="container">
+            data-effect="slide|fade|coverflow"
+            data-autoplay="2500|false" 						(remove to disable autoplay)
+        -->
+        <div class="swiper-container" data-effect="fade" data-autoplay="false">
+            <div class="swiper-wrapper">
 
-                <div class="row">
-                  <div class="text-center col-md-8 col-xs-12 col-md-offset-2">
+                <!-- SLIDE 1 -->
+                <div class="swiper-slide" style="background-image: url('/assets/images/demo/1200x800/1-min.jpg');">
+                    <div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
 
-                    <h1 class="bold font-raleway wow fadeInUp" data-wow-delay="0.4s">WELCOME TO TRIPTTER</h1>
-                    <p class="lead font-lato weight-300 hidden-xs wow fadeInUp" data-wow-delay="0.6s">내 일정을 등록해보세요</p>
+                    <div class="display-table">
+                        <div class="display-table-cell vertical-align-middle">
+                            <div class="container">
 
-                  </div>
+                                <div class="row">
+                                    <div class="text-center col-md-8 col-xs-12 col-md-offset-2">
+
+                                        <h1 class="bold font-raleway wow fadeInUp" data-wow-delay="0.4s">WELCOME TO
+                                            TRIPTTER</h1>
+                                        <p class="lead font-lato weight-300 hidden-xs wow fadeInUp"
+                                           data-wow-delay="0.6s">내 일정을 등록해보세요</p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+                <!-- /SLIDE 1 -->
 
-              </div>
+
+                <!-- SLIDE 3 -->
+                <div class="swiper-slide" style="background-image: url('assets/images/demo/1200x800/15-min.jpg');">
+                    <div class="overlay dark-4"><!-- dark overlay [1 to 9 opacity] --></div>
+
+                    <div class="display-table">
+                        <div class="display-table-cell vertical-align-middle">
+                            <div class="container">
+
+                                <div class="row">
+                                    <div class="text-center col-md-8 col-xs-12 col-md-offset-2">
+
+                                        <h1 class="bold font-raleway wow fadeInUp" data-wow-delay="0.4s">WELCOME TO
+                                            TRIPTTER</h1>
+                                        <p class="lead font-lato weight-300 hidden-xs wow fadeInUp"
+                                           data-wow-delay="0.6s">남들과 여행을 공유할 수 있어요</p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /SLIDE 3 -->
+
             </div>
-          </div>
+
+            <!-- Swiper Pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- Swiper Arrows -->
+            <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+            <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+        </div>
+
+    </section>
+    <!-- /SLIDER -->
+
+
+    <!-- CALLOUT -->
+    <section class="callout-dark heading-title heading-arrow-bottom">
+        <div class="container">
+
+            <div class="text-center">
+                <h3 class="size-30">Triptter 인기글 베스트 3</h3>
+                <p class="font-lato size-20">
+                    추천이 높은 일정들을 둘러보세요
+                </p>
+            </div>
 
         </div>
-        <!-- /SLIDE 1 -->
+    </section>
+    <!-- /CALLOUT -->
 
 
-        <!-- SLIDE 3 -->
-        <div class="swiper-slide" style="background-image: url('assets/images/demo/1200x800/24-min.jpg');">
-          <div class="overlay dark-4"><!-- dark overlay [1 to 9 opacity] --></div>
+    <!-- -->
+    <section>
 
-          <div class="display-table">
-            <div class="display-table-cell vertical-align-middle">
-              <div class="container">
-
-                <div class="row">
-                  <div class="text-center col-md-8 col-xs-12 col-md-offset-2">
-
-                    <h1 class="bold font-raleway wow fadeInUp" data-wow-delay="0.4s">WELCOME TO TRIPTTER</h1>
-                    <p class="lead font-lato weight-300 hidden-xs wow fadeInUp" data-wow-delay="0.6s">남들과 여행을 공유할 수 있어요</p>
-
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!-- /SLIDE 3 -->
-
-      </div>
-
-      <!-- Swiper Pagination -->
-      <div class="swiper-pagination"></div>
-
-      <!-- Swiper Arrows -->
-      <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
-      <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
-    </div>
-
-  </section>
-  <!-- /SLIDER -->
+        <!-- /TIMELINE -->
 
 
-
-  <!-- CALLOUT -->
-  <section class="callout-dark heading-title heading-arrow-bottom">
-    <div class="container">
-
-      <div class="text-center">
-        <h3 class="size-30">Triptter 인기글 베스트 3</h3>
-        <p class="font-lato size-20">
-          추천이 높은 일정들을 둘러보세요
-        </p>
-      </div>
-
-    </div>
-  </section>
-  <!-- /CALLOUT -->
-
-
-
-  <!-- -->
-  <section>
-
-          <!-- /TIMELINE -->
-
-
-
-
-
-
-    <div class="container">
-      <div class="row">
+        <div class="container">
+            <div class="row">
 
 
                 <!-- TIMELINE -->
                 <div class="timeline"><!-- .timeline-inverse = right position [left on RTL] -->
                     <div class="timeline-hline"><!-- horizontal line --></div>
-                    <% var t = details.length < 3 ? details.length : 3 ;%>
+                    <% var t = details.length < 3 ? details.length : 3; %>
                     <% for(var i = 0; i < t ; i++){ %>
                     <div class="col-md-4">
                         <!-- POST ITEM -->
@@ -183,67 +138,64 @@
                             <!-- /timeline entry -->
 
 
-                    <!-- IMAGE -->
-                    <a href="/schedule/detail/<%=details[i].id%>">
-                        <figure class="margin-bottom-10">
-                            <%if(details[i].pictureName[0] != ''){%>
-                            <img class="img-responsive" src="/uploads/detail/<%=details[i].pictureName[0]%>" alt="<%=details[i].pictureName[0]%>" style="height:250px;weight:500px;">
-                            <% } else { %>
-                            <img class="img-responsive" src="/images/noimage.jpg" alt=""  style="height:250px;weight:500px;">
+                            <!-- IMAGE -->
+                            <a href="/schedule/detail/<%= details[i].id %>">
+                                <figure class="margin-bottom-10">
+                                    <% if(details[i].pictureName[0] != ''){ %>
+                                    <img class="img-responsive" src="/uploads/detail/<%= details[i].pictureName[0] %>"
+                                         alt="<%= details[i].pictureName[0] %>" style="height:250px;weight:500px;">
+                                    <% } else { %>
+                                    <img class="img-responsive" src="/images/noimage.jpg" alt=""
+                                         style="height:250px;weight:500px;">
+                                    <% } %>
+                                </figure>
+                            </a>
+                            <h2><a href="/schedule/detail/<%= details[i].id %>"><%= details[i].title %></a></h2>
+                            <ul class="blog-post-info list-inline">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-heart-o"></i>
+                                        <span class="font-lato"><%= details[i].recommendID.length %></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span class="font-lato"><%= details[i].detailDate.toDateString() %></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-user"></i>
+                                        <span class="font-lato"><%= details[i].author %></span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <% if(details[i].contents != null && details[i].contents.length < 50 ) { %>
+                            <% } else if(details[i].contents != null){ %>
                             <% } %>
-                        </figure>
-                    </a>
-                    <h2><a href="/schedule/detail/<%=details[i].id%>"><%=details[i].title%></a></h2>
-                    <ul class="blog-post-info list-inline">
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-heart-o"></i>
-                                <span class="font-lato"><%=details[i].recommendID.length%></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-clock-o"></i>
-                                <span class="font-lato"><%=details[i].detailDate.toDateString()%></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-user"></i>
-                                <span class="font-lato"><%=details[i].author%></span>
-                            </a>
-                        </li>
-                    </ul>
-                    <% if(details[i].contents != null && details[i].contents.length < 50 ) {%>
-                    <%} else if(details[i].contents != null){%>
+                        </div>
+                        <!-- /POST ITEM -->
+                    </div>
                     <% } %>
+
                 </div>
-                <!-- /POST ITEM -->
-                </div>
-                <% }%>
+
 
             </div>
 
 
-
-
         </div>
+        <% if (login) { %>
+        <%- include chat.ejs %>
+        <% } %>
+    </section>
+    <!-- / -->
 
 
-      </div>
-
-      <%- include chat.ejs %>
-
-  </section>
-  <!-- / -->
-
-
-
-
-
-  <!-- FOOTER -->
-  <%- include Footer.ejs %>
-  <!-- /FOOTER -->
+    <!-- FOOTER -->
+    <%- include Footer.ejs %>
+    <!-- /FOOTER -->
 
 </div>
 <!-- /wrapper -->
@@ -255,9 +207,9 @@
 
 <!-- PRELOADER -->
 <div id="preloader">
-  <div class="inner">
-    <span class="loader"></span>
-  </div>
+    <div class="inner">
+        <span class="loader"></span>
+    </div>
 </div><!-- /PRELOADER -->
 
 

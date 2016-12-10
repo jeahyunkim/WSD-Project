@@ -34,7 +34,7 @@ router.get('/bookmark', function(req, res, next){
 });
 router.get('/modify',function(req, res, next) {
     User.findOne({_id : req.session.userInfo.user_id},function(err,user){
-        res.render('usermodify', {title: 'Express', user: user, diff:true});
+        res.render('usermodify', {title: 'Express', user: user, diff:true, succ:true});
     })
 })
 
@@ -43,9 +43,9 @@ router.post('/modify',function(req, res, next) {
         if (req.body.password == req.body.passwordConfirm) {
             user.password = req.body.password;
             user.save();
-            res.render('usermodify', {title: 'Express', user: user, diff: true});
+            res.render('usermodify', {title: 'Express', user: user, diff: true, succ:false});
         }else {
-            res.render('usermodify', {title: 'Express', user: user, diff: false});
+            res.render('usermodify', {title: 'Express', user: user, diff: false, succ:true});
         }
     })
 })

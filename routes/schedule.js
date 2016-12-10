@@ -103,7 +103,7 @@ router.post('/add', function(req, res, next) {
         });
     });
 
-    res.redirect('/schedule/list');
+    res.redirect('/mypage');
 });
 
 router.get('/list', function(req, res, next){
