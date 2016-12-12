@@ -17,7 +17,7 @@ $(document).ready(function () {
         $('#messageList').scrollTop(99999999999);
     }
     function onOpen(event) {
-        console.log("연결")
+        console.log("connection")
     }
     function onError(event) {
         console.log(event)

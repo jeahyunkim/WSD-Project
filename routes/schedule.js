@@ -9,6 +9,7 @@ var multer = require('multer');
 var path = require('path');
 var router = express.Router();
 
+//파일 업로드 셋팅
 var storage = multer.diskStorage({
     destination: function (request, file, callback) {
         console.log(process.cwd());
@@ -16,9 +17,7 @@ var storage = multer.diskStorage({
         callback(null, path.join(process.cwd()+'/public/uploads/'));
     },
     filename: function (request, file, callback) {
-        console.log(file);
         var fileName = Date.now() + file.originalname;
-        console.log('aa : '+fileName);
         callback(null, fileName);
         request.body.fileName = fileName;
     }
@@ -43,23 +42,6 @@ var removeDuple = function removeDupl(arr){
     }
     return curArr;
 }
-/*
-var schema = new Schema({
-    'title' : String,
-    'startDate' : Date,
-    'endDate' : Date,
-    'location' : String,
-    'detailLocation' : String,
-    'description' : String,
-    'recommend' : Number,
-    'imageUrl' : String,
-    'author' : String,
-    'writeDate' : String,
-    'public' : Boolean
-});
-
-var schedule = mongoose.model('schedule',schema);
- */
 
 /* Get Models */
 var schedule_detail = require('../models/schedule_detail.js');
@@ -68,18 +50,16 @@ var user = require('../models/user');
 
 
 /* GET home page. */
-
 router.get('/register', function(req, res, next) {
-    res.render('schedule_register', { title: 'Express', isLogin:req.session.userInfo });
+    res.render('schedule_register', { title: 'register', isLogin:req.session.userInfo });
 });
+
 router.post('/add', function(req, res, next) {
     upload(req,res, function (err) {
        if(err){
-           console.log('ERROR');
            console.log(err);
            return;
        }
-       console.log(req);
         var currentDate = new Date();
         var addSchedule = new schedule();
         addSchedule.title = req.body.title;
@@ -98,8 +78,7 @@ router.post('/add', function(req, res, next) {
         addSchedule.writeDate = currentDate.getFullYear() +'-'+(currentDate.getMonth()+1)+'-'+currentDate.getDate() ;
         addSchedule.public = req.body.publicType;
         addSchedule.save(function (err,result) {
-            if(err) console.log("Something went wrong while saving the thing");
-            else console.log("Thing was successfully saved");
+            if(err) return;
         });
     });
 
@@ -108,7 +87,10 @@ router.post('/add', function(req, res, next) {
 
 router.get('/list', function(req, res, next){
     schedule.find({},function (err, result) {
-        assert.equal(err,null);
+        if(err){
+            console.log(err);
+            return;
+        }
         res.render('schedule_list', { title: 'Express' ,scheduleList: result});
     });
 });

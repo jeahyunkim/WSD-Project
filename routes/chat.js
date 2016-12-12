@@ -38,10 +38,9 @@ router.websocket('/',function (info, cb, next) {
             chatMessage.message = message;
             chatMessage.time = new Date();
             chatMessage.save(function (err) {
-                if(err) console.log("Something went wrong while saving the thing");
+                if(err) return;
                 else{
                     var clients = eval('CLIENT.'+info.req.query.location);
-                    console.log(clients.length);
                     for(var i = 0; i < clients.length; i++){
                         clients[i].send(message+'/'+senderId);
                     }
